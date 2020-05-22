@@ -15,9 +15,9 @@
         'views/lista_view.xml',
     ],
     # data files containing optionally loaded demonstration data
-    #  'demo': [
-    #     'demo/demo_data.xml',
-    # ],
+      'demo': [
+         'demo/demo_data.xml',
+     ],
     'installable': True,
     'application': True,
     'auto_install': False,
