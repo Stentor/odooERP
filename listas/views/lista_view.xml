@@ -5,5 +5,5 @@
             <field name="description">Course 0's description
 Can have multiple lines
             </field>
-        </record>
+    </record>
 </odoo>
