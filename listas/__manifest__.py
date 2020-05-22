@@ -18,7 +18,7 @@
       'demo': [
          'demo/demo_data.xml',
      ],
-    'installable': True,
-    'application': True,
-    'auto_install': False,
+    #'installable': True,
+    #'application': True,
+    #'auto_install': False,
 }
