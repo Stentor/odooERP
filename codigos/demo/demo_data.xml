@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record model="lista.codigo" id="list0">
+    <record model="lista.codigo" id="listcod0">
             <field name="name">Course 0</field>
             <field name="description">Course 0's description
 Can have multiple lines
             </field>
     </record>
-    <record model="lista.codigo" id="list0">
+    <record model="lista.codigo" id="listcod1">
             <field name="name">Course 0</field>
             <field name="description">Course 0's description
 Can have multiple lines
             </field>
     </record>
-    <record model="lista.codigo" id="list1">
+    <record model="lista.codigo" id="listcod2">
             <field name="name">Course 1</field>
             <field name="description">Course 1's description
 Can have multiple lines
             </field>
     </record>
-    <record model="lista.codigo" id="list2">
+    <record model="lista.codigo" id="listcod3">
             <field name="name">Course 2</field>
             <field name="description">Course 2's description
 Can have multiple lines
             </field>
     </record>
-    <record model="lista.canal" id="list3">
+    <record model="lista.codigo" id="listcod4">
             <field name="name">Course 3</field>
             <field name="description">Course 3's description
 Can have multiple lines
