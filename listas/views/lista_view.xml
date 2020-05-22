@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-
-
+    <record model="lista.canal" id="list0">
+            <field name="name">Course 0</field>
+            <field name="description">Course 0's description
+Can have multiple lines
+            </field>
+        </record>
 </odoo>

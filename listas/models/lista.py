@@ -3,7 +3,7 @@ from odoo import api, fields, models, _
 
 class lista(models.Model):
     _name = 'lista.canal'
-    name = fields.Char(string='descripcion')
+    name = fields.Char(string='Descripción')
     _description = "Canales"
     description = fields.Text()
     
