@@ -21,6 +21,8 @@ class HelpdeskTicketGOP(models.Model):
     is_disputed = fields.Boolean('Disputa?')
     invoice_month = fields.Selection([('Enero', 'Enero'), ('Febrero', 'Febrero'), ('Marzo', 'Marzo'),('Abril', 'Abril'),('Mayo', 'Mayo'),('Junio', 'Junio'),('Julio', 'Julio'),('Agosto', 'Agosto'),('Septiembre', 'Septiembre'),('Octubre', 'Octubre'),('Noviembre', 'Noviembre'),('Diciembre', 'Diciembre')], string='Mes de Facturación')
     payment_month = fields.Selection([('Enero', 'Enero'), ('Febrero', 'Febrero'), ('Marzo', 'Marzo'),('Abril', 'Abril'),('Mayo', 'Mayo'),('Junio', 'Junio'),('Julio', 'Julio'),('Agosto', 'Agosto'),('Septiembre', 'Septiembre'),('Octubre', 'Octubre'),('Noviembre', 'Noviembre'),('Diciembre', 'Diciembre')], string='Mes de Pago')
+    
+    gop_id = fields.Many2one('helpdesk.ticket', string='GOP ID')
 
 class HelpdeskTicketQuality(models.Model):
     _name = 'helpdesk.ticket.quality'
@@ -32,8 +34,10 @@ class HelpdeskTicketQuality(models.Model):
     claim_motive = fields.Text(string="Motivo de Reclamación")
     expend = fields.Float(string='Gasto Incurrido', digits=(16,2))
     cmments_delete = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Eliminación / Cambio de comentario')
+    
+    quality_id = fields.Many2one('helpdesk.ticket', string='Calidad ID')
 
 class ResPartner(models.Model):
-    _inherit = 'res.partner'
-    gop_id = fields.One2many('helpdesk.ticket.gop', string='GOP')
-    quality_id = fields.One2many('helpdesk.ticket.gop', string='Calidad')
+    _inherit = 'helpdesk.ticket'
+    gop_id = fields.One2many('helpdesk.ticket.gop', 'gop_id', string='GOP')
+    quality_id = fields.One2many('helpdesk.ticket.gop','quality_id', string='Calidad')
