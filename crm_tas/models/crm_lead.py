@@ -13,11 +13,12 @@ class crmLeadPlan(models.Model):
     _description = "Planes"
     name = fields.Char(string='Plan')
 
-# Create Model Medium
-class crmLeadMedium(models.Model):
-    _name = 'crm.lead.medium'
+# Create Model Media
+class crmLeadMedia(models.Model):
+    _name = 'crm.lead.media'
     _description = "Medios"
-    name = fields.Char(string='Medium')
+    name = fields.Char(string='Media')
+
 # Create model Payment
 class crmLeadPaymen(models.Model):
     _name = 'crm.lead.payment'
@@ -35,9 +36,9 @@ class crmLead(models.Model):
     _inherit = 'crm.lead'
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
     plan_id = fields.Many2one('crm.lead.plan', string='Plan')
-    medium_id = fields.Many2one('crm.lead.medium', string='Medium')
+    media_id = fields.Many2one('crm.lead.media', string='Media')
     payment_id = fields.Many2one('crm.lead.payment', string='Payment')
-    payment_id = fields.Many2many('crm.lead.payment.fraction', string='Payment Fraction')
+    payment_fraction_id = fields.Many2many('crm.lead.payment.fraction', string='Payment Fraction')
     
 
 
