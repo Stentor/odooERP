@@ -39,5 +39,5 @@ class HelpdeskTicketQuality(models.Model):
 
 class ResPartner(models.Model):
     _inherit = 'helpdesk.ticket'
-    gop_id = fields.One2many('helpdesk.ticket.gop', 'gop_id', string='GOP')
-    quality_id = fields.One2many('helpdesk.ticket.gop','quality_id', string='Calidad')
+    gop_ids = fields.One2many('helpdesk.ticket.gop', 'gop_id', string='GOP')
+    quality_ids = fields.One2many('helpdesk.ticket.gop','quality_id', string='Calidad')
