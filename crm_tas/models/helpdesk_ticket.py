@@ -8,7 +8,7 @@ class HelpdeskTicketGOP(models.Model):
     #nombre a visualizar
     _description = "GOPS"
     name = fields.Char(string='GOPS')
-    code = fields.Char(string='Codigo Diferenciador')
+    code = fields.Char(string='Codigo de GOP')
     
 class ResPartner(models.Model):
     _inherit = 'res.partner'
