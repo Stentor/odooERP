@@ -7,7 +7,8 @@
     'version': '0.1',
     'depends': [
         'base',
-        'crm'
+        'crm',
+        'helpdesk'
     ],
     'author': "TAS NETWORK LLC.",
     'website': "https://www.traveler-assistance.com",
