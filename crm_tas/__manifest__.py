@@ -1,21 +1,24 @@
 # coding: utf-8
 
 {
-    'name': "Codigos de Descuento",
-    'version': '1.0',
-    'depends': ['base','crm'],
+    'name': "CRM TAs",
+    'version': '0.1',
+    'depends': [
+        'base',
+        'crm'
+    ],
     'author': "TAS NETWORK LLC.",
-    'category': 'Administration',
+    'category': 'Generic Modules / CRM',
     'description': """
-    Modulo de Listas de codigos de descuento para asesores
+    Modulo de Listas para Canales
     """,
     # data files always loaded at installation
     'data': [
         'security/ir.model.access.csv',
-        'views/lista_codigo_view.xml',
+        'views/crm_lead_view.xml',
     ],
     # data files containing optionally loaded demonstration data
-      'demo': [
+    'demo': [
          'demo/demo_data.xml',
      ],
     'installable': True,

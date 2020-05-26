@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <record model="lista.codigo" id="listCod">
-            <field name="name"></field>
-            <field name="description">
-            </field>
-    </record>
-</odoo>

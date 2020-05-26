@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Add instructor field to existing view -->
+    <record model="ir.ui.view" id="crm_lead_inherit">
+            <field name="name">CRM TAs</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"></field>
+            <field name="arch" type="xml">
+                <field name="phone" position="after">
+                    <field name="channel_id" string="Canales"/>
+                </field>
+                <field name="phone" position="after">
+                    <field name="channel_id" string="Canales"/>
+                </field>
+                <field name="phone" position="after">
+                    <field name="channel_id" string="Canales"/>
+                </field>
+                <field name="phone" position="after">
+                    <field name="channel_id" string="Canales"/>
+                </field>
+            </field>
+    </record>
+</odoo>
