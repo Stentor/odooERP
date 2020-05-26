@@ -30,7 +30,7 @@ class HelpdeskTicketQuality(models.Model):
 
     claim_type = fields.Selection([('Sugerencia', 'Sugerencia'), ('Peticion', 'Petición'), ('Queja', 'Queja'), ('Reclamo', 'Reclamo'), ('Felicitacion', 'Felicitación')], string='Tipo De Reclamación')
     comments_date = fields.Date(string="Fecha de Recepción de comentario")
-    reception_type = fields.Selection([('Correo_electronico', 'Correo electrónico'), ('llamada_telefonica', 'llamada telefónica'), ('WhatsApp', 'WhatsApp'), ('Trustpilot', 'Trustpilot'), ('Facebook', 'Facebook'), ('TripAdvisor', 'TripAdvisor'), ('Instagram', 'Instagram'), ('Otro', 'Otro')], string='Tipo De Reclamación')
+    reception_type = fields.Selection([('Correo_electronico', 'Correo electrónico'), ('llamada_telefonica', 'llamada telefónica'), ('WhatsApp', 'WhatsApp'), ('Trustpilot', 'Trustpilot'), ('Facebook', 'Facebook'), ('TripAdvisor', 'TripAdvisor'), ('Instagram', 'Instagram'), ('Otro', 'Otro')], string='Tipo De Recepción')
     claim_motive = fields.Text(string="Motivo de Reclamación")
     expend = fields.Float(string='Gasto Incurrido', digits=(16,2))
     cmments_delete = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Eliminación / Cambio de comentario')
