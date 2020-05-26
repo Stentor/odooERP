@@ -26,6 +26,7 @@ class HelpdeskTicketGOP(models.Model):
 class HelpdeskTicketQuality(models.Model):
     _name = 'helpdesk.ticket.quality'
     _description = "Calidad"
+    _rec_name = "claim_type"
 
     claim_type = fields.Selection([('Sugerencia', 'Sugerencia'), ('Peticion', 'Petición'), ('Queja', 'Queja'), ('Reclamo', 'Reclamo'), ('Felicitacion', 'Felicitación')], string='Tipo De Reclamación')
     comments_date = fields.Date(string="Fecha de Recepción de comentario")

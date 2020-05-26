@@ -34,12 +34,15 @@ class crmLeadPaymenFraction(models.Model):
 # Create Relationship Model
 class crmLead(models.Model):
     _inherit = 'crm.lead'
-    
+
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
     plan_id = fields.Many2one('crm.lead.plan', string='Plan')
     media_id = fields.Many2one('crm.lead.media', string='Media')
     payment_id = fields.Many2one('crm.lead.payment', string='Payment')
-    payment_fraction_id = fields.Many2many('crm.lead.payment.fraction', string='Payment Fraction')
+    payment_fraction_id = fields.Many2one('crm.lead.payment.fraction', string='Payment Fraction')
+    code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
+
+
     
 
 
