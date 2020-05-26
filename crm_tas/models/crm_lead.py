@@ -8,7 +8,7 @@ class crmLeadChannel(models.Model):
     name = fields.Char(string='Channel')
 
 # Create Relationship Model
-class crmLead(models.Model):
+class crmLeadChannelRelationship(models.Model):
     _inherit = 'crm.lead'
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
 
@@ -18,7 +18,7 @@ class crmLeadPlan(models.Model):
     _description = "Planes"
     name = fields.Char(string='Plan')
     
-class crmLead(models.Model):
+class crmLeadPLanRelationship(models.Model):
     _inherit = 'crm.lead'
     plan_id = fields.Many2one('crm.lead.plan', string='Plan')
 
@@ -28,7 +28,7 @@ class crmLeadMedium(models.Model):
     _description = "Medios"
     name = fields.Char(string='Medium')
     
-class crmLead(models.Model):
+class crmLeadMediumRelationship(models.Model):
     _inherit = 'crm.lead'
     medium_id = fields.Many2one('crm.lead.medium', string='Medium')
 
@@ -39,7 +39,7 @@ class crmLeadPaymen(models.Model):
     name = fields.Char(string='Payment')
 
 # Create Relationship Model    
-class crmLead(models.Model):
+class crmLeadPaymentRelationship(models.Model):
     _inherit = 'crm.lead'
     payment_id = fields.Many2one('crm.lead.payment', string='Payment')
 
@@ -51,6 +51,6 @@ class crmLeadPaymenFraction(models.Model):
     name = fields.Char(string='Payment Fraction')
 
 # Create Relationship Model    
-class crmLead(models.Model):
+class crmLeadPaymentFractionRelationship(models.Model):
     _inherit = 'crm.lead'
     payment_id = fields.Many2many('crm.lead.payment.fraction', string='Payment Fraction')
