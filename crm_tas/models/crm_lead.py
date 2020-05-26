@@ -16,7 +16,7 @@ class crmLeadPlan(models.Model):
 # Create Model Media
 class crmLeadMedia(models.Model):
     _name = 'crm.lead.media'
-    _description = "Medios"
+    _description = "Medio"
     name = fields.Char(string='Media')
 
 # Create model Payment
@@ -34,6 +34,7 @@ class crmLeadPaymenFraction(models.Model):
 # Create Relationship Model
 class crmLead(models.Model):
     _inherit = 'crm.lead'
+    
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
     plan_id = fields.Many2one('crm.lead.plan', string='Plan')
     media_id = fields.Many2one('crm.lead.media', string='Media')

@@ -17,6 +17,7 @@
         'security/ir.model.access.csv',
         'views/crm_lead_view.xml',
     ],
+    'images': ['static/description/icon.png'],
     # data files containing optionally loaded demonstration data
     'demo': [
          'demo/demo_data.xml',
