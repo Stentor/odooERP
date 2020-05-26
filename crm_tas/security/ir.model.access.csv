@@ -5,3 +5,5 @@ crm_lead_media,crm.lead.media,model_crm_lead_media,base.group_user,1,1,1,1
 crm_lead_payment,crm.lead.payment,model_crm_lead_payment,base.group_user,1,1,1,1
 crm_lead_payment_fraction,crm.lead.payment.fraction,model_crm_lead_payment_fraction,base.group_user,1,1,1,1
 res_partner_code,res.partner.code,model_res_partner_code,base.group_user,1,1,1,1
+helpdesk_ticket_gop,helpdesk.ticket.gop,model_helpdesk_ticket_gop,base.group_user,1,1,1,1
+helpdesk_ticket_quality,helpdesk.ticket.quality,model_helpdesk_ticket_quality,base.group_user,1,1,1,1

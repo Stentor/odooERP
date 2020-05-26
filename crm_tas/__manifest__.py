@@ -1,16 +1,18 @@
 # coding: utf-8
 
 {
-    'name': "CRM TAs",
+    'name': "CRM TAS",
+    'summary': """
+        Implementación de campos relacionados con Contactos y CRM""",
     'version': '0.1',
     'depends': [
         'base',
         'crm'
     ],
     'author': "TAS NETWORK LLC.",
-    'category': 'Generic Modules / CRM',
+    'website': "https://www.traveler-assistance.com",
     'description': """
-    Modulo de Listas para Canales
+    Implementación de campos relacionados con Contactos y CRM
     """,
     # data files always loaded at installation
     'data': [
