@@ -10,7 +10,7 @@ class HelpdeskTicketGOP(models.Model):
     code = fields.Char(string='Codigo de GOP')
     amount = fields.Float(string='Monto', digits=(16,2))
     currency = fields.Selection([('ARS-Peso Argentino', 'ARS-Peso Argentino'), ('AUD-Dolar Australia', 'AUD-Dolar Australia')], string='Moneda GOP')
-    service_type = fields.Selection([('Centro Médico', 'Centro Médico'), ('Consulta con Especialista', 'Consulta con Especialista'), ('Laboratorio clínico', 'Laboratorio clínico'),('Médico Domiciliario', 'Médico Domiciliario'),('MayoMedios diagnostico	', 'Medios diagnostico'),('Odontología', 'Odontología'),('Repatriación Funeraria', 'Repatriación Funeraria'),('Repatriación Sanitaria', 'Repatriación Sanitaria'),('Tratamiento', 'Tratamiento'),('Telemedico', 'Telemedico'),('Interrupcion de viaje', 'Interrupcion de viaje'),('Ambulancia', 'Ambulancia'),('Consulta externa', 'Consulta externa'),('Videoconferencia', 'Videoconferencia')], string='Tipo de Servicio')
+    service_type = fields.Selection([('Centro_Medico', 'Centro Médico'), ('Consulta_con_Especialista', 'Consulta con Especialista'), ('Laboratorio_clinico', 'Laboratorio clínico'),('Medico_Domiciliario', 'Médico Domiciliario'),('MayoMedios_diagnostico	', 'Medios diagnostico'),('Odontologia', 'Odontología'),('Repatriacion_Funeraria', 'Repatriación Funeraria'),('Repatriacion_Sanitaria', 'Repatriación Sanitaria'),('Tratamiento', 'Tratamiento'),('Telemedico', 'Telemedico'),('Interrupcion_de_viaje', 'Interrupcion de viaje'),('Ambulancia', 'Ambulancia'),('Consulta_externa', 'Consulta externa'),('Videoconferencia', 'Videoconferencia')], string='Tipo de Servicio')
     reference = fields.Text(string="Referencia GOP")
     medical_center_name = fields.Text(string="Nombre de Centro Médico")
     observation = fields.Text(string="Observaciones")
@@ -27,9 +27,9 @@ class HelpdeskTicketQuality(models.Model):
     _name = 'helpdesk.ticket.quality'
     _description = "Calidad"
 
-    claim_type = fields.Selection([('Sugerencia', 'Sugerencia'), ('Petición', 'Petición'), ('Queja', 'Queja'), ('Reclamo', 'Reclamo'), ('Felicitación', 'Felicitación')], string='Tipo De Reclamación')
+    claim_type = fields.Selection([('Sugerencia', 'Sugerencia'), ('Peticion', 'Petición'), ('Queja', 'Queja'), ('Reclamo', 'Reclamo'), ('Felicitacion', 'Felicitación')], string='Tipo De Reclamación')
     comments_date = fields.Date(string="Fecha de Recepción de comentario")
-    reception_type = fields.Selection([('Correo electrónico	', 'Correo electrónico'), ('llamada telefónica', 'llamada telefónica'), ('WhatsApp', 'WhatsApp'), ('Trustpilot', 'Trustpilot'), ('Facebook', 'Facebook'), ('TripAdvisor', 'TripAdvisor'), ('Instagram', 'Instagram'), ('Otro', 'Otro')], string='Tipo De Reclamación')
+    reception_type = fields.Selection([('Correo_electronico', 'Correo electrónico'), ('llamada_telefonica', 'llamada telefónica'), ('WhatsApp', 'WhatsApp'), ('Trustpilot', 'Trustpilot'), ('Facebook', 'Facebook'), ('TripAdvisor', 'TripAdvisor'), ('Instagram', 'Instagram'), ('Otro', 'Otro')], string='Tipo De Reclamación')
     claim_motive = fields.Text(string="Motivo de Reclamación")
     expend = fields.Float(string='Gasto Incurrido', digits=(16,2))
     cmments_delete = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Eliminación / Cambio de comentario')
