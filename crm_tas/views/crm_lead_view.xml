@@ -9,17 +9,9 @@
                 <field name="arch" type="xml">
                     <field name="phone" position="after">
                         <field name="channel_id" string="Canales"/>
-                    </field>
-                    <field name="phone" position="after">
                         <field name="plan_id" string="Planes"/>
-                    </field>
-                    <field name="phone" position="after">
                         <field name="media_id" string="Medios"/>
-                    </field>
-                    <field name="phone" position="after">
                         <field name="payment_id" string="Formas de Pago"/>
-                    </field>
-                    <field name="phone" position="after">
                         <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                     </field>
                 </field>
