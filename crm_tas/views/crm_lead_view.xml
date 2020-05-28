@@ -14,9 +14,13 @@
                         <field name="payment_id" string="Formas de Pago"/>
                         <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                     </field>
+                    <field name="email_from" position="before">
+                        <field name="user" string="Usuario TAS"/>
+                    </field>
                 </field>
         </record>
-         <!-- Add instructor field to new view -->
+
+        <!-- Add instructor field to new view -->
         <record model="ir.ui.view" id="crm_res_partner_code">
                 <field name="name">CRM RES CODE</field>
                 <field name="model">res.partner.code</field>

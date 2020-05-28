@@ -6,6 +6,7 @@ class crmLeadChannel(models.Model):
     _name = 'crm.lead.channel'
     _description = "Canales"
     name = fields.Char(string='Channel')
+    
 
 # Create Model Plan
 class crmLeadPlan(models.Model):
@@ -41,7 +42,7 @@ class crmLead(models.Model):
     payment_id = fields.Many2one('crm.lead.payment', string='Payment')
     payment_fraction_id = fields.Many2one('crm.lead.payment.fraction', string='Payment Fraction')
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
-
+    user = fields.Char(string='Usuarioi', help="Este campo es para tas-system")
 
     
 

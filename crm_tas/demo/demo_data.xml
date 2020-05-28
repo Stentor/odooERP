@@ -15,4 +15,5 @@
     <record model="crm.lead.channel" id="list3">
             <field name="name">Course 3</field>
     </record>
+    
 </odoo>
