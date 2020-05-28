@@ -14,7 +14,7 @@
                         <field name="payment_id" string="Formas de Pago"/>
                         <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                     </field>
-                    <field name="email_from" position="before">
+                    <field name="email_from" position="after">
                         <field name="user" string="Usuario TAS"/>
                     </field>
                 </field>
