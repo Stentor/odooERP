@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Add instructor field to existing view -->
+        <record model="ir.ui.view" id="helpdesk_ticket_inherit">
+                <field name="name">Helpdesk TAs</field>
+                <field name="model">helpdesk.ticket</field>
+                <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"></field>
+                <field name="arch" type="xml">
+                    <xpath expr="//form/sheet" position="inside">
+                        <notebook>
+                            <page id="page_quality" string="Calidades">
+                                <field name="quality_ids" >
+                                    <tree editable="bottom">
+                                        <field name="claim_type"/>
+                                        <field name="comments_date"/>
+                                        <field name="reception_type"/>
+                                        <field name="claim_motive"/>
+                                        <field name="expend"/>
+                                        <field name="cmments_delete"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page id="page_gop" string="GOP">
+                                <field name="gop_ids" >
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="amount"/>
+                                        <field name="currency"/>
+                                        <field name="service_type"/>
+                                        <field name="reference"/>
+                                        <field name="medical_center_name"/>
+                                        <field name="observation"/>
+                                        <field name="asisst"/>
+                                        <field name="is_reviewed"/>
+                                        <field name="is_paid"/>
+                                        <field name="invoice_number"/>
+                                        <field name="is_disputed"/>
+                                        <field name="invoice_month"/>
+                                        <field name="payment_month"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </xpath>
+                </field>
+        </record>
+    </data>
+</odoo>

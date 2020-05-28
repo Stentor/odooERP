@@ -19,7 +19,7 @@
                         <field name="user" string="Usuario TAS"/>
                     </xpath>
                     <xpath expr="//field[@name='user_id']" position="after">
-                        <field name="code_ids" string="Codigo de Descuento"/>
+                        <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento"/>
                     </xpath>
                 </field>
         </record>
