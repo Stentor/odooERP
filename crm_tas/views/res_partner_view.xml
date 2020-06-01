@@ -7,7 +7,7 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_form"></field>
                 <field name="arch" type="xml">
-                    <xpath expr="//form/sheet" position="inside">
+                    <xpath expr="//form/sheet/group" position="inside">
                             <field name="abbreviation_code" string="Codigo De Descuento"/>
                             <field name="description_resparter" string="Descripcion"/>
                     </xpath>
