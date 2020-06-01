@@ -11,3 +11,5 @@ class ResPartnerCode(models.Model):
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     code_id = fields.Char(string='Code')
+    abbreviation_code = fields.Char(string='Código', help='Codigo de Vendedor para los codigos de descuento')
+    description_resparter = fields.Text(string='Código')

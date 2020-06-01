@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Add instructor field to existing view -->
+        <record model="ir.ui.view" id="res_partner_inherit">
+                <field name="name">Contactos TAS</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="res.partner.contact_view_form"></field>
+                <field name="arch" type="xml">
+                    <xpath expr="//form/sheet" position="inside">
+                            <field name="abbreviation_code" string="Codigo De Descuento"/>
+                            <field name="description_resparter" string="Descripcion"/>
+                    </xpath>
+                </field>
+        </record>
+    </data>
+</odoo>

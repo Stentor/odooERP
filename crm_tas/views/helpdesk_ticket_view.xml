@@ -11,7 +11,7 @@
                         <notebook>
                             <page id="page_quality" string="Calidades">
                                 <field name="quality_ids" >
-                                    <tree editable="bottom">
+                                    <tree>
                                         <field name="claim_type"/>
                                         <field name="comments_date"/>
                                         <field name="reception_type"/>
@@ -19,6 +19,20 @@
                                         <field name="expend"/>
                                         <field name="cmments_delete"/>
                                     </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="claim_type"/>
+                                                <field name="comments_date"/>
+                                                <field name="reception_type"/>
+                                            </group>
+                                            <group>
+                                                <field name="claim_motive"/>
+                                                <field name="expend"/>
+                                                <field name="cmments_delete"/>
+                                            </group>
+                                        </group>
+                                    </form>
                                 </field>
                             </page>
                             <page id="page_gop" string="GOP">
