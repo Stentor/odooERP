@@ -5,7 +5,7 @@
         <record model="ir.ui.view" id="res_partner_inherit">
                 <field name="name">Contactos TAS</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="res.partner.contact_view_form"></field>
+                <field name="inherit_id" ref="base.view_partner_form"></field>
                 <field name="arch" type="xml">
                     <xpath expr="//form/sheet" position="inside">
                             <field name="abbreviation_code" string="Codigo De Descuento"/>
