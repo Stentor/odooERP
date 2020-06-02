@@ -50,8 +50,14 @@ class crmLead(models.Model):
     user = fields.Char(string='Usuarioi', help="Este campo es para tas-system")
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
 
+    def create_helpdesk(self):
+        return {'type':'ir.actions.act_window',
+            'name':'Caso',
+            'res_model':'helpdesk.ticket',
+            'view_model':'form',
+            'context':'{"default_ticket_type_id":"Asistencia de Viaje","default_crm_lead_id":%s}' %(self.id)
+        }
 
-    
 
 
 

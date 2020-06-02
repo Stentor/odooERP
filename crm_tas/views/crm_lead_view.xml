@@ -15,6 +15,10 @@
                         <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                     </field>
 
+                    <field name="stage_id" position="before">
+                        <button name="create_helpdesk" string="Nueva Asistencia de Viaje" type="object" attrs="{'invisible':[('type','!=','opportunity')]}"/>
+                    </field>
+
                     <xpath expr="//label[@for='email_from']" position="before">
                         <field name="user" string="Usuario TAS"/>
                     </xpath>
