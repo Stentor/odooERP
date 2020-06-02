@@ -20,6 +20,7 @@
         'security/ir.model.access.csv',
         'views/crm_lead_view.xml',
         'views/helpdesk_ticket_view.xml',
+        'views/res_partner_view.xml',
     ],
     'images': ['static/description/icon.png'],
     # data files containing optionally loaded demonstration data
