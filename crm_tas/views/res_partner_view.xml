@@ -7,10 +7,15 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_form"></field>
                 <field name="arch" type="xml">
-                    <xpath expr="//form/sheet/group" position="inside">
-                            <field name="abbreviation_code" string="Codigo De Descuento"/>
-                            <field name="description_resparter" string="Descripcion"/>
-                    </xpath>
+                    <field name="email" position="after">
+                        <field name="seller_code" string="código vendedor"/>
+                        <field name="res_partner_description" string="Descripción"/>
+                        <field name="tenant" string="Compañia Emisora"/>
+                        <field name="dni_ruc" string="Nro de documento"/>
+                        <field name="age" string="Edad"/>
+                        <field name="age_date" string="Fecha de nacimiento"/>
+                        <field name="city_id" string="Ciudad de Origen"/>
+                    </field>
                 </field>
         </record>
     </data>

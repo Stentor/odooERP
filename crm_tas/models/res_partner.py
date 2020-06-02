@@ -10,6 +10,11 @@ class ResPartnerCode(models.Model):
     
 class ResPartner(models.Model):
     _inherit = 'res.partner'
-    code_id = fields.Char(string='Code')
+    seller_code = fields.Char(string='Code')
     abbreviation_code = fields.Char(string='Código', help='Codigo de Vendedor para los codigos de descuento')
-    description_resparter = fields.Text(string='Descripción')
+    res_partner_description = fields.Text(string='Descripción')
+    tenant = fields.Char(string='tenant')
+    dni_ruc = fields.Char(string='dni_ruc')
+    age = fields.Integer(string='age')
+    age_date = fields.Date(string='age_date')
+    city_id = fields.Char(string='city_id')
