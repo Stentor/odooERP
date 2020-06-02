@@ -55,7 +55,7 @@ class crmLead(models.Model):
             'name':'Caso',
             'res_model':'helpdesk.ticket',
             'view_mode':'form',
-            'context':'{"default_ticket_type_id":"Asistencia de Viaje","default_crm_lead_id":%s}' %(self.id)
+            'context':'{"default_crm_lead_id":%s}' %(self.id)
         }
 
 
