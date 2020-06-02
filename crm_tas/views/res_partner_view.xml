@@ -6,9 +6,9 @@
                 <field name="name">Contactos TAS</field>
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_form"></field>
-                <field name="priority" eval="40"/>
+                <field name="priority" eval="2"/>
                 <field name="arch" type="xml">
-                    <field name="vat" position="after">
+                    <field name="mobile" position="after">
                         <field name="seller_code" string="código vendedor"/>
                         <field name="res_partner_description" string="Descripción"/>
                         <field name="tenant" string="Compañia Emisora"/>
