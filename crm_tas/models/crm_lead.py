@@ -55,6 +55,7 @@ class crmLead(models.Model):
             'name':'Caso',
             'res_model':'helpdesk.ticket',
             'view_mode':'form',
+            'target':'new',
             'context':'{"default_crm_lead_id":%s}' %(self.id)
         }
 
