@@ -37,7 +37,7 @@ class crmLead(models.Model):
     _inherit = 'crm.lead'
 
     def _domain_crm(self):
-        code = self.user_id.partner_id.code_id
+        code = self.user_id.partner_id.seller_code
         code_ids = self.env['res.partner.code'].search([('name','ilike',code)])
         return [('id','in',code_ids._ids)]
 
