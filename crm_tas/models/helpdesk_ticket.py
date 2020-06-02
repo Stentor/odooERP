@@ -40,3 +40,5 @@ class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
     gop_ids = fields.One2many('helpdesk.ticket.gop', 'helpdesk_id', string='GOP')
     quality_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Calidad')
+
+    ticket_type = fields.Char(related="ticket_type_id.name")

@@ -7,6 +7,9 @@
                 <field name="model">helpdesk.ticket</field>
                 <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"></field>
                 <field name="arch" type="xml">
+                <field name="ticket_type_id" position="after">
+                     <field name="ticket_type" invisible="1"/>
+                </field>
                     <xpath expr="//form/sheet" position="inside">
                         <notebook>
                             <page id="page_quality" string="Calidades">
@@ -35,7 +38,8 @@
                                     </form>
                                 </field>
                             </page>
-                            <page id="page_gop" string="GOP">
+                            <!-- Reference ticket_type  -->
+                            <page id="page_gop" string="GOP"  attrs="{'invisible':[('ticket_type','!=','Asistencia Medica')]}">
                                 <field name="gop_ids" >
                                     <tree editable="bottom">
                                         <field name="name"/>
