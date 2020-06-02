@@ -1,10 +1,10 @@
 <odoo>
     <data>
         <record inherit_id="helpdesk.type_incident" model="helpdesk.ticket.type">
-            <field name="name">Asistencia de Viaje<field>
+            <field name="name">Asistencia de Viaje</field>
         </record>
         <record inherit_id="helpdesk.type_question" model="helpdesk.ticket.type">
-            <field name="name">Asistencia Medica<field>
+            <field name="name">Asistencia Medica</field>
         </record>
     </data>
 </odoo>
