@@ -48,6 +48,7 @@ class crmLead(models.Model):
     payment_fraction_id = fields.Many2one('crm.lead.payment.fraction', string='Payment Fraction')
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento", domain=_domain_crm)
     user = fields.Char(string='Usuarioi', help="Este campo es para tas-system")
+    helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
 
 
     

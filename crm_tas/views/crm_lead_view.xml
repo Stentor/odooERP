@@ -21,6 +21,11 @@
                     <xpath expr="//field[@name='user_id']" position="after">
                         <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento"/>
                     </xpath>
+                     <xpath expr="//notebook" position="inside">
+                        <page string="Casos" id="helpdesk">
+                            <field name="helpdesk_ids" options="{'no_create_edit': True}"/>
+                        </page>
+                    </xpath>
                 </field>
         </record>
 

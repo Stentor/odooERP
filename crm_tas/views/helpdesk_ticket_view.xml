@@ -9,6 +9,7 @@
                 <field name="arch" type="xml">
                 <field name="ticket_type_id" position="after">
                      <field name="ticket_type" invisible="1"/>
+                     <field name="crm_lead_id"/>
                 </field>
                     <xpath expr="//form/sheet" position="inside">
                         <notebook>
