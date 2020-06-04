@@ -8,9 +8,15 @@
                 <field name="inherit_id" ref="base.view_partner_form"></field>
                 <field name="priority" eval="2"/>
                 <field name="arch" type="xml">
-                    <xpath expr="//form/sheet/group/group" position="inside">
-                        <field name="client_name" string="Nombre" />
-                        <field name="client_surname" string="Apellido" />
+                    <xpath expr="//form/sheet/group" position="before">
+                        <group>
+                            <group>
+                                <field name="client_name" string="Nombre" />
+                            </group>
+                            <group>
+                                <field name="client_surname" string="Apellido" />
+                            </group>
+                        </group>
                     </xpath>
                     <field name="mobile" position="after">
                         <field name="seller_code" string="código vendedor"/>
