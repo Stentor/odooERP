@@ -36,10 +36,25 @@ class HelpdeskTicketQuality(models.Model):
     cmments_delete = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Eliminación / Cambio de comentario')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
 
+class HelpdeskTicketQuiz(models.Model):
+    _name = 'helpdesk.ticket.quiz'
+    _description = "Encuesta"
+    _rec_name = "contact_type"
+
+    q_contact_type = fields.Selection([('Telefonica', 'Telefonica'), ('Correo_electronico', 'Correo electrónico'), ('WhatsApp', 'WhatsApp'), ('Otro', 'Otro')], string='Medio de contacto')
+    q_service_type = fields.Selection([('Telemedico', 'Telemedico'), ('Coordinacion', 'Coordinacion'), ('Reembolso', 'Reembolso')], string='Tipo De Servicio')
+    q_classification = fields.Selection([('NA', 'N/A'), ('Sugerencia', 'Sugerencia'), ('Reclamo', 'Reclamo'), ('Queja', 'Queja'), ('Felicitacion', 'Felicitacion')], string='Clasificacion')
+    q_observation = fields.Text(string='Eliminación / Cambio de comentario')
+    helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+
 class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
+
     gop_ids = fields.One2many('helpdesk.ticket.gop', 'helpdesk_id', string='GOP')
     quality_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Calidad')
+    quiz_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Encuesta')
 
     ticket_type = fields.Char(related="ticket_type_id.name")
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain="[('type','=','opportunity')]")
+    #Información del Caso
+

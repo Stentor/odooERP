@@ -19,7 +19,7 @@
                         </group>
                     </xpath>
                     <field name="mobile" position="after">
-                        <field name="seller_code" string="código vendedor"/>
+                        <field name="seller_code" string="Código Vendedor"/>
                         <field name="res_partner_description" string="Descripción"/>
                         <field name="tenant" string="Compañia Emisora"/>
                     </field>
