@@ -51,7 +51,7 @@ class HelpdeskTicket(models.Model):
 
     gop_ids = fields.One2many('helpdesk.ticket.gop', 'helpdesk_id', string='GOP')
     quality_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Calidad')
-    quiz_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Encuesta')
+    quiz_ids = fields.One2many('helpdesk.ticket.quiz','helpdesk_id', string='Encuesta')
 
     ticket_type = fields.Char(related="ticket_type_id.name")
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain="[('type','=','opportunity')]")
