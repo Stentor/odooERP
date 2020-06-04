@@ -8,10 +8,16 @@
                 <field name="inherit_id" ref="base.view_partner_form"></field>
                 <field name="priority" eval="2"/>
                 <field name="arch" type="xml">
+                    <xpath expr="//form/sheet/group/group" position="inside">
+                        <field name="client_name" string="Nombre" />
+                        <field name="client_surname" string="Apellido" />
+                    </xpath>
                     <field name="mobile" position="after">
                         <field name="seller_code" string="código vendedor"/>
                         <field name="res_partner_description" string="Descripción"/>
                         <field name="tenant" string="Compañia Emisora"/>
+                    </field>
+                    <field name="vat" position="after">
                         <field name="dni_ruc" string="Nro de documento"/>
                         <field name="age" string="Edad"/>
                         <field name="age_date" string="Fecha de nacimiento"/>
