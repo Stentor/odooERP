@@ -39,7 +39,7 @@ class HelpdeskTicketQuality(models.Model):
 class HelpdeskTicketQuiz(models.Model):
     _name = 'helpdesk.ticket.quiz'
     _description = "Encuesta"
-    _rec_name = "contact_type"
+    name = fields.Char(string='GOEncuestas')
 
     q_contact_type = fields.Selection([('Telefonica', 'Telefonica'), ('Correo_electronico', 'Correo electrónico'), ('WhatsApp', 'WhatsApp'), ('Otro', 'Otro')], string='Medio de contacto')
     q_service_type = fields.Selection([('Telemedico', 'Telemedico'), ('Coordinacion', 'Coordinacion'), ('Reembolso', 'Reembolso')], string='Tipo De Servicio')
