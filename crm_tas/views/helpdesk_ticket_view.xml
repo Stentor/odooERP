@@ -64,7 +64,7 @@
                             <page id="page_quiz" string="Encuestas">
                                 <field name="quiz_ids" >
                                     <tree>
-                                        <field name="q_contact_type" required="1"/>
+                                        <field name="q_contact_type"/>
                                         <field name="q_service_type"/>
                                         <field name="q_classification"/>
                                         <field name="q_observation"/>
@@ -72,7 +72,7 @@
                                     <form>
                                         <group>
                                             <group>
-                                                <field name="q_contact_type" required="1"/>
+                                                <field name="q_contact_type"/>
                                                 <field name="q_service_type"/>
                                                 <field name="q_classification"/>
                                             </group>
