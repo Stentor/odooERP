@@ -12,7 +12,7 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     #seller code relaciona los codigos de descuento
-    seller_code = fields.Char(string='Code')
+    seller_code = fields.Char(string='Codigo Vendedor')
     res_partner_description = fields.Text(string='Descripción')
     tenant = fields.Char(string='Tenant')
     dni_ruc = fields.Char(string='DNI RUC')
