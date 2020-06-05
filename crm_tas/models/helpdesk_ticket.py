@@ -166,9 +166,9 @@ class HelpdeskTicket(models.Model):
     @api.depends('amount','currency_id')
     def cambio_trm(self):
         for s in self:
-            if s.currency_id.code == 'USD':
+            if s.currency_id.name == 'USD':
                 s.amount_local = s.amount * 0.00028
-            elif s.currency_id.code == 'ARS':
+            elif s.currency_id.name == 'ARS':
                 s.amount_local = s.amount * 0.00023
             else: 
                 s.amount_local = 0
