@@ -7,10 +7,18 @@
                 <field name="model">helpdesk.ticket</field>
                 <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"></field>
                 <field name="arch" type="xml">
-                <field name="ticket_type_id" position="after">
-                     <field name="ticket_type" invisible="1"/>
-                     <field name="crm_lead_id"/>
-                </field>
+                    <field name="ticket_type_id" position="after">
+                        <field name="ticket_type" invisible="1"/>
+                        <field name="crm_lead_id"/>
+                    </field>
+                    <field name="sla_deadline" position="after">
+                        <field name="urgency_level"/>
+                        <field name="consultation_reason"/>
+                        <field name="observations"/>
+                        <field name="case_close_motive"/>
+                        <field name="tracking_type"/>
+                        <field name="is_disputed"/>
+                    </field>
                     <xpath expr="//form/sheet" position="inside">
                         <notebook>
                             <page id="page_quality" string="Calidades">

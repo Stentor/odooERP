@@ -3,8 +3,8 @@ from odoo import api, fields, models, _
 
 #listas de seleccion fijas
 CURRENCY_SELECTION = [
-    ('ARS-Peso Argentino', 'ARS-Peso Argentino'), 
-    ('AUD-Dolar Australia', 'AUD-Dolar Australia')
+    ('ARS', 'ARS-Peso Argentino'), 
+    ('AUD', 'AUD-Dolar Australia')
 ]
 SERVICE_TYPE_SELECTION = [
     ('Centro_Medico', 'Centro Médico'), 
@@ -71,7 +71,29 @@ CLASSIFICATION_SELECTION = [
     ('Queja', 'Queja'), 
     ('Felicitacion', 'Felicitacion')
 ]
+URGENCY_LEVEL_SELECTION = [
+    ('0','0- no se coordina'),
+    ('1','1- Telémédico'),
+    ('2','2- Médico a domicilio'),
+    ('3','3- Centro médico'),
+    ('4','4- Hospitalización'),
+    ('5','5- Repatriación'),
+    ('6','6-Videoconferencia')
+]
+CASE_CLOSE_MOTIVE_SELECTION = [
+    ('Pago_Reembolso','Pago de Reembolso'),
+    ('Negacion_Rembolso','Negación de Rembolso'),
+    ('Superacion_90_dias	','Superación de 90 días'),
+    ('Falta_contacto','Falta de contacto con el cliente'),
+    ('No_desea_reembolso','No desea reembolso')
 
+]
+TRACKING_TYPE_SELECTION = [
+    ('Llamada', 'Llamada'), 
+    ('WhatsApp', 'WhatsApp'), 
+    ('Correo', 'Correo'), 
+    ('Sirena', 'Sirena')
+]
 # MODELOS
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
@@ -128,4 +150,10 @@ class HelpdeskTicket(models.Model):
     ticket_type = fields.Char(related="ticket_type_id.name")
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain="[('type','=','opportunity')]")
     #Información del Caso
-
+    urgency_level = fields.Selection(URGENCY_LEVEL_SELECTION, string='Nivel de Urgencia')
+    consultation_reason = fields.Text(string='Motivo de Consulta')
+    observations = fields.Text(string='Observaciones')
+    case_close_motive = fields.Selection(CASE_CLOSE_MOTIVE_SELECTION, string='Motivo Cierre Caso')
+    tracking_type = fields.Selection(TRACKING_TYPE_SELECTION, string='Tipo De Seguimiento')
+    is_disputed = fields.Boolean('Disputa?')
+    #información del cliente
