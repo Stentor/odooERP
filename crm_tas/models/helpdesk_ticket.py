@@ -157,3 +157,14 @@ class HelpdeskTicket(models.Model):
     tracking_type = fields.Selection(TRACKING_TYPE_SELECTION, string='Tipo De Seguimiento')
     is_disputed = fields.Boolean('Disputa?')
     #información del cliente
+    currency_id = fields.Many2one('res.currency', string="Moneda")
+    amount = fields.Float(string='Monto')
+    amount_local = fields.Float(string='Monto TRM',compute='cambio_trm')
+
+    @api.depends('amount','currency_id')
+    def cambio_trm(self):
+        for s in self:
+            if s.currency_id.code == 'USD':
+                s.amount_local = s.amount * 0.00028
+            elif s.currency_id.code == 'ARS':
+                s.amount_local = s.amount * 0.00023

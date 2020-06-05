@@ -18,6 +18,9 @@
                         <field name="case_close_motive"/>
                         <field name="tracking_type"/>
                         <field name="is_disputed"/>
+                        <field name="amount"/>
+                        <field name="currency_id"/>
+                        <field name="amount_local"/>
                     </field>
                     <xpath expr="//form/sheet" position="inside">
                         <notebook>
