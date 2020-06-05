@@ -1,9 +1,9 @@
 <odoo>
     <data>
-        <record id="helpdesk.type_incident" model="helpdesk.ticket.type">
+        <record id="asistencia_viaje" model="helpdesk.ticket.type">
             <field name="name">Asistencia de Viaje</field>
         </record>
-        <record id="helpdesk.type_question" model="helpdesk.ticket.type">
+        <record id="asistencia_medica" model="helpdesk.ticket.type">
             <field name="name">Asistencia Medica</field>
         </record>
     </data>

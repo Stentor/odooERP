@@ -21,7 +21,7 @@
         'views/crm_lead_view.xml',
         'views/helpdesk_ticket_view.xml',
         'views/res_partner_view.xml',
-        #'data/ticket_type.xml',
+        'data/ticket_type.xml',
     ],
     'images': ['static/description/icon.png'],
     # data files containing optionally loaded demonstration data
