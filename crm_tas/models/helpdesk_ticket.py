@@ -23,6 +23,21 @@ SERVICE_TYPE_SELECTION = [
     ('Consulta_externa', 'Consulta externa'),
     ('Videoconferencia', 'Videoconferencia')
 ]
+
+MONTHS_SELECTION = [
+    ('Enero', 'Enero'), 
+    ('Febrero', 'Febrero'), 
+    ('Marzo', 'Marzo'),
+    ('Abril', 'Abril'),
+    ('Mayo', 'Mayo'),
+    ('Junio', 'Junio'),
+    ('Julio', 'Julio'),
+    ('Agosto', 'Agosto'),
+    ('Septiembre', 'Septiembre'),
+    ('Octubre', 'Octubre'),
+    ('Noviembre', 'Noviembre'),
+    ('Diciembre', 'Diciembre')
+]
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
     _name = 'helpdesk.ticket.gop'
@@ -41,8 +56,8 @@ class HelpdeskTicketGOP(models.Model):
     is_paid = fields.Boolean('Pagado?')
     invoice_number = fields.Text(string="Número de Facturas")
     is_disputed = fields.Boolean('Disputa?')
-    invoice_month = fields.Selection([('Enero', 'Enero'), ('Febrero', 'Febrero'), ('Marzo', 'Marzo'),('Abril', 'Abril'),('Mayo', 'Mayo'),('Junio', 'Junio'),('Julio', 'Julio'),('Agosto', 'Agosto'),('Septiembre', 'Septiembre'),('Octubre', 'Octubre'),('Noviembre', 'Noviembre'),('Diciembre', 'Diciembre')], string='Mes de Facturación')
-    payment_month = fields.Selection([('Enero', 'Enero'), ('Febrero', 'Febrero'), ('Marzo', 'Marzo'),('Abril', 'Abril'),('Mayo', 'Mayo'),('Junio', 'Junio'),('Julio', 'Julio'),('Agosto', 'Agosto'),('Septiembre', 'Septiembre'),('Octubre', 'Octubre'),('Noviembre', 'Noviembre'),('Diciembre', 'Diciembre')], string='Mes de Pago')
+    invoice_month = fields.Selection(MONTHS_SELECTION, string='Mes de Facturación')
+    payment_month = fields.Selection(MONTHS_SELECTION, string='Mes de Pago')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
 
 class HelpdeskTicketQuality(models.Model):
