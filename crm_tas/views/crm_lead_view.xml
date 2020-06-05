@@ -50,5 +50,16 @@
             <field name="view_mode">tree</field>
         </record>
         <menuitem name="Codigos Descuento" id="crm_res_partner_code_menu" parent="contacts.res_partner_menu_config" action="crm_res_partner_code_action" sequence="2"/>
+
+        <record model="ir.ui.view" id="crm_lead_inherit_tree">
+                <field name="name">CRM TAs</field>
+                <field name="model">crm.lead</field>
+                <field name="inherit_id" ref="crm.crm_case_tree_view_leads"></field>
+                <field name="arch" type="xml">
+                    <field name="user_id" position="after">
+                        <field name="partner_seller_code" optional="hide"/>
+                    </field>
+                </field>
+        </record>
     </data>
 </odoo>
