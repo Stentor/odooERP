@@ -160,8 +160,8 @@ class HelpdeskTicket(models.Model):
     currency_id = fields.Many2one('res.currency', string="Moneda")
     amount = fields.Float(string='Monto')
     amount_local = fields.Float(string='Monto TRM',compute='cambio_trm')
-    fecha = fields.Date(string='Fecha', default= date.today())
-    fechaactual = fields.Datetime(string='Fecha', default= datetime.now())
+    #fecha = fields.Date(string='Fecha', default= date.today())
+    #fechaactual = fields.Datetime(string='Fecha Actual', default= datetime.now())
 
     @api.depends('amount','currency_id')
     def cambio_trm(self):
