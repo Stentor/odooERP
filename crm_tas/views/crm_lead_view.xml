@@ -24,7 +24,7 @@
                     </xpath>
                     <xpath expr="//field[@name='user_id']" position="after">
                         <field name="partner_seller_code" string="Code" />
-                        <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento" domain="[('name','in',partner_seller_code)]"/>
+                        <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento" domain="[('name','ilike',partner_seller_code)]"/>
                     </xpath>
                      <xpath expr="//notebook" position="inside">
                         <page string="Casos" id="helpdesk">
