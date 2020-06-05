@@ -6,7 +6,6 @@ CURRENCY_SELECTION = [
     ('ARS-Peso Argentino', 'ARS-Peso Argentino'), 
     ('AUD-Dolar Australia', 'AUD-Dolar Australia')
 ]
-
 SERVICE_TYPE_SELECTION = [
     ('Centro_Medico', 'Centro Médico'), 
     ('Consulta_con_Especialista', 'Consulta con Especialista'), 
@@ -23,7 +22,6 @@ SERVICE_TYPE_SELECTION = [
     ('Consulta_externa', 'Consulta externa'),
     ('Videoconferencia', 'Videoconferencia')
 ]
-
 MONTHS_SELECTION = [
     ('Enero', 'Enero'), 
     ('Febrero', 'Febrero'), 
@@ -38,6 +36,43 @@ MONTHS_SELECTION = [
     ('Noviembre', 'Noviembre'),
     ('Diciembre', 'Diciembre')
 ]
+CLAIM_TYPE_SELECTION = [
+    ('Sugerencia', 'Sugerencia'), 
+    ('Peticion', 'Petición'), 
+    ('Queja', 'Queja'), 
+    ('Reclamo', 'Reclamo'), 
+    ('Felicitacion', 'Felicitación')
+]
+RECEPTION_TYPE_SELECTION = [
+    ('Correo_electronico', 'Correo electrónico'), 
+    ('llamada_telefonica', 'llamada telefónica'), 
+    ('WhatsApp', 'WhatsApp'), 
+    ('Trustpilot', 'Trustpilot'), 
+    ('Facebook', 'Facebook'), 
+    ('TripAdvisor', 'TripAdvisor'), 
+    ('Instagram', 'Instagram'), 
+    ('Otro', 'Otro')
+]
+CONTACT_TYPE_SELECTION = [
+    ('Telefonica', 'Telefonica'), 
+    ('Correo_electronico', 'Correo electrónico'), 
+    ('WhatsApp', 'WhatsApp'), 
+    ('Otro', 'Otro')
+]
+Q_SERVICE_TYPE_SELECTION = [
+    ('Telemedico', 'Telemedico'), 
+    ('Coordinacion', 'Coordinacion'), 
+    ('Reembolso', 'Reembolso')
+]
+CLASSIFICATION_SELECTION = [
+    ('NA', 'N/A'), 
+    ('Sugerencia', 'Sugerencia'), 
+    ('Reclamo', 'Reclamo'), 
+    ('Queja', 'Queja'), 
+    ('Felicitacion', 'Felicitacion')
+]
+
+# MODELOS
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
     _name = 'helpdesk.ticket.gop'
@@ -65,9 +100,9 @@ class HelpdeskTicketQuality(models.Model):
     _description = "Calidad"
     _rec_name = "claim_type"
 
-    claim_type = fields.Selection([('Sugerencia', 'Sugerencia'), ('Peticion', 'Petición'), ('Queja', 'Queja'), ('Reclamo', 'Reclamo'), ('Felicitacion', 'Felicitación')], string='Tipo De Reclamación')
+    claim_type = fields.Selection(CLAIM_TYPE_SELECTION, string='Tipo De Reclamación')
     comments_date = fields.Date(string="Fecha de Recepción de comentario")
-    reception_type = fields.Selection([('Correo_electronico', 'Correo electrónico'), ('llamada_telefonica', 'llamada telefónica'), ('WhatsApp', 'WhatsApp'), ('Trustpilot', 'Trustpilot'), ('Facebook', 'Facebook'), ('TripAdvisor', 'TripAdvisor'), ('Instagram', 'Instagram'), ('Otro', 'Otro')], string='Tipo De Recepción')
+    reception_type = fields.Selection(RECEPTION_TYPE_SELECTION, string='Tipo De Recepción')
     claim_motive = fields.Text(string="Motivo de Reclamación")
     expend = fields.Float(string='Gasto Incurrido', digits=(16,2))
     cmments_delete = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Eliminación / Cambio de comentario')
@@ -77,9 +112,9 @@ class HelpdeskTicketQuiz(models.Model):
     _name = 'helpdesk.ticket.quiz'
     _description = "Encuesta"
     name = fields.Char(string='Encuestas')
-    q_contact_type = fields.Selection([('Telefonica', 'Telefonica'), ('Correo_electronico', 'Correo electrónico'), ('WhatsApp', 'WhatsApp'), ('Otro', 'Otro')], string='Medio de contacto')
-    q_service_type = fields.Selection([('Telemedico', 'Telemedico'), ('Coordinacion', 'Coordinacion'), ('Reembolso', 'Reembolso')], string='Tipo De Servicio')
-    q_classification = fields.Selection([('NA', 'N/A'), ('Sugerencia', 'Sugerencia'), ('Reclamo', 'Reclamo'), ('Queja', 'Queja'), ('Felicitacion', 'Felicitacion')], string='Clasificacion')
+    q_contact_type = fields.Selection(CONTACT_TYPE_SELECTION, string='Medio de contacto')
+    q_service_type = fields.Selection(Q_SERVICE_TYPE_SELECTION, string='Tipo De Servicio')
+    q_classification = fields.Selection(CLASSIFICATION_SELECTION, string='Clasificacion')
     q_observation = fields.Text(string='Eliminación / Cambio de comentario')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
 

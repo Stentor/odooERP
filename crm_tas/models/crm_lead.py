@@ -42,14 +42,17 @@ class crmLead(models.Model):
         code_ids = code_obj.search([('name','ilike',code)])
         return [('id','in',code_ids._ids)]
 
+    #campos relacionados
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
     plan_id = fields.Many2one('crm.lead.plan', string='Plan')
     media_id = fields.Many2one('crm.lead.media', string='Media')
     payment_id = fields.Many2one('crm.lead.payment', string='Payment')
     payment_fraction_id = fields.Many2one('crm.lead.payment.fraction', string='Payment Fraction')
-    code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento", domain=_domain_crm)
-    user = fields.Char(string='Usuarioi', help="Este campo es para tas-system")
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
+    #campos con dominio
+    code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento", domain=_domain_crm)
+    #otros campos
+    user = fields.Char(string='Usuarioi', help="Este campo es para tas-system")
 
     def create_helpdesk(self):
         return {
