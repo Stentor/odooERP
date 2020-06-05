@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
 
+CURRENCY_SELECTION = [
+    ('ARS-Peso Argentino', 'ARS-Peso Argentino'), 
+    ('AUD-Dolar Australia', 'AUD-Dolar Australia')
+]
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
     _name = 'helpdesk.ticket.gop'
@@ -9,7 +13,7 @@ class HelpdeskTicketGOP(models.Model):
     name = fields.Char(string='GOPS')
     code = fields.Char(string='Codigo de GOP')
     amount = fields.Float(string='Monto', digits=(16,2))
-    currency = fields.Selection([('ARS-Peso Argentino', 'ARS-Peso Argentino'), ('AUD-Dolar Australia', 'AUD-Dolar Australia')], string='Moneda GOP')
+    currency = fields.Selection(CURRENCY_SELECTION, string='Moneda GOP')
     service_type = fields.Selection([('Centro_Medico', 'Centro Médico'), ('Consulta_con_Especialista', 'Consulta con Especialista'), ('Laboratorio_clinico', 'Laboratorio clínico'),('Medico_Domiciliario', 'Médico Domiciliario'),('MayoMedios_diagnostico	', 'Medios diagnostico'),('Odontologia', 'Odontología'),('Repatriacion_Funeraria', 'Repatriación Funeraria'),('Repatriacion_Sanitaria', 'Repatriación Sanitaria'),('Tratamiento', 'Tratamiento'),('Telemedico', 'Telemedico'),('Interrupcion_de_viaje', 'Interrupcion de viaje'),('Ambulancia', 'Ambulancia'),('Consulta_externa', 'Consulta externa'),('Videoconferencia', 'Videoconferencia')], string='Tipo de Servicio')
     reference = fields.Text(string="Referencia GOP")
     medical_center_name = fields.Text(string="Nombre de Centro Médico")
