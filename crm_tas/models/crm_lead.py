@@ -53,7 +53,7 @@ class crmLead(models.Model):
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento", domain=_domain_crm)
     #otros campos
     user = fields.Char(string='Usuarioi', help="Este campo es para tas-system")
-    partner_seller_code = fields.Char(related="res.partner.partner_id.seller_code.name")
+    partner_seller_code = fields.Char(related="partner_id.seller_code")
 
     def create_helpdesk(self):
         return {
