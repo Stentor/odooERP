@@ -36,8 +36,10 @@ class crmLeadPaymenFraction(models.Model):
 class crmLead(models.Model):
     _inherit = 'crm.lead'
 
+    @api.depends('user_id.partner_id')
+    @api.onchange('user_id')
     def _domain_crm(self):
-        code = self.user_id.seller_code
+        code = self.user_id.partner_id.seller_code
         code_obj = self.env['res.partner.code']
         code_ids = code_obj.search([('name','ilike',code)])
         return [('id','in',code_ids._ids)]
@@ -64,7 +66,7 @@ class crmLead(models.Model):
             'res_model':'helpdesk.ticket',
             'view_mode':'form',
             'target':'new',
-            'context':'{"default_crm_lead_id":%s}' %(self.id)
+            'context':'{"default_crm_lead_id":%s, "default_partner_id":%s}' %(self.id, self.partner_id.id)
         }
 
 
