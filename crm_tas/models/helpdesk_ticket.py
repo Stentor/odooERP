@@ -1,9 +1,27 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
 
+#listas de seleccion fijas
 CURRENCY_SELECTION = [
     ('ARS-Peso Argentino', 'ARS-Peso Argentino'), 
     ('AUD-Dolar Australia', 'AUD-Dolar Australia')
+]
+
+SERVICE_TYPE_SELECTION = [
+    ('Centro_Medico', 'Centro Médico'), 
+    ('Consulta_con_Especialista', 'Consulta con Especialista'), 
+    ('Laboratorio_clinico', 'Laboratorio clínico'),
+    ('Medico_Domiciliario', 'Médico Domiciliario'),
+    ('MayoMedios_diagnostico	', 'Medios diagnostico'),
+    ('Odontologia', 'Odontología'),
+    ('Repatriacion_Funeraria', 'Repatriación Funeraria'),
+    ('Repatriacion_Sanitaria', 'Repatriación Sanitaria'),
+    ('Tratamiento', 'Tratamiento'),
+    ('Telemedico', 'Telemedico'),
+    ('Interrupcion_de_viaje', 'Interrupcion de viaje'),
+    ('Ambulancia', 'Ambulancia'),
+    ('Consulta_externa', 'Consulta externa'),
+    ('Videoconferencia', 'Videoconferencia')
 ]
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
@@ -14,7 +32,7 @@ class HelpdeskTicketGOP(models.Model):
     code = fields.Char(string='Codigo de GOP')
     amount = fields.Float(string='Monto', digits=(16,2))
     currency = fields.Selection(CURRENCY_SELECTION, string='Moneda GOP')
-    service_type = fields.Selection([('Centro_Medico', 'Centro Médico'), ('Consulta_con_Especialista', 'Consulta con Especialista'), ('Laboratorio_clinico', 'Laboratorio clínico'),('Medico_Domiciliario', 'Médico Domiciliario'),('MayoMedios_diagnostico	', 'Medios diagnostico'),('Odontologia', 'Odontología'),('Repatriacion_Funeraria', 'Repatriación Funeraria'),('Repatriacion_Sanitaria', 'Repatriación Sanitaria'),('Tratamiento', 'Tratamiento'),('Telemedico', 'Telemedico'),('Interrupcion_de_viaje', 'Interrupcion de viaje'),('Ambulancia', 'Ambulancia'),('Consulta_externa', 'Consulta externa'),('Videoconferencia', 'Videoconferencia')], string='Tipo de Servicio')
+    service_type = fields.Selection(SERVICE_TYPE_SELECTION, string='Tipo de Servicio')
     reference = fields.Text(string="Referencia GOP")
     medical_center_name = fields.Text(string="Nombre de Centro Médico")
     observation = fields.Text(string="Observaciones")
