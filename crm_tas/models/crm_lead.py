@@ -37,7 +37,7 @@ class crmLead(models.Model):
     _inherit = 'crm.lead'
 
     def _domain_crm(self):
-        code = self.user_id.partner_id.seller_code
+        code = self.user_id.seller_code
         code_obj = self.env['res.partner.code']
         code_ids = code_obj.search([('name','ilike',code)])
         return [('id','in',code_ids._ids)]
@@ -53,7 +53,9 @@ class crmLead(models.Model):
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento", domain=_domain_crm)
     #otros campos
     user = fields.Char(string='Usuarioi', help="Este campo es para tas-system")
-    partner_seller_code = fields.Char(related="partner_id.seller_code.name")
+    #para usar un campo relacionado se debe llamar al campo relacion 
+    #por lo general termina en _id o _ids y luego al campo a llamar
+    partner_seller_code = fields.Char(related="user_id.seller_code")
 
     def create_helpdesk(self):
         return {
