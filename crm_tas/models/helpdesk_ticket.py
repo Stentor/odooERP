@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
-
+from datetime import datetime, date
 #listas de seleccion fijas
 CURRENCY_SELECTION = [
     ('ARS', 'ARS-Peso Argentino'), 
@@ -155,11 +155,13 @@ class HelpdeskTicket(models.Model):
     observations = fields.Text(string='Observaciones')
     case_close_motive = fields.Selection(CASE_CLOSE_MOTIVE_SELECTION, string='Motivo Cierre Caso')
     tracking_type = fields.Selection(TRACKING_TYPE_SELECTION, string='Tipo De Seguimiento')
-    is_disputed = fields.Boolean('Disputa?')
+    is_disputed = fields.Boolean('Disputa?', default=True)
     #información del cliente
     currency_id = fields.Many2one('res.currency', string="Moneda")
     amount = fields.Float(string='Monto')
     amount_local = fields.Float(string='Monto TRM',compute='cambio_trm')
+    fecha = fields.Date(string='Fecha', default= date.today())
+    fechaactual = fields.Datetime(string='Fecha', default= datetime.now())
 
     @api.depends('amount','currency_id')
     def cambio_trm(self):
@@ -168,3 +170,5 @@ class HelpdeskTicket(models.Model):
                 s.amount_local = s.amount * 0.00028
             elif s.currency_id.code == 'ARS':
                 s.amount_local = s.amount * 0.00023
+            else: 
+                s.amount_local = 0
