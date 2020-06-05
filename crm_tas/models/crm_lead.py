@@ -40,8 +40,7 @@ class crmLead(models.Model):
         code = self.user_id.partner_id.seller_code
         code_obj = self.env['res.partner.code']
         code_ids = code_obj.search([('name','ilike',code)])
-        #return [('id','in',code_ids._ids)]
-        return [('id','in','1')]
+        return [('id','in',code_ids._ids)]
 
     #campos relacionados
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
