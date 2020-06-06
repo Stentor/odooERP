@@ -29,7 +29,7 @@
                         <field name="copay"/>
                         <field name="lack"/>
                         <field name="service_level"/>
-                        <field name="pending_document"/>
+                        <field name="pending_document_id"/>
                     </field>
                     <!--Campos a ser reemplazados-->
                     <field name="partner_id" position="replace"/>
