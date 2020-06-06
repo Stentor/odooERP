@@ -7,6 +7,7 @@
                 <field name="model">helpdesk.ticket</field>
                 <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"></field>
                 <field name="arch" type="xml">
+                    
                     <field name="ticket_type_id" position="after">
                         <field name="ticket_type" invisible="1"/>
                         <field name="crm_lead_id"/>
@@ -30,15 +31,24 @@
                         <field name="service_level"/>
                         <field name="pending_document"/>
                     </field>
+                    <!--Campos a ser reemplazados-->
+                    <field name="partner_id" position="replace"/>
+                    <field name="partner_name" position="replace"/>
+                    <field name="partner_email" position="replace"/>
                     <xpath expr="//form/sheet" position="inside">
                         <notebook>
                             <page id="partner_information" string="Información del Cliente">
                                 <form>
                                     <group>
-                                        <field name="ubication" />
-                                    </group>
-                                    <group>
-                                    
+                                        <group>
+                                            <field name="partner_id"/>
+                                            <field name="partner_name"/>
+                                            <field name="partner_email"/>
+                                            <field name="ubication" />
+                                        </group>
+                                        <group>
+                                        
+                                        </group>
                                     </group>
                                 </form>
                             </page>

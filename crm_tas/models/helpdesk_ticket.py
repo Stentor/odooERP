@@ -197,7 +197,7 @@ class HelpdeskTicket(models.Model):
     copay = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Copago')
     lack = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Carencia')
     service_level = fields.Selection(SERVICE_LEVEL_SELECTION, string='Nivel de Servicio')
-    pending_document = fields.Many2one('user_id', string="Documento pendiente por")
+    pending_document = fields.Many2one('users', string="Documento pendiente por")
     ubication = fields.Html(string="Vínculos personalizados")
 
     #información del cliente
