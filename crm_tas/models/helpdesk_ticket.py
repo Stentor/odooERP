@@ -199,6 +199,7 @@ class HelpdeskTicket(models.Model):
     service_level = fields.Selection(SERVICE_LEVEL_SELECTION, string='Nivel de Servicio')
     pending_document_id = fields.Many2one('res.users', string="Documento pendiente por")
     ubication = fields.Html(string="Vínculos personalizados")
+    age = fields.Char(related="res.partner.age", string="Edad")
 
     #información del cliente
     currency_id = fields.Many2one('res.currency', string="Moneda")
