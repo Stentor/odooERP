@@ -41,10 +41,10 @@
                                 <form>
                                     <group>
                                         <group>
-                                            <field name="partner_name"/>
-                                            <field name="partner_email"/>
-                                            <field name="email_cc"/>
-                                            <field name="ubication" />
+                                            <field name="partner_name" string="Nombre de Cliente"/>
+                                            <field name="partner_email" string="Email de Cliente"/>
+                                            <field name="email_cc" string="Email CC"/>
+                                            <field name="ubication"/>
                                         </group>
                                         <group>
                                         
