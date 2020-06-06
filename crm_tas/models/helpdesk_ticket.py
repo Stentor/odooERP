@@ -94,6 +94,42 @@ TRACKING_TYPE_SELECTION = [
     ('Correo', 'Correo'), 
     ('Sirena', 'Sirena')
 ]
+CASE_STATE_SELECTION = [
+    ('lote2','LOTE 2'),
+    ('Distribuido','Distribuido'),
+    ('Cerrado','Cerrado'),
+    ('Nuevo','Nuevo'),
+    ('Desembolsado','Desembolsado'),
+    ('Documento_pendiente','Documento pendiente'),
+    ('Proceso_reembolso','Proceso de reembolso'),
+    ('Proceso_reembolso_medicamentos','Proceso de reembolso medicamentos'),
+    ('Pendiente_informacion_bancaria	','Pendiente información bancaria'),
+    ('Notificacion_cliente','Notificación del cliente'),
+    ('lote1','LOTE 1'),
+    ('Coordinacion','Coordinación'),
+    ('Validacion','Validación'),
+    ('Reembolsos_Complejos','Reembolsos Complejos'),
+    ('Negaciones','Negaciones'),
+    ('Formulario','Formulario'),
+    ('SIN_VOBO','SIN VOBO'),
+    ('COMODIN','COMODIN'),
+    ('Pago_inmediato','Pago inmediato'),
+    ('Caso_disputa','Caso en disputa'),
+    ('CONTABILIDAD','CONTABILIDAD')
+]
+SERVICE_LEVEL_SELECTION = [
+    ('No_coordina','No se coordina'),
+    ('Telemedico','Telemédico'),
+    ('Medico_domicilio','Médico a domicilio'),
+    ('Exento_cobertura','Exento de cobertura'),
+    ('Enfermera_domicilio','Enfermera a domicilio'),
+    ('Centro_odontologico','Centro odontológico'),
+    ('Centro_urgencia','Centro de urgencia'),
+    ('Centro_medico','Centro médico'),
+    ('Consulta_externa','Consulta externa'),
+    ('Auto_asistencia','Auto asistencia'),
+    ('Videoconferencia','Videoconferencia')
+]
 # MODELOS
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
@@ -156,6 +192,14 @@ class HelpdeskTicket(models.Model):
     case_close_motive = fields.Selection(CASE_CLOSE_MOTIVE_SELECTION, string='Motivo Cierre Caso')
     tracking_type = fields.Selection(TRACKING_TYPE_SELECTION, string='Tipo De Seguimiento')
     is_disputed = fields.Boolean('Disputa?', default=True)
+    case_state = fields.Selection(CASE_STATE_SELECTION, string='Estado de Caso')
+    turn = fields.Selection([('B', 'B'), ('C', 'C')], string='Turno')
+    copay = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Copago')
+    lack = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Carencia')
+    service_level = fields.Selection(SERVICE_LEVEL_SELECTION, string='Nivel de Servicio')
+    pending_document = fields.Many2one('user_id', string="Documento pendiente por")
+    ubication = fields.Html(string="Vínculos personalizados")
+
     #información del cliente
     currency_id = fields.Many2one('res.currency', string="Moneda")
     amount = fields.Float(string='Monto')

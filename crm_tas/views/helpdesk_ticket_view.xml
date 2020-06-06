@@ -22,7 +22,27 @@
                         <field name="currency_id"/>
                         <field name="amount_local"/>
                     </field>
+                    <field name="email_cc" position="after">
+                        <field name="case_state"/>
+                        <field name="turn"/>
+                        <field name="copay"/>
+                        <field name="lack"/>
+                        <field name="service_level"/>
+                        <field name="pending_document"/>
+                    </field>
                     <xpath expr="//form/sheet" position="inside">
+                        <notebook>
+                            <page id="partner_information" string="Información del Cliente">
+                                <form>
+                                    <group>
+                                        <field name="ubication" />
+                                    </group>
+                                    <group>
+                                    
+                                    </group>
+                                </form>
+                            </page>
+                        </notebook>
                         <notebook>
                             <page id="page_quality" string="Calidades">
                                 <field name="quality_ids" >
