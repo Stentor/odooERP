@@ -217,3 +217,6 @@ class HelpdeskTicket(models.Model):
                 s.amount_local = s.amount * 0.00023
             else: 
                 s.amount_local = 0
+    
+    #información de Reembolso
+    

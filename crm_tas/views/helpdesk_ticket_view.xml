@@ -55,6 +55,20 @@
                             </page>
                         </notebook>
                         <notebook>
+                            <page id="refund_information" string="Información de Reembolso">
+                                <form>
+                                    <group>
+                                        <group>
+                                            
+                                        </group>
+                                        <group>
+                                        
+                                        </group>
+                                    </group>
+                                </form>
+                            </page>
+                        </notebook>
+                        <notebook>
                             <page id="page_quality" string="Calidades">
                                 <field name="quality_ids" >
                                     <tree>
