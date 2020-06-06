@@ -23,18 +23,19 @@
                         <field name="currency_id"/>
                         <field name="amount_local"/>
                     </field>
-                    <field name="email_cc" position="after">
+                    <xpath expr="//form/sheet/group/group[2]" position="inside">
                         <field name="case_state"/>
                         <field name="turn"/>
                         <field name="copay"/>
                         <field name="lack"/>
                         <field name="service_level"/>
                         <field name="pending_document_id"/>
-                    </field>
+                    </xpath>
                     <!--Campos a ser reemplazados-->
                     <field name="partner_id" position="replace"/>
                     <field name="partner_name" position="replace"/>
                     <field name="partner_email" position="replace"/>
+                    <field name="email_cc" position="replace"/>
                     <xpath expr="//form/sheet" position="inside">
                         <notebook>
                             <page id="partner_information" string="Información del Cliente">
@@ -44,6 +45,7 @@
                                             <field name="partner_id"/>
                                             <field name="partner_name"/>
                                             <field name="partner_email"/>
+                                            <field name="email_cc"/>
                                             <field name="ubication" />
                                         </group>
                                         <group>
