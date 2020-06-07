@@ -159,6 +159,11 @@ REFUND_TYPE_SELECTION = [
     ('TECH_PROTECTION','TECH PROTECTION'),
     ('Pandemia','Pandemia')
 ]
+PRIORITY_SELECTION = [
+    ('Alta','Alta'),
+    ('Media','Media'),
+    ('Baja','Baja')
+]
 # MODELOS
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
@@ -234,8 +239,6 @@ class HelpdeskTicket(models.Model):
     currency_id = fields.Many2one('res.currency', string="Moneda")
     amount = fields.Float(string='Monto', digits=(16,2))
     amount_local = fields.Float(string='Monto TRM',compute='cambio_trm')
-    #fecha = fields.Date(string='Fecha', default= date.today())
-    #fechaactual = fields.Datetime(string='Fecha Actual', default= datetime.now())
 
     @api.depends('amount','currency_id')
     def cambio_trm(self):
@@ -252,14 +255,30 @@ class HelpdeskTicket(models.Model):
     amount_requested = fields.Float(string='Monto Solicitado', digits=(16,2))
     currency_id_amount_requested = fields.Many2one('res.currency', string="Moneda Monto Solicitado")
     amount_requested_usd = fields.Float(string='Monto Solicitado USD', digits=(16,2))
-    answer_date = fields.Date(string='Fecha de Respuesta', default= date.today())
+    answer_date = fields.Date(string='Fecha de Respuesta')
     disputed_case = fields.Selection(DISPUTED_CASE_SELECTION, string='Caso en Disputa')
-    payment_date = fields.Date(string='Fecha de Pago', default= date.today())
+    payment_date = fields.Date(string='Fecha de Pago')
     refund = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Reembolso')
     amount_approved = fields.Float(string='Monto Aprobado', digits=(16,2))
     currency_amount_refunded = fields.Many2one('res.currency', string="Moneda Monto Reembolsado")
     refund_type = fields.Selection(REFUND_TYPE_SELECTION, string='Tipo de Reembolso')
-    documents_reception_date = fields.Date(string='Fecha Recepción de documentos', default= date.today())
+    #, default= date.today()
+    documents_reception_date = fields.Date(string='Fecha Recepción de documentos')
     located = fields.Char(string='Radicado')
-    payday_limit_datetime = fields.Datetime(string='Fecha Límite de Pago', default= datetime.now())
+    #, default= datetime.now()
+    payday_limit_datetime = fields.Datetime(string='Fecha Límite de Pago')
+    #Others
+    case_days = fields.Integer(string="Edad del caso en días", compute='calcule_days')
+    @api.depends('amount','currency_id')
+    def calcule_days(self):
+        for s in self:
+            if s.case_state == 'Cerrado':
+                return abs(s.close_date - s.create_date).days
+            else:
+                return abs(date.today() - s.create_date).days
 
+    priority = fields.Selection(PRIORITY_SELECTION, string='Prioridad')
+    other_description = fields.Text(string='Descripción')
+    subject = fields.Char(string='Asunto')
+    is_email_survey = fields.Boolean('Encuesta por email?')
+    is_wsp_survey = fields.Boolean('Encuesta por WSP?')
