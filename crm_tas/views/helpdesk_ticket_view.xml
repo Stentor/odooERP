@@ -59,10 +59,22 @@
                                 <form>
                                     <group>
                                         <group>
-                                            
+                                            <field name="is_approved"/>
+                                            <field name="amount_requested"/>
+                                            <field name="currency_id_amount_requested"/>
+                                            <field name="amount_requested_usd"/>
+                                            <field name="answer_date"/>
+                                            <field name="disputed_case"/>
+                                            <field name="payment_date"/>
                                         </group>
                                         <group>
-                                        
+                                            <field name="refund"/>
+                                            <field name="amount_approved"/>
+                                            <field name="currency_amount_refunded"/>
+                                            <field name="refund_type"/>
+                                            <field name="documents_reception_date"/>
+                                            <field name="located"/>
+                                            <field name="payday_limit_datetime"/>
                                         </group>
                                     </group>
                                 </form>

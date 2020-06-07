@@ -130,6 +130,35 @@ SERVICE_LEVEL_SELECTION = [
     ('Auto_asistencia','Auto asistencia'),
     ('Videoconferencia','Videoconferencia')
 ]
+DISPUTED_CASE_SELECTION = [
+    ('En_estudio','En estudio'),
+    ('Negado','Negado'),
+    ('Aprobado','Aprobado'),
+    ('Aprobado_Parcialmente','Aprobado Parcialmente')
+]
+REFUND_TYPE_SELECTION = [
+    ('Auto_asistencia','Auto asistencia'),
+    ('Cancelacion_vuelo','Cancelación de vuelo'),
+    ('Cancelacion_e_interrupcion_viaje	','Cancelación e interrupción del viaje'),
+    ('Demora_de_equipaje','Demora de equipaje'),
+    ('Gasto_medico','Gasto médico'),
+    ('Ginecologico','Ginecologico'),
+    ('Odontologia','Odontología'),
+    ('Perdida_de_equipaje','Perdida de equipaje'),
+    ('Perdida_de_Pasaporte','Perdida de Pasaporte'),
+    ('Reagrupacion_familiar','Reagrupacion familiar'),
+    ('Repatriacion_funeraria','Repatriacion funeraria'),
+    ('Repatriacion_sanitaria','Repatriacion sanitaria'),
+    ('Retraso_de_vuelo','Retraso de vuelo'),
+    ('Transferencia_de_fondos','Transferencia de fondos'),
+    ('Urologia','Urología'),
+    ('Exceso_de_equipaje','Exceso de equipaje'),
+    ('Embarazo','Embarazo'),
+    ('Enfermedad_Preexistente','Enfermedad Pre-existente'),
+    ('Protesis_Ortesis','Prótesis y Ortesis'),
+    ('TECH_PROTECTION','TECH PROTECTION'),
+    ('Pandemia','Pandemia')
+]
 # MODELOS
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
@@ -203,7 +232,7 @@ class HelpdeskTicket(models.Model):
 
     #información del cliente
     currency_id = fields.Many2one('res.currency', string="Moneda")
-    amount = fields.Float(string='Monto')
+    amount = fields.Float(string='Monto', digits=(16,2))
     amount_local = fields.Float(string='Monto TRM',compute='cambio_trm')
     #fecha = fields.Date(string='Fecha', default= date.today())
     #fechaactual = fields.Datetime(string='Fecha Actual', default= datetime.now())
@@ -219,4 +248,18 @@ class HelpdeskTicket(models.Model):
                 s.amount_local = 0
     
     #información de Reembolso
-    
+    is_approved = fields.Boolean('Aprobado?')
+    amount_requested = fields.Float(string='Monto Solicitado', digits=(16,2))
+    currency_id_amount_requested = fields.Many2one('res.currency', string="Moneda Monto Solicitado")
+    amount_requested_usd = fields.Float(string='Monto Solicitado USD', digits=(16,2))
+    answer_date = fields.Date(string='Fecha de Respuesta', default= date.today())
+    disputed_case = fields.Selection(DISPUTED_CASE_SELECTION, string='Caso en Disputa')
+    payment_date = fields.Date(string='Fecha de Pago', default= date.today())
+    refund = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Reembolso')
+    amount_approved = fields.Float(string='Monto Aprobado', digits=(16,2))
+    currency_amount_refunded = fields.Many2one('res.currency', string="Moneda Monto Reembolsado")
+    refund_type = fields.Selection(REFUND_TYPE_SELECTION, string='Tipo de Reembolso')
+    documents_reception_date = fields.Date(string='Fecha Recepción de documentos', default= date.today())
+    located = fields.Char(string='Radicado')
+    payday_limit_datetime = fields.Datetime(string='Fecha Límite de Pago', default= datetime.now())
+
