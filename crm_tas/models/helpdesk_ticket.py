@@ -159,7 +159,7 @@ REFUND_TYPE_SELECTION = [
     ('TECH_PROTECTION','TECH PROTECTION'),
     ('Pandemia','Pandemia')
 ]
-PRIORITY_SELECTION = [
+CASE_PRIORITY_SELECTION = [
     ('Alta','Alta'),
     ('Media','Media'),
     ('Baja','Baja')
@@ -277,7 +277,7 @@ class HelpdeskTicket(models.Model):
             else:
                 return abs(date.today() - s.create_date).days
 
-    priority = fields.Selection(PRIORITY_SELECTION, string='Prioridad')
+    case_priority = fields.Selection(CASE_PRIORITY_SELECTION, string='Prioridad')
     other_description = fields.Text(string='Descripción')
     subject = fields.Char(string='Asunto')
     is_email_survey = fields.Boolean('Encuesta por email?')

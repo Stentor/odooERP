@@ -87,7 +87,7 @@
                                 <group>
                                     <group>
                                         <field name="case_days"/>
-                                        <field name="priority"/>
+                                        <field name="case_priority"/>
                                         <field name="other_description"/>
                                     </group>
                                     <group>
