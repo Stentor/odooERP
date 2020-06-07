@@ -35,6 +35,9 @@ class crmLeadPaymenFraction(models.Model):
 # Create Relationship Model
 class crmLead(models.Model):
     _inherit = 'crm.lead'
+    var_prueba =  fields.char(string='Campo Prueba')
+
+
 
     #@api.depends('user_id.partner_id')
     #@api.onchange('user_id')
