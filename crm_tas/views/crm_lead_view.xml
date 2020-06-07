@@ -67,17 +67,12 @@
                 <field name="model">crm.lead</field>
                 <field name="inherit_id" ref="crm.crm_lead_view_form"></field>
                 <field name="arch" type="xml">
-                    <xpath expr="//notebook" position="inside">
+                    <xpath expr="//notebook" position="after">
                             <page id="prueba" string="Prueba Cristian">
                                 <form>
-                                    <group>
                                         <group>
-                                            <field name="var_prueba" string="Variable de prueba"/>
+                                            <field name="var_prueba"/>
                                         </group>
-                                        <group>
-                                            
-                                        </group>
-                                    </group>
                                 </form>
                             </page>
                     </xpath>
@@ -85,6 +80,6 @@
         </record>
 
 
-        
+
     </data>
 </odoo>
