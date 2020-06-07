@@ -268,14 +268,14 @@ class HelpdeskTicket(models.Model):
     #, default= datetime.now()
     payday_limit_datetime = fields.Datetime(string='Fecha Límite de Pago')
     #Others
-    case_days = fields.Integer(string="Edad del caso en días", compute='calcule_days')
-    @api.depends('amount','currency_id')
-    def calcule_days(self):
-        for s in self:
-            if s.case_state == 'Cerrado':
-                return abs(s.close_date - s.create_date).days
-            else:
-                return abs(datetime.now() - s.create_date).days
+    case_days = fields.Integer(string="Edad del caso en días")
+   #@api.depends('amount','currency_id')
+   # def calcule_days(self):
+    #    for s in self:
+     #       if s.case_state == 'Cerrado':
+    #            return abs(s.close_date - s.create_date).days
+    #        else:
+    #            return abs(datetime.now() - s.create_date).days
 
     case_priority = fields.Selection(CASE_PRIORITY_SELECTION, string='Prioridad')
     other_description = fields.Text(string='Descripción')
