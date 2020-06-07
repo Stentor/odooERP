@@ -61,5 +61,28 @@
                     </field>
                 </field>
         </record>
+
+        <record model="ir.ui.view" id="crm_lead_inherit_tree">
+                <notebook>
+                            <page id="partner_information" string="Información del Cliente">
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="partner_name" string="Nombre de Cliente"/>
+                                            <field name="partner_email" string="Email de Cliente"/>
+                                            <field name="partner_age"/>
+                                            <field name="email_cc" string="Email CC"/>
+                                            <field name="ubication"/>
+                                        </group>
+                                        <group>
+                                        
+                                        </group>
+                                    </group>
+                                </form>
+                            </page>
+                        </notebook>
+        </record>
+
+        
     </data>
 </odoo>
