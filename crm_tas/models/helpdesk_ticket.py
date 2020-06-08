@@ -268,7 +268,7 @@ class HelpdeskTicket(models.Model):
     #, default= datetime.now()
     payday_limit_datetime = fields.Datetime(string='Fecha Límite de Pago')
     #Others
-    case_days = fields.Integer(string="Edad del caso en días" compute="calcule_days")
+    case_days = fields.Integer(string="Edad del caso en días", compute="calcule_days")
     @api.depends('close_date','create_date','case_state')
     def calcule_days(self):
         for s in self:
