@@ -269,7 +269,7 @@ class HelpdeskTicket(models.Model):
     payday_limit_datetime = fields.Datetime(string='Fecha Límite de Pago')
     #Others
     case_days = fields.Integer(string="Edad del caso en días")
-   @api.depends('close_date','create_date','case_state')
+    @api.depends('close_date','create_date','case_state')
     def calcule_days(self):
         for s in self:
             if s.case_state == 'Cerrado':
