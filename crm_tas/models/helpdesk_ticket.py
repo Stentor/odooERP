@@ -273,7 +273,7 @@ class HelpdeskTicket(models.Model):
     def calcule_days(self):
         for s in self:
             if s.case_state == 'Cerrado':
-                if s.create_date:
+                if s.close_date:
                     s.case_days = abs(s.close_date - s.create_date).days
                 else:
                     s.close_date = datetime.now()
