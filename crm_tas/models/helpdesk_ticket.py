@@ -275,7 +275,7 @@ class HelpdeskTicket(models.Model):
             if s.case_state == 'Cerrado':
                 return abs(s.close_date - s.create_date).days
             else:
-               return abs(datetime.now() - s.create_date).days
+               return 999
 
     case_priority = fields.Selection(CASE_PRIORITY_SELECTION, string='Prioridad')
     other_description = fields.Text(string='Descripción')
