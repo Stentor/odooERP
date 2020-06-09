@@ -8,7 +8,8 @@
     'depends': [
         'base',
         'crm',
-        'helpdesk'
+        'helpdesk',
+        'sales_team'
     ],
     'author': "TAS NETWORK LLC.",
     'website': "https://www.traveler-assistance.com",
