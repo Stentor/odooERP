@@ -69,11 +69,11 @@ class crmLead(models.Model):
     #campos con dominio
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
     #otros campos
-    user = fields.Char(string='UsuarioTS', help="Este campo es para tas-system")
+    user = fields.Char(string='UsuarioTS', help="Este campo es para tas-system API")
     #Información del Viaje
     destination_country = fields.Char(string='Destino')
     is_usa = fields.Boolean('Destino es USA?')
-    passenger_number = fields.Char(string='Nro Pasajeros')
+    passenger_number = fields.Integer(string='Nro Pasajeros')
     tenant_bd_id = fields.Char(string='ID BD', help="Este campo es identificador de tenant para tas-system")
     certificate_number = fields.Char(string='Certificado')
     status = fields.Integer(string='Estado')
@@ -103,7 +103,7 @@ class crmLead(models.Model):
     
     insurance_price = fields.Float(string='Precio Seguro', digits=(16,2))
     lead_source = fields.Char(string='Lead Source')
-    web_site = fields.Char(string='Sitio Web')
+    is_web_site = fields.Boolean('Viene de Web?')
     is_subscription = fields.Boolean('Suscrito a Newsletter?')
     reason_trip = fields.Selection(REASON_TRIP_SELECTION, string='Motivo de Viaje')
     
