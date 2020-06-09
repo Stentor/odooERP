@@ -9,9 +9,9 @@
                 <field name="arch" type="xml">
                     <field name="phone" position="after">
                         <field name="channel_id" string="Canales"/>
-                        <field name="plan_id" string="Planes"/>
+                        
                         <field name="media_id" string="Medios"/>
-                        <field name="payment_id" string="Formas de Pago"/>
+                        
                         <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                     </field>
 
@@ -25,6 +25,45 @@
                     <xpath expr="//field[@name='user_id']" position="after">
                         <field name="partner_seller_code" string="Code" />
                         <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento" domain="[('name','ilike',partner_seller_code)]"/>
+                    </xpath>
+                    <xpath expr="//form/sheet" position="inside">
+                        <notebook>
+                            <page id="informacion" string="Información del Viaje">
+                                <group>
+                                    <group>
+                                        <field name="destination_country"/>
+                                        <field name="is_usa"/>
+                                        <field name="passenger_number"/>
+                                        <field name="plan_id"/>
+                                        <field name="no_preexistence"/>
+                                    </group>
+                                    <group>
+                                        <field name="departure_date"/>
+                                        <field name="return_date"/>
+                                        <field name="initial_price"/>
+                                        <field name="price_quote"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
+                        <notebook>
+                            <page id="asegurado" string="Asegurado y Pagos">
+                                <group>
+                                    <group>
+                                        <field name="is_insurance"/>
+                                        <field name="sales_date"/>
+                                        <field name="paypal_reference"/>
+                                        <field name="order_payu"/>
+                                    </group>
+                                    <group>
+                                        <field name="payment_id" string="Formas de Pago"/>
+                                        <field name="payment_reference"/>
+                                        <field name="is_portfolio_recovery"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
                     </xpath>
                      <xpath expr="//notebook" position="inside">
                         <page string="Casos" id="helpdesk">

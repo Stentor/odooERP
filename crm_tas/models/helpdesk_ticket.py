@@ -279,7 +279,7 @@ class HelpdeskTicket(models.Model):
                     s.close_date = datetime.now()
                     s.case_days = abs(s.close_date - s.create_date).days
             else:
-                s.case_days = 999
+                s.case_days = 0
 
     case_priority = fields.Selection(CASE_PRIORITY_SELECTION, string='Prioridad')
     other_description = fields.Text(string='Descripción')
