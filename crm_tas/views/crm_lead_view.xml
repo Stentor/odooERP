@@ -21,10 +21,25 @@
                         <field name="user" string="Usuario TAS"/>
                     </xpath>
                     <xpath expr="//field[@name='user_id']" position="after">
-                        <field name="partner_seller_code" string="Code" />
+                        
                         <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento" domain="[('name','ilike',partner_seller_code)]"/>
                     </xpath>
                     <xpath expr="//notebook" position="inside">
+                        <page id="promociones" string="Promociones">
+                                <group>
+                                    <group>
+                                        <field name="plus"/>
+                                        <field name="is_covid_bonus"/>
+                                        <field name="consulting_appointment"/>
+                                    </group>
+                                    <group>
+                                        <field name="luggage_plus"/>
+                                        <field name="is_covid_year"/>
+                                        <field name="is_telemedicine"/>
+                                        <field name="is_telemedicine_free"/>
+                                    </group>
+                                </group>
+                            </page>
                         <page string="Casos" id="helpdesk">
                             <field name="helpdesk_ids" options="{'no_create_edit': True}"/>
                         </page>
@@ -57,12 +72,62 @@
                                         <field name="is_insurance"/>
                                         <field name="sales_date"/>
                                         <field name="paypal_reference"/>
+                                        <field name="payu_account"/>
                                         <field name="order_payu"/>
                                     </group>
                                     <group>
                                         <field name="payment_id" string="Formas de Pago"/>
-                                        <field name="payment_reference"/>
+                                        <field name="other_payment" string="Formas de Pago"/>
                                         <field name="is_portfolio_recovery"/>
+                                        <field name="payment_reference"/>
+                                        <field name="invoice"/>
+                                        <field name="autorization"/>
+                                        <field name="accounting_state"/>
+                                        <field name="accounting_novelty"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page id="ventas" string="Proceso de Ventas">
+                                <group>
+                                    <group>
+                                        <field name="partner_seller_code" string="Codigo de descuento" />
+                                        <field name="code_promotion"/>
+                                        <field name="code_discount"/>
+                                        <field name="certificate_number"/>
+                                        <field name="payment_order"/>
+                                    </group>
+                                    <group>
+                                        <field name="discount_percent"/>
+                                        <field name="offer_date"/>
+                                        <field name="is_portfolio_recovery"/>
+                                        <field name="add_price"/>
+                                        <field name="plan_price"/>
+                                        <field name="total_price"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page id="adicionales" string="Coberturas Adicionales">
+                                <group>
+                                    <group>
+                                        <field name="denial_visa"/>
+                                        <field name="luggage"/>
+                                        <field name="sport"/>
+                                        <field name="pregnancy"/>
+                                        <field name="flight_cancellation"/>
+                                        <field name="pet"/>
+                                        <field name="tech_protection"/>
+                                    </group>
+                                    <group>
+                                        <field name="adisa"/>
+                                        <field name="damage_third_party"/>
+                                        <field name="flight_delay"/>
+                                        <field name="concierge"/>
+                                        <field name="frequent_flyer"/>
+                                        <field name="psychological_assistance"/>
                                     </group>
                                 </group>
                             </page>
