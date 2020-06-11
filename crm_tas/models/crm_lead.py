@@ -164,6 +164,11 @@ class crmLead(models.Model):
     pet_type = fields.Char(string='Tipo Mascota')
     per_address = fields.Char(string='Residencia Mascota')
 
+    #Referido
+    is_referred = fields.Boolean('Referido?')
+    referred_name = fields.Char('Nombre Referido')
+    referred_phone = fields.Char('Telefono Referido')
+    referred_email = fields.Char('Email Referido')
     #accion para boton de asistencia medica
     def create_helpdesk(self):
         return {

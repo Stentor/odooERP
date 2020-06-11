@@ -71,6 +71,18 @@
                                 </group>
                             </group>
                         </page>
+                        <page id="referido" string="Referido">
+                            <group>
+                                <group>
+                                    <field name="is_referred"/>
+                                    <field name="referred_name"/>
+                                </group>
+                                <group>
+                                    <field name="referred_phone"/>
+                                    <field name="referred_email"/>
+                                </group>
+                            </group>
+                        </page>
                         <page string="Casos" id="helpdesk">
                             <field name="helpdesk_ids" options="{'no_create_edit': True}"/>
                         </page>
