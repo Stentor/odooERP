@@ -140,7 +140,7 @@
                                         <field name="code_promotion"/>
                                         <field name="code_discount"/>
                                         <field name="certificate_number"/>
-                                        <field name="payment_order"/>
+                                        <field name="is_payment_order"/>
                                     </group>
                                     <group>
                                         <field name="discount_percent"/>
