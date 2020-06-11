@@ -8,9 +8,12 @@
                 <field name="inherit_id" ref="crm.crm_lead_view_form"></field>
                 <field name="arch" type="xml">
                     <field name="phone" position="after">
+                        <field name="tenant_bd_id" readonly="true"/>
+                        <field name="google_gclid" readonly="true"/>
                         <field name="channel_id" string="Canales"/>
-                        <field name="media_id" string="Medios"/>
-                        <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
+                        <field name="purchase_status"/>
+                        <field name="additional_information"/>
+                        <field name="schedule_date"/>
                     </field>
 
                     <field name="stage_id" position="before">
@@ -19,6 +22,10 @@
 
                     <xpath expr="//label[@for='email_from']" position="before">
                         <field name="user" string="Usuario TAS"/>
+                        <field name="lead_source"/>
+                        <field name="is_web_site"/>
+                        <field name="is_subscription"/>
+                        <field name="reason_trip"/>
                     </xpath>
                     <xpath expr="//field[@name='user_id']" position="after">
                         
@@ -43,11 +50,24 @@
                         <page id="redes" string="Redes">
                             <group>
                                 <group>
-                                    <field name="plus"/>
-                                    <field name="is_covid_bonus"/>
+                                    <field name="google_ads"/>
+                                    <field name="platform"/>
                                 </group>
                                 <group>
-                                    <field name="luggage_plus"/>
+                                    <field name="media_id" options="{'no_create_edit': True}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page id="mascota" string="Mascota">
+                            <group>
+                                <group>
+                                    <field name="pet_name"/>
+                                    <field name="pet_breed"/>
+                                    <field name="pet_age"/>
+                                </group>
+                                <group>
+                                    <field name="pet_type"/>
+                                    <field name="per_address"/>
                                 </group>
                             </group>
                         </page>
@@ -85,6 +105,7 @@
                                         <field name="paypal_reference"/>
                                         <field name="payu_account"/>
                                         <field name="order_payu"/>
+                                        <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                                     </group>
                                     <group>
                                         <field name="payment_id" string="Formas de Pago"/>
@@ -139,6 +160,7 @@
                                         <field name="concierge"/>
                                         <field name="frequent_flyer"/>
                                         <field name="psychological_assistance"/>
+                                        <field name="ded200"/>
                                     </group>
                                 </group>
                             </page>

@@ -45,9 +45,6 @@ class crmLeadPaymenFraction(models.Model):
 # Create Relationship Model
 class crmLead(models.Model):
     _inherit = 'crm.lead'
-    # var_prueba =  fields.char(string='Campo Prueba')
-
-
 
     #@api.depends('user_id.partner_id')
     #@api.onchange('user_id')
@@ -57,21 +54,29 @@ class crmLead(models.Model):
     #    code_ids = code_obj.search([('name','ilike',code)])
     #    return [('id','in',code_ids._ids)]
 
-
-
     #campos relacionados
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
     plan_id = fields.Many2one('crm.lead.plan', string='Planes')
-    media_id = fields.Many2one('crm.lead.media', string='Media')
+    media_id = fields.Many2one('crm.lead.media', string='Medio')
     payment_id = fields.Many2one('crm.lead.payment', string='Formas de Pago')
     payment_fraction_id = fields.Many2one('crm.lead.payment.fraction', string='Payment Fraction')
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
+    
     #campos con dominio
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
     #otros campos
     status = fields.Integer(string='Estado')
     tenant_bd_id = fields.Char(string='ID BD', help="Este campo es identificador de tenant para tas-system")
     user = fields.Char(string='UsuarioTS', help="Este campo es para tas-system API")
+    purchase_status = fields.Char(string='Estado de Compra')
+    additional_information = fields.Text(string='Información Adicional')
+    schedule_date = fields.Date(string='Fecha Programada')
+    lead_source = fields.Char(string='Lead Source')
+    is_web_site = fields.Boolean('Viene de Web?')
+    is_subscription = fields.Boolean('Suscrito a Newsletter?')
+    reason_trip = fields.Selection(REASON_TRIP_SELECTION, string='Motivo de Viaje')
+    google_gclid = fields.Char(string='GCLID')
+    
     #Información del Viaje
     destination_country = fields.Char(string='Destino')
     is_usa = fields.Boolean('Destino es USA?')
@@ -137,6 +142,7 @@ class crmLead(models.Model):
     frequent_flyer = fields.Boolean('Cobertura Viajero Frecuente?')
     psychological_assistance =  fields.Boolean('Cobertura Asistencia Psicologica?')
     denial_visa = fields.Boolean('Negación de Visa?')
+    ded200 = fields.Boolean('Deducible 200?')
     
     #promociones
     plus = fields.Boolean('Plus?')
@@ -147,28 +153,18 @@ class crmLead(models.Model):
     is_telemedicine = fields.Boolean('CITA TELEMEDICINA')
     is_telemedicine_free = fields.Boolean('Realizado Telemedicina Gratis')
 
-    lead_source = fields.Char(string='Lead Source')
-    is_web_site = fields.Boolean('Viene de Web?')
-    is_subscription = fields.Boolean('Suscrito a Newsletter?')
-    reason_trip = fields.Selection(REASON_TRIP_SELECTION, string='Motivo de Viaje')
-    plus = fields.Boolean('Plus?')
+    #redes
+    google_ads = fields.Char(string='Campaña Ads')
+    platform = fields.Char(string='Plataforma')
     
-    
-   
-    
-    ded200 = fields.Boolean('Deducible 200?')
+    #Mascota
     pet_name = fields.Char(string='Nombre Mascota')
     pet_breed = fields.Char(string='Raza Mascota')
     pet_age = fields.Char(string='Edad Mascota')
     pet_type = fields.Char(string='Tipo Mascota')
     per_address = fields.Char(string='Residencia Mascota')
-    purchase_status = fields.Char(string='Estado de Compra')
-    
-    additional_information = fields.Text(string='Información Adicional')
-    schedule_date = fields.Date(string='Fecha Programada')
-    
-    
 
+    #accion para boton de asistencia medica
     def create_helpdesk(self):
         return {
             'type':'ir.actions.act_window',
