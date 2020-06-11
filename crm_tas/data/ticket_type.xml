@@ -6,5 +6,41 @@
         <record id="asistencia_medica" model="helpdesk.ticket.type">
             <field name="name">Asistencia Medica</field>
         </record>
+        <!--
+            Sub Tipo
+        -->
+        <record id="3a" model="helpdesk.ticket.subtype">
+            <field name="name">Acompanamiento de Menores</field>
+            <field name="assist_type">repatriacion_traslado</field>
+        </record>
+        <record id="3b" model="helpdesk.ticket.subtype">
+            <field name="name">Hotel Convalecencia</field>
+            <field name="assist_type">repatriacion_traslado</field>
+        </record>
+        <record id="3c" model="helpdesk.ticket.subtype">
+            <field name="name">Repatriac Funeraria</field>
+            <field name="assist_type">repatriacion_traslado</field>
+        </record>
+        <record id="3a" model="helpdesk.ticket.subtype">
+            <field name="name">Repatriac Sanitaria</field>
+            <field name="assist_type">repatriacion_traslado</field>
+        </record>
+        <record id="3a" model="helpdesk.ticket.subtype">
+            <field name="name">Demora Equipaje</field>
+            <field name="assist_type">asistencia_equipaje</field>
+        </record>
+        <record id="3a" model="helpdesk.ticket.subtype">
+            <field name="name">Acompanamiento de Menores</field>
+             <field name="assist_type">asistencia_equipaje</field>
+        </record>
+        <record id="3a" model="helpdesk.ticket.subtype">
+            <field name="name">Exceso de Equipaje</field>
+             <field name="assist_type">asistencia_equipaje</field>
+        </record>
+        <record id="3a" model="helpdesk.ticket.subtype">
+            <field name="name">Perdida Equipaje</field>
+             <field name="assist_type">asistencia_equipaje</field>
+        </record>
+        
     </data>
 </odoo>

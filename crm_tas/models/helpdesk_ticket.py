@@ -165,24 +165,15 @@ CASE_PRIORITY_SELECTION = [
     ('Baja','Baja')
 ]
 ASSIT_TYPE_SELECTION = [
-    ('1','Asistencia médica'),
-    ('2','Fuera de cobertura'),
-    ('3','Repatriación y traslado'), #primero
-    ('4','Asistencia Equipaje'), #segundo
-    ('5','Asistencia Viaje'),
-    ('6','Aux y Asistencia Legal')
+    ('asistencia_medica','Asistencia médica'),
+    ('fuera_cobertura','Fuera de cobertura'),
+    ('repatriacion_traslado','Repatriación y traslado'), #primero
+    ('asistencia_equipaje','Asistencia Equipaje'), #segundo
+    ('asistencia_viaje','Asistencia Viaje'),
+    ('aux_asistencia_legal','Aux y Asistencia Legal')
 ]
 
-SUB_ASSIT_TYPE_SELECTION = [
-    ('3a','Acompanamiento de Menores'),
-    ('3b','Hotel Convalecencia'),
-    ('3c','Repatriac Funeraria'),
-    ('3d','Repatriac Sanitaria'),
-    ('4a','Demora Equipaje'),
-    ('4b','Exceso de Equipaje'),
-    ('4c','Perdida Equipaje'),
-    ('4d','Rastreo Equipaje')
-]
+
 # MODELOS
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
@@ -229,6 +220,12 @@ class HelpdeskTicketQuiz(models.Model):
     q_observation = fields.Text(string='Eliminación / Cambio de comentario')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
 
+class HelpdeskTicketSubType(models.Model):
+    _name = 'helpdesk.ticket.subtype'
+    _description = "Subtipo"
+    name = fields.Char(string='Sub Tipo')
+    assist_type = fields.Selection(ASSIT_TYPE_SELECTION, string='Tipo de Asistencia')
+
 class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
 
@@ -238,6 +235,12 @@ class HelpdeskTicket(models.Model):
 
     ticket_type = fields.Char(related="ticket_type_id.name")
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain="[('type','=','opportunity')]")
+    
+    #campos relacionados enlazados
+    assist_type = fields.Selection(ASSIT_TYPE_SELECTION, string='Tipo de Asistencia')
+    #sub_assist_type = fields.Selection(SUB_ASSIT_TYPE_SELECTION, string='Sub Tipo Asistencia')
+    sub_assist_type = fields.Many2one('helpdesk.ticket.subtype', string="Sub Tipo")
+
     #Información del Caso
     urgency_level = fields.Selection(URGENCY_LEVEL_SELECTION, string='Nivel de Urgencia')
     consultation_reason = fields.Text(string='Motivo de Consulta')
@@ -305,5 +308,7 @@ class HelpdeskTicket(models.Model):
     subject = fields.Char(string='Asunto')
     is_email_survey = fields.Boolean('Encuesta por email?')
     is_wsp_survey = fields.Boolean('Encuesta por WSP?')
-    assist_type = fields.Selection(ASSIT_TYPE_SELECTION, string='Tipo de Asistencia')
-    sub_assist_type = fields.Selection(SUB_ASSIT_TYPE_SELECTION, string='Sub Tipo Asistencia')
+    
+    
+    
+    

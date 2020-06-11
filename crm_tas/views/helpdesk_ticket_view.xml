@@ -10,7 +10,7 @@
                     
                     <field name="ticket_type_id" position="after">
                         <field name="assist_type" />
-                        <field name="sub_assist_type" domain="[('id','ilike', assist_type)]"/>
+                        <field name="sub_assist_type" domain="[('assist_type','in', assist_type)]"/>
                         <field name="ticket_type" invisible="1"/>
                         <field name="crm_lead_id"/>
                     </field>
