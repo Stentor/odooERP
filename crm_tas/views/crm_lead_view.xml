@@ -26,20 +26,31 @@
                     </xpath>
                     <xpath expr="//notebook" position="inside">
                         <page id="promociones" string="Promociones">
+                            <group>
                                 <group>
-                                    <group>
-                                        <field name="plus"/>
-                                        <field name="is_covid_bonus"/>
-                                        <field name="consulting_appointment"/>
-                                    </group>
-                                    <group>
-                                        <field name="luggage_plus"/>
-                                        <field name="is_covid_year"/>
-                                        <field name="is_telemedicine"/>
-                                        <field name="is_telemedicine_free"/>
-                                    </group>
+                                    <field name="plus"/>
+                                    <field name="is_covid_bonus"/>
+                                    <field name="consulting_appointment"/>
                                 </group>
-                            </page>
+                                <group>
+                                    <field name="luggage_plus"/>
+                                    <field name="is_covid_year"/>
+                                    <field name="is_telemedicine"/>
+                                    <field name="is_telemedicine_free"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page id="redes" string="Redes">
+                            <group>
+                                <group>
+                                    <field name="plus"/>
+                                    <field name="is_covid_bonus"/>
+                                </group>
+                                <group>
+                                    <field name="luggage_plus"/>
+                                </group>
+                            </group>
+                        </page>
                         <page string="Casos" id="helpdesk">
                             <field name="helpdesk_ids" options="{'no_create_edit': True}"/>
                         </page>

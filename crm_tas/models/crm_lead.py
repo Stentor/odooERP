@@ -115,8 +115,8 @@ class crmLead(models.Model):
     is_payment_order = fields.Boolean(string='Orden de Pago?')
     discount_percent = fields.Float(string='Descuento %', digits=(3,2))
     offer_date = fields.Date(string='Limite de Oferta')
-    add_price = fields.Float(string='Importe Adicionales', digits=(16,2), default="0,00")
-    plan_price = fields.Float(string='Importe Asistencia Plan', digits=(16,2), default="0,00")
+    add_price = fields.Float(string='Importe Adicionales', digits=(16,2), default=0.00)
+    plan_price = fields.Float(string='Importe Asistencia Plan', digits=(16,2), default=0.00)
     total_price = fields.Float(string='Importe Total', digits=(16,2), compute="calcule_importe_total")
     @api.depends('add_price','plan_price')
     def calcule_importe_total(self):
