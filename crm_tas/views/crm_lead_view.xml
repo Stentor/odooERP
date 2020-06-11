@@ -8,8 +8,8 @@
                 <field name="inherit_id" ref="crm.crm_lead_view_form"></field>
                 <field name="arch" type="xml">
                     <field name="phone" position="after">
-                        <field name="tenant_bd_id" readonly="true"/>
-                        <field name="google_gclid" readonly="true"/>
+                        <field name="tenant_bd_id" readonly="1"/>
+                        <field name="google_gclid" readonly="1"/>
                         <field name="channel_id" string="Canales"/>
                         <field name="purchase_status"/>
                         <field name="additional_information"/>
