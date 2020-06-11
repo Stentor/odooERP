@@ -3,7 +3,7 @@
 {
     'name': "CRM TAS",
     'summary': """
-        Implementación de campos relacionados con Contactos y CRM""",
+        Personalización con nuevos campos relacionados en Contactos, CRM, HELPDESK""",
     'version': '0.2',
     'depends': [
         'base',
