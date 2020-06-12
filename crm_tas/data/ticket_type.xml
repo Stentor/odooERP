@@ -1,5 +1,8 @@
 <odoo>
     <data>
+         <!--
+            Ticket Type
+        -->
         <record id="asistencia_viaje" model="helpdesk.ticket.type">
             <field name="name">Asistencia de Viaje</field>
         </record>
@@ -41,6 +44,5 @@
             <field name="name">Perdida Equipaje</field>
              <field name="assist_type">asistencia_equipaje</field>
         </record>
-        
     </data>
 </odoo>

@@ -80,7 +80,7 @@ class crmLead(models.Model):
     #Información del Viaje
     destination_country = fields.Char(string='Destino')
     is_usa = fields.Boolean('Destino es USA?')
-    passenger_number = fields.Integer(string='Nro Pasajeros')
+    passenger_number = fields.Float(string='Nro Pasajeros')
     no_preexistence = fields.Boolean('Sin Preexistencia?')
     departure_date = fields.Date(string='Fecha de Salida')
     return_date = fields.Date(string='Fecha de Retorno')
