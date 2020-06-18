@@ -209,7 +209,7 @@ class HelpdeskTicketComment(models.Model):
     _description = "Comentarios"
 
     name = fields.Char(string='Comentarios')
-    auto_id_comentario = fields.Char(string='ID Comentario', compute='_get_consecutivo_num')
+    auto_id_comentario = fields.Char(string='ID Comentario', compute='get_consecutivo_num')
 
     def get_consecutivo_num(self, cr, uid, context=None):
         last_id = 0
