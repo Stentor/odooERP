@@ -209,21 +209,31 @@ class HelpdeskTicketComment(models.Model):
     _description = "Comentarios"
 
     name = fields.Char(string='Comentarios')
-    auto_id_comentario = fields.Char(string='ID Comentario', compute='get_consecutivo_num', store=True)
+    auto_id_comentario = fields.Char(string='ID Comentario', store=True)
 
-    def get_consecutivo_num(self):
-        last_id = 0
-        for item in self:
-            sec = item.auto_id_comentario.split('-')
-            if sec :
-                sec_num = int(sec[1]) + 1
-                last_id = sec_num
-            else:
-                last_id = 1
-        prefijo = 'COM-'
-        serie = last_id
-        auto_id_comentario = prefijo + str(serie).rjust(6, '0')
-        return auto_id_comentario 
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', 'New') == 'New':
+            vals['auto_id_comentario'] = self.env['ir.sequence'].next_by_code(
+                'sequence_comment') or 'New'
+        result = super(HelpdeskTicketComment, self).create(vals)
+        return result
+
+
+        #def get_consecutivo_num(self):
+        #last_id = 0
+        #for item in self:
+        #    sec = item.auto_id_comentario.split('-')
+        #    if sec :
+        #        sec_num = int(sec[1]) + 1
+        #        last_id = sec_num
+        #    else:
+        #        last_id = 1
+        #prefijo = 'COM-'
+        #serie = last_id
+        #auto_id_comentario = prefijo + str(serie).rjust(6, '0')
+        #return auto_id_comentario 
 
     comment_type = fields.Selection(COMMENT_SELECTION, string='Tipo')
     comment_description = fields.Text(string="Descripcion")
