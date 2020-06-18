@@ -7,6 +7,7 @@
             <field name="prefix">COM</field>
             <field name="padding">6</field>
             <field name="number_increment">1</field>
+            <field name="use_date_range">1</field>
         </record>
     </data>
 </odoo>
