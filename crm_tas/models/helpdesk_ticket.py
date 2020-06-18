@@ -216,15 +216,15 @@ class HelpdeskTicketComment(models.Model):
         get_count = self.search([(1, '=', 1)], order='id')        
         if get_count:
             for item in self.browse(get_count):
-                sec = item.consecutivo.split('-')
+                sec = item.auto_id_comentario.split('-')
                 sec_num = int(sec[1]) + 1
                 last_id = sec_num
         else:
             last_id = 1
         prefijo = 'COM-'
         serie = last_id
-        consecutivo = prefijo + str(serie).rjust(6, '0')
-        return consecutivo 
+        auto_id_comentario = prefijo + str(serie).rjust(6, '0')
+        return auto_id_comentario 
 
     comment_type = fields.Selection(COMMENT_SELECTION, string='Tipo')
     comment_description = fields.Text(string="Descripcion")
