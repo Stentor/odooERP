@@ -209,7 +209,23 @@ class HelpdeskTicketComment(models.Model):
     _description = "Comentarios"
 
     name = fields.Char(string='Comentarios')
-    auto_id_comentario = fields.Char(string='ID Comentario')
+    auto_id_comentario = fields.Char(string='ID Comentario', compute='_get_consecutivo_num')
+
+    def _get_consecutivo_num(self, cr, uid, context=None):
+        last_id = 0
+        get_count = self.search(cr, uid, [(1, '=', 1)], order='id')        
+        if get_count:
+            for item in self.browse(cr, uid, get_count, context):
+                sec = item.consecutivo.split('-')
+                sec_num = int(sec[1]) + 1
+                last_id = sec_num
+        else:
+            last_id = 1
+        prefijo = 'COM-'
+        serie = last_id
+        consecutivo = prefijo + str(serie).rjust(6, '0')
+        return consecutivo 
+    
     comment_type = fields.Selection(COMMENT_SELECTION, string='Tipo')
     comment_description = fields.Text(string="Descripcion")
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
