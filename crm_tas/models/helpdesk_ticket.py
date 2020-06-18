@@ -209,13 +209,11 @@ class HelpdeskTicketComment(models.Model):
     _description = "Comentarios"
 
     name = fields.Char(string='Comentarios')
-    auto_id_comentario = fields.Char(string='ID Comentario', store=True)
-
+    auto_id_comentario = fields.Char(string='ID Comentario')
 
     @api.model
     def create(self, vals):
-        if vals.get('name', 'New') == 'New':
-            vals['auto_id_comentario'] = self.env['ir.sequence'].next_by_code(
+        vals['auto_id_comentario'] = self.env['ir.sequence'].next_by_code(
                 'sequence_comment') or 'New'
         result = super(HelpdeskTicketComment, self).create(vals)
         return result

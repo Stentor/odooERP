@@ -199,7 +199,7 @@
                             <page id="page_comment" string="Comentarios">
                                 <field name="comment_ids">
                                     <tree>
-                                        <field name="auto_id_comentario"/>
+                                        <field name="auto_id_comentario" readonly="1"/>
                                         <field name="comment_type"/>
                                         <field name="comment_description"/>
                                     </tree>
