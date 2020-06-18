@@ -199,19 +199,14 @@
                             <page id="page_comment" string="Comentarios">
                                 <field name="comment_ids">
                                     <tree>
-                                        <field name="auto_id_comentario" readonly="1"/>
+                                        <field name="auto_id_comentario"/>
                                         <field name="comment_type"/>
                                         <field name="comment_description"/>
                                     </tree>
                                     <form>
                                         <group>
-                                            <group>
-                                                <field name="auto_id_comentario"/>
-                                                <field name="comment_type"/>
-                                            </group>
-                                            <group>
-                                                <field name="comment_description"/>
-                                            </group>
+                                            <field name="comment_type"/>
+                                            <field name="comment_description"/>
                                         </group>
                                     </form>
                                 </field>
