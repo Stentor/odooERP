@@ -74,7 +74,7 @@ class crmLead(models.Model):
     lead_source = fields.Char(string='Lead Source')
     is_web_site = fields.Boolean('Viene de Web?')
     is_subscription = fields.Boolean('Suscrito a Newsletter?')
-    reason_trip = fields.Selection(REASON_TRIP_SELECTION, string='Motivo de Viaje', index=True)
+    reason_trip = fields.Selection(REASON_TRIP_SELECTION, string='Motivo de Viaje', tracking=True)
     google_gclid = fields.Char(string='GCLID')
     
     #Información del Viaje
