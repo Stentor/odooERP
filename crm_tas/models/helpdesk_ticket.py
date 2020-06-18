@@ -172,7 +172,14 @@ ASSIT_TYPE_SELECTION = [
     ('asistencia_viaje','Asistencia Viaje'),
     ('aux_asistencia_legal','Aux y Asistencia Legal')
 ]
-
+COMMENT_SELECTION = [
+    ('Reembolso','Reembolso'),
+    ('Conciliacion','Conciliacion'),
+    ('Proveedores','Proveedores'),
+    ('Calidad','Calidad'),
+    ('Coordinacion','Coordinación'),
+    ('Seguimiento','Seguimiento')
+]
 
 # MODELOS
 # Create Model GOPS
@@ -196,6 +203,17 @@ class HelpdeskTicketGOP(models.Model):
     invoice_month = fields.Selection(MONTHS_SELECTION, string='Mes de Facturación')
     payment_month = fields.Selection(MONTHS_SELECTION, string='Mes de Pago')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+
+class HelpdeskTicketComment(models.Model):
+    _name = 'helpdesk.ticket.comment'
+    _description = "Comentarios"
+
+    name = fields.Char(string='Comentarios')
+    auto_id_comentario = fields.Char(string='ID Comentario')
+    comment_type = fields.Selection(COMMENT_SELECTION, string='Tipo')
+    comment_description = fields.Text(string="Descripcion")
+    helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+    
 
 class HelpdeskTicketQuality(models.Model):
     _name = 'helpdesk.ticket.quality'
@@ -230,6 +248,7 @@ class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
 
     gop_ids = fields.One2many('helpdesk.ticket.gop', 'helpdesk_id', string='GOP')
+    comment_ids = fields.One2many('helpdesk.ticket.comment', 'helpdesk_id', string='Comentario')
     quality_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Calidad')
     quiz_ids = fields.One2many('helpdesk.ticket.quiz','helpdesk_id', string='Encuesta')
 
