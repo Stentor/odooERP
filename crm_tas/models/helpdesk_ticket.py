@@ -211,11 +211,11 @@ class HelpdeskTicketComment(models.Model):
     name = fields.Char(string='Comentarios')
     auto_id_comentario = fields.Char(string='ID Comentario', compute='get_consecutivo_num')
 
-    def get_consecutivo_num(self, cr, uid, context=None):
+    def get_consecutivo_num(self):
         last_id = 0
-        get_count = self.search(cr, uid, [(1, '=', 1)], order='id')        
+        get_count = self.search([(1, '=', 1)], order='id')        
         if get_count:
-            for item in self.browse(cr, uid, get_count, context):
+            for item in self.browse(get_count):
                 sec = item.consecutivo.split('-')
                 sec_num = int(sec[1]) + 1
                 last_id = sec_num
