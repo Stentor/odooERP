@@ -2,7 +2,7 @@
     <data>
         <record id="sequence_comment" model="ir.sequence">
             <field name="name">Secuencia Comentario</field>
-            <field name="implementation">Standard</field>
+            <field name="implementation">standard</field>
             <field name="code">sequence_comment</field>
             <field name="prefix">COM</field>
             <field name="padding">6</field>
