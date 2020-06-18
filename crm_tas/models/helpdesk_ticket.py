@@ -211,7 +211,7 @@ class HelpdeskTicketComment(models.Model):
     name = fields.Char(string='Comentarios')
     auto_id_comentario = fields.Char(string='ID Comentario', compute='_get_consecutivo_num')
 
-    def _get_consecutivo_num(self, cr, uid, context=None):
+    def get_consecutivo_num(self, cr, uid, context=None):
         last_id = 0
         get_count = self.search(cr, uid, [(1, '=', 1)], order='id')        
         if get_count:
@@ -225,7 +225,7 @@ class HelpdeskTicketComment(models.Model):
         serie = last_id
         consecutivo = prefijo + str(serie).rjust(6, '0')
         return consecutivo 
-    
+
     comment_type = fields.Selection(COMMENT_SELECTION, string='Tipo')
     comment_description = fields.Text(string="Descripcion")
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
