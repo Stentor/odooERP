@@ -213,14 +213,13 @@ class HelpdeskTicketComment(models.Model):
 
     def get_consecutivo_num(self):
         last_id = 0
-        get_count = self.search([(1, '=', 1)], order='id')        
-        if get_count:
-            for item in self.browse(get_count):
-                sec = item.auto_id_comentario.split('-')
+        for item in self.browse(get_count):
+            sec = item.auto_id_comentario.split('-')
+            if sec :
                 sec_num = int(sec[1]) + 1
                 last_id = sec_num
-        else:
-            last_id = 1
+            else:
+                last_id = 1
         prefijo = 'COM-'
         serie = last_id
         auto_id_comentario = prefijo + str(serie).rjust(6, '0')
