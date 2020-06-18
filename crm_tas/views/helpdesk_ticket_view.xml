@@ -205,8 +205,8 @@
                                     </tree>
                                     <form>
                                         <group>
-                                            <field name="comment_type"/>
-                                            <field name="comment_description"/>
+                                            <field name="comment_type" required="1"/>
+                                            <field name="comment_description" required="1"/>
                                         </group>
                                     </form>
                                 </field>
