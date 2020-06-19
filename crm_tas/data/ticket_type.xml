@@ -10,7 +10,7 @@
             <field name="name">Asistencia Medica</field>
         </record>
         <!--
-            Sub Tipo
+           TIPO LIGADO CON  Sub Tipo
         -->
         <record id="repatriacion_traslado1" model="helpdesk.ticket.subtype">
             <field name="name">Acompanamiento de Menores</field>
