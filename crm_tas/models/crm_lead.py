@@ -36,12 +36,6 @@ class crmLeadPaymen(models.Model):
     _description = "Formas de Pago"
     name = fields.Char(string='Payment')
 
-# Create model fraction payment
-class crmLeadPaymenFraction(models.Model):
-    _name = 'crm.lead.payment.fraction'
-    _description = "Formas de Pago Fracción"
-    name = fields.Char(string='Payment Fraction')
-
 # Create Relationship Model
 class crmLead(models.Model):
     _inherit = 'crm.lead'
@@ -59,8 +53,8 @@ class crmLead(models.Model):
     plan_id = fields.Many2one('crm.lead.plan', string='Planes')
     media_id = fields.Many2one('crm.lead.media', string='Medio')
     payment_id = fields.Many2one('crm.lead.payment', string='Formas de Pago', tracking=True)
-    payment_fraction_id = fields.Many2one('crm.lead.payment.fraction', string='Payment Fraction')
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
+    payment_fraction = fields.Selection(related="crm_lead_payment", string='Payment Fraction')
     
     #campos con dominio
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
