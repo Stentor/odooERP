@@ -4,7 +4,7 @@
             <field name="name">Secuencia Comentario</field>
             <field name="implementation">standard</field>
             <field name="code">sequence_comment</field>
-            <field name="prefix">COM</field>
+            <field name="prefix">COM-%(range_year)s-</field>
             <field name="padding">6</field>
             <field name="number_increment">1</field>
             <field name="use_date_range">1</field>
