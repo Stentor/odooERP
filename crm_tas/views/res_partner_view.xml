@@ -44,7 +44,7 @@
                 </field>
         </record>
         <record model="ir.actions.act_window" id="crm_res_partner_code_action">
-            <field name="name">Accion</field>
+            <field name="name">Codigos</field>
             <field name="res_model">res.partner.code</field>
             <field name="view_mode">tree</field>
         </record>

@@ -203,7 +203,7 @@
                 </field>
         </record>
         <record model="ir.actions.act_window" id="crm_channel_action">
-            <field name="name">Accion</field>
+            <field name="name">Canales</field>
             <field name="res_model">crm.lead.channel</field>
             <field name="view_mode">tree</field>
         </record>
@@ -219,7 +219,7 @@
                 </field>
         </record>
         <record model="ir.actions.act_window" id="crm_plan_action">
-            <field name="name">Accion</field>
+            <field name="name">Planes</field>
             <field name="res_model">crm.lead.plan</field>
             <field name="view_mode">tree</field>
         </record>
@@ -235,7 +235,7 @@
                 </field>
         </record>
         <record model="ir.actions.act_window" id="crm_media_action">
-            <field name="name">Accion</field>
+            <field name="name">Medios</field>
             <field name="res_model">crm.lead.media</field>
             <field name="view_mode">tree</field>
         </record>
@@ -251,7 +251,7 @@
                 </field>
         </record>
         <record model="ir.actions.act_window" id="crm_payment_action">
-            <field name="name">Accion</field>
+            <field name="name">Pagos</field>
             <field name="res_model">crm.lead.payment</field>
             <field name="view_mode">tree</field>
         </record>
