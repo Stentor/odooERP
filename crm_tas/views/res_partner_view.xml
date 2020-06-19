@@ -31,5 +31,23 @@
                     </field>
                 </field>
         </record>
+
+
+        <!-- Add instructor field to new view on menu-->
+        <record model="ir.ui.view" id="crm_res_partner_code">
+                <field name="name">CRM RES CODE</field>
+                <field name="model">res.partner.code</field>
+                <field name="arch" type="xml">
+                    <tree editable="top">
+                        <field name="name" string="Codigos"/>
+                    </tree>
+                </field>
+        </record>
+        <record model="ir.actions.act_window" id="crm_res_partner_code_action">
+            <field name="name">Accion</field>
+            <field name="res_model">res.partner.code</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem name="Codigos Descuento" id="crm_res_partner_code_menu" parent="contacts.res_partner_menu_config" action="crm_res_partner_code_action" sequence="2"/>
     </data>
 </odoo>

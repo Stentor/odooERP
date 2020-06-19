@@ -180,24 +180,6 @@
                     </xpath>
                 </field>
         </record>
-
-        <!-- Add instructor field to new view -->
-        <record model="ir.ui.view" id="crm_res_partner_code">
-                <field name="name">CRM RES CODE</field>
-                <field name="model">res.partner.code</field>
-                <field name="arch" type="xml">
-                    <tree editable="top">
-                        <field name="name" string="Codigos"/>
-                    </tree>
-                </field>
-        </record>
-        <record model="ir.actions.act_window" id="crm_res_partner_code_action">
-            <field name="name">Accion</field>
-            <field name="res_model">res.partner.code</field>
-            <field name="view_mode">tree</field>
-        </record>
-        <menuitem name="Codigos Descuento" id="crm_res_partner_code_menu" parent="contacts.res_partner_menu_config" action="crm_res_partner_code_action" sequence="2"/>
-
         <record model="ir.ui.view" id="crm_lead_inherit_tree">
                 <field name="name">CRM TAs</field>
                 <field name="model">crm.lead</field>
@@ -208,5 +190,87 @@
                     </field>
                 </field>
         </record>
+
+        <!--Agregado listas para llenar en menu-->
+        <!-- Add instructor field to new view on menu-->
+        <record model="ir.ui.view" id="crm_channel">
+                <field name="name">CRM CHANNEL</field>
+                <field name="model">crm.lead.channel</field>
+                <field name="arch" type="xml">
+                    <tree editable="top">
+                        <field name="name" string="Canales"/>
+                    </tree>
+                </field>
+        </record>
+        <record model="ir.actions.act_window" id="crm_channel_action">
+            <field name="name">Accion</field>
+            <field name="res_model">crm.lead.channel</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem name="Canales" id="crm_channel_menu" parent="crm.crm_menu_config" action="crm_channel_action" sequence="2"/>
+
+        <record model="ir.ui.view" id="crm_plan">
+                <field name="name">CRM PLAN</field>
+                <field name="model">crm.lead.channel</field>
+                <field name="arch" type="xml">
+                    <tree editable="top">
+                        <field name="name" string="Planes"/>
+                    </tree>
+                </field>
+        </record>
+        <record model="ir.actions.act_window" id="crm_plan_action">
+            <field name="name">Accion</field>
+            <field name="res_model">crm.lead.plan</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem name="Canales" id="crm_plan_menu" parent="crm.crm_menu_config" action="crm_plan_action" sequence="3"/>
+
+        <record model="ir.ui.view" id="crm_media">
+                <field name="name">CRM MEDIA</field>
+                <field name="model">crm.lead.media</field>
+                <field name="arch" type="xml">
+                    <tree editable="top">
+                        <field name="name" string="Medios"/>
+                    </tree>
+                </field>
+        </record>
+        <record model="ir.actions.act_window" id="crm_media_action">
+            <field name="name">Accion</field>
+            <field name="res_model">crm.lead.media</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem name="Canales" id="crm_media_menu" parent="crm.crm_menu_config" action="crm_media_action" sequence="4"/>
+
+        <record model="ir.ui.view" id="crm_payment">
+                <field name="name">CRM PAYMENT</field>
+                <field name="model">crm.lead.payment</field>
+                <field name="arch" type="xml">
+                    <tree editable="top">
+                        <field name="name" string="Pagos"/>
+                    </tree>
+                </field>
+        </record>
+        <record model="ir.actions.act_window" id="crm_payment_action">
+            <field name="name">Accion</field>
+            <field name="res_model">crm.lead.payment</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem name="Canales" id="crm_payment_menu" parent="crm.crm_menu_config" action="crm_payment_action" sequence="5"/>
+
+        <record model="ir.ui.view" id="crm_payment_fraction">
+                <field name="name">CRM PAYMENT</field>
+                <field name="model">crm.lead.payment.fraction</field>
+                <field name="arch" type="xml">
+                    <tree editable="top">
+                        <field name="name" string="Pagos"/>
+                    </tree>
+                </field>
+        </record>
+        <record model="ir.actions.act_window" id="crm_payment_fraction_action">
+            <field name="name">Accion</field>
+            <field name="res_model">crm.lead.payment</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem name="Canales" id="crm_payment_fraction_menu" parent="crm.crm_menu_config" action="crm_payment_fraction_action" sequence="6"/>
     </data>
 </odoo>
