@@ -58,7 +58,7 @@ class crmLead(models.Model):
     channel_id = fields.Many2one('crm.lead.channel', string='Channel')
     plan_id = fields.Many2one('crm.lead.plan', string='Planes')
     media_id = fields.Many2one('crm.lead.media', string='Medio')
-    payment_id = fields.Many2one('crm.lead.payment', string='Formas de Pago')
+    payment_id = fields.Many2one('crm.lead.payment', string='Formas de Pago', tracking=True)
     payment_fraction_id = fields.Many2one('crm.lead.payment.fraction', string='Payment Fraction')
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
     
@@ -68,9 +68,9 @@ class crmLead(models.Model):
     status = fields.Integer(string='Estado')
     tenant_bd_id = fields.Char(string='ID BD', help="Este campo es identificador de tenant para tas-system")
     user = fields.Char(string='UsuarioTS', help="Este campo es para tas-system API")
-    purchase_status = fields.Char(string='Estado de Compra')
-    additional_information = fields.Text(string='Información Adicional')
-    schedule_date = fields.Date(string='Fecha Programada')
+    purchase_status = fields.Char(string='Estado de Compra', tracking=True)
+    additional_information = fields.Text(string='Información Adicional', tracking=True)
+    schedule_date = fields.Date(string='Fecha Programada', tracking=True)
     lead_source = fields.Char(string='Lead Source')
     is_web_site = fields.Boolean('Viene de Web?')
     is_subscription = fields.Boolean('Suscrito a Newsletter?')
@@ -78,12 +78,12 @@ class crmLead(models.Model):
     google_gclid = fields.Char(string='GCLID')
     
     #Información del Viaje
-    destination_country = fields.Char(string='Destino')
+    destination_country = fields.Char(string='Destino', tracking=True)
     is_usa = fields.Boolean('Destino es USA?')
-    passenger_number = fields.Float(string='Nro Pasajeros')
+    passenger_number = fields.Float(string='Nro Pasajeros', tracking=True)
     no_preexistence = fields.Boolean('Sin Preexistencia?')
-    departure_date = fields.Date(string='Fecha de Salida')
-    return_date = fields.Date(string='Fecha de Retorno')
+    departure_date = fields.Date(string='Fecha de Salida', tracking=True)
+    return_date = fields.Date(string='Fecha de Retorno', tracking=True)
     coverage_days = fields.Integer(string="Dias cubiertos", compute="calcule_days")
     @api.depends('departure_date','return_date')
     def calcule_days(self):
@@ -92,18 +92,18 @@ class crmLead(models.Model):
                 s.coverage_days = abs(s.return_date - s.departure_date).days
             else:
                 s.coverage_days = 0
-    initial_price = fields.Float(string='Precio Inicial', digits=(16,2))
+    initial_price = fields.Float(string='Precio Inicial', digits=(16,2), tracking=True)
     price_quote = fields.Float(string='Precio Cotización', digits=(16,2))
     insurance_price = fields.Float(string='Precio Seguro / Final', digits=(16,2))
 
     #Asegurado y Pagos
     is_insurance = fields.Boolean('Asegurado?')
     sales_date = fields.Date(string='Fecha de Venta')
-    other_payment = fields.Text(string='Observaciones de Pago')
+    other_payment = fields.Text(string='Observaciones de Pago', tracking=True)
     paypal_reference = fields.Char(string='Referencia de Venta Paypal')
     payu_account = fields.Char(string='Cuenta Payu')
     order_payu = fields.Char(string='Orden Payu')
-    payment_reference = fields.Char(string='Referencia de Pago')
+    payment_reference = fields.Char(string='Referencia de Pago', tracking=True)
     is_portfolio_recovery = fields.Boolean(string='Recuperación de Cartera?', help='Pago mayor a 45 dias')
     invoice = fields.Char(string='Factura Nro.')
     autorization = fields.Char(string='Autorización')
@@ -114,8 +114,8 @@ class crmLead(models.Model):
     #para usar un campo relacionado se debe llamar al campo relacion 
     #por lo general termina en _id o _ids y luego al campo a llamar
     partner_seller_code = fields.Char(related="user_id.seller_code")
-    code_promotion = fields.Char(string='Codigo Promo Web')
-    code_discount = fields.Char(string='Codigo Creación Manual')
+    code_promotion = fields.Char(string='Codigo Promo Web', tracking=True)
+    code_discount = fields.Char(string='Codigo Creación Manual', tracking=True)
     certificate_number = fields.Char(string='Certificado')
     is_payment_order = fields.Boolean(string='Orden de Pago?')
     discount_percent = fields.Float(string='Descuento %', digits=(3,2))

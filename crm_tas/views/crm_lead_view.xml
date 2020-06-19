@@ -25,7 +25,7 @@
                         <field name="lead_source"/>
                         <field name="is_web_site"/>
                         <field name="is_subscription"/>
-                        <field name="reason_trip"/>
+                        <field name="reason_trip" required="1"/>
                     </xpath>
                     <xpath expr="//field[@name='user_id']" position="after">
                         
