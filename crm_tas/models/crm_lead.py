@@ -59,8 +59,9 @@ class crmLead(models.Model):
     #campos con dominio
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
     #otros campos
+    travel_insurance_request_id = fields.Char(string='Id Cotizacion', help="Este campo es identificador de cotizacion")
     status = fields.Integer(string='Estado')
-    tenant_bd_id = fields.Char(string='ID BD', help="Este campo es identificador de tenant para tas-system")
+    tenant_bd_id = fields.Char(string='Tenant ID BD', help="Este campo es identificador de tenant para tas-system")
     user = fields.Char(string='UsuarioTS', help="Este campo es para tas-system API")
     purchase_status = fields.Char(string='Estado de Compra', tracking=True)
     additional_information = fields.Text(string='Información Adicional', tracking=True)
