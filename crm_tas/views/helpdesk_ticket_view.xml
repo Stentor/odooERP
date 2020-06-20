@@ -133,9 +133,11 @@
                                     <tree>
                                         <field name="amount"/>
                                         <field name="currency"/>
+                                        <field name="res_partner_id"/>
                                         <field name="service_type"/>
                                         <field name="asisst"/>
                                         <field name="create_date"/>
+                                        
                                     </tree>
                                     <form>
                                         <group>
@@ -146,6 +148,7 @@
                                                 <field name="currency"/>
                                                 <field name="service_type"/>
                                                 <field name="reference"/>
+                                                <field name="res_partner_id"/>
                                                 <field name="medical_center_name"/>
                                                 <field name="observation"/>
                                             </group>
