@@ -212,7 +212,7 @@
 
         <record model="ir.ui.view" id="crm_plan">
                 <field name="name">CRM PLAN</field>
-                <field name="model">crm.lead.channel</field>
+                <field name="model">crm.lead.plan</field>
                 <field name="arch" type="xml">
                     <tree editable="top">
                         <field name="name" string="Planes"/>
