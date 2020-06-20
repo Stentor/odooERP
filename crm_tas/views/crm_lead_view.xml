@@ -104,6 +104,7 @@
                                         <field name="return_date"/>
                                         <field name="initial_price"/>
                                         <field name="price_quote"/>
+                                        <field name="insurance_price"/>
                                     </group>
                                 </group>
                             </page>
