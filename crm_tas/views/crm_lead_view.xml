@@ -21,7 +21,7 @@
                     </field>
 
                     <xpath expr="//label[@for='email_from']" position="before">
-                        <field name="user" string="Usuario TAS" readonly="1"/>travel_insurance_request_id
+                        <field name="user" string="Usuario TAS" readonly="1"/> 
                         <field name="travel_insurance_request_id" string="ID base Mysql" readonly="1"/>
                         <field name="lead_source"/>
                         <field name="is_web_site"/>
