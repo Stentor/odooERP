@@ -113,7 +113,17 @@ class crmLead(models.Model):
     code_discount = fields.Char(string='Codigo Creación Manual', tracking=True)
     certificate_number = fields.Char(string='Certificado')
     is_payment_order = fields.Boolean(string='Orden de Pago?')
-    discount_percent = fields.Float(string='Descuento %', digits=(3,2))
+    discount_percent = fields.Float(string='Descuento %', digits=(3,2), compute="asignarDescuento")
+    @api.depends('code_promotion')
+    def asignarDescuento(self):
+        for s in self:
+            if s.code_promotion:
+                descuento = s.code_promotion
+                valord = descuento[:2]
+                s.discount_percent = int(valord)
+            else:
+                s.discount_percent = 0
+
     offer_date = fields.Date(string='Limite de Oferta')
     add_price = fields.Float(string='Importe Adicionales', digits=(16,2), default=0.00)
     plan_price = fields.Float(string='Importe Asistencia Plan', digits=(16,2), default=0.00)
