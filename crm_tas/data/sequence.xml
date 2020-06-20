@@ -36,14 +36,5 @@
             <field name="number_increment">1</field>
             <field name="use_date_range">1</field>
         </record>
-        <record id="sequence_case" model="ir.sequence">
-            <field name="name">Secuencia Caso</field>
-            <field name="implementation">standard</field>
-            <field name="code">sequence_case</field>
-            <field name="prefix">CAS-%(range_year)s-</field>
-            <field name="padding">6</field>
-            <field name="number_increment">1</field>
-            <field name="use_date_range">1</field>
-        </record>
     </data>
 </odoo>

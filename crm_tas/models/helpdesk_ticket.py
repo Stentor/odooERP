@@ -359,14 +359,7 @@ class HelpdeskTicket(models.Model):
     subject = fields.Char(string='Asunto')
     is_email_survey = fields.Boolean('Encuesta por email?')
     is_wsp_survey = fields.Boolean('Encuesta por WSP?')
-    auto_id_case = fields.Char(string='ID CASO')
-    #aplicación de secuencia
-    @api.model
-    def create(self, vals):
-        vals['auto_id_case'] = self.env['ir.sequence'].next_by_code(
-                'sequence_case') or 'New'
-        result = super(HelpdeskTicket, self).create(vals)
-        return result
+    
     
     
     
