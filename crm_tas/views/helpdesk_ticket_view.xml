@@ -130,22 +130,12 @@
                             <!-- Reference ticket_type  -->
                             <page id="page_gop" string="GOP"  attrs="{'invisible':[('ticket_type','!=','Asistencia Medica')]}">
                                 <field name="gop_ids" >
-                                    <tree editable="bottom">
-                                        <field name="name"/>
-                                        <field name="code"/>
+                                    <tree>
                                         <field name="amount"/>
                                         <field name="currency"/>
                                         <field name="service_type"/>
-                                        <field name="reference"/>
-                                        <field name="medical_center_name"/>
-                                        <field name="observation"/>
                                         <field name="asisst"/>
-                                        <field name="is_reviewed"/>
-                                        <field name="is_paid"/>
-                                        <field name="invoice_number"/>
-                                        <field name="is_disputed"/>
-                                        <field name="invoice_month"/>
-                                        <field name="payment_month"/>
+                                        <field name="create_date"/>
                                     </tree>
                                     <form>
                                         <group>
@@ -202,6 +192,7 @@
                                         <field name="auto_id_comentario"/>
                                         <field name="comment_type"/>
                                         <field name="comment_description"/>
+                                        <field name="create_date"/>
                                     </tree>
                                     <form>
                                         <group>

@@ -202,6 +202,7 @@ class HelpdeskTicketGOP(models.Model):
     is_disputed = fields.Boolean('Disputa?')
     invoice_month = fields.Selection(MONTHS_SELECTION, string='Mes de Facturación')
     payment_month = fields.Selection(MONTHS_SELECTION, string='Mes de Pago')
+    res_partner_id = fields.Many2one('res.partner', string="Proveedor", domain="[('is_provider','=','true')]")
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
 
 class HelpdeskTicketComment(models.Model):

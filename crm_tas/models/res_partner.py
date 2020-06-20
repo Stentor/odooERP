@@ -21,3 +21,4 @@ class ResPartner(models.Model):
     city_id = fields.Char(string='Ciudad ID', tracking=True)
     client_name = fields.Char(string='Nombre de Cliente')
     client_surname = fields.Char(string='Apellido de Cliente')
+    is_provider = fields.Boolean('Proveedor?')
