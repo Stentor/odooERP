@@ -204,6 +204,14 @@ class HelpdeskTicketGOP(models.Model):
     payment_month = fields.Selection(MONTHS_SELECTION, string='Mes de Pago')
     res_partner_id = fields.Many2one('res.partner', string="Proveedor", domain="[('is_provider','=','true')]")
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+    auto_id_gop = fields.Char(string='ID Gop')
+    #aplicación de secuencia
+    @api.model
+    def create(self, vals):
+        vals['auto_id_gop'] = self.env['ir.sequence'].next_by_code(
+                'sequence_gop') or 'New'
+        result = super(HelpdeskTicketGOP, self).create(vals)
+        return result
 
 class HelpdeskTicketComment(models.Model):
     _name = 'helpdesk.ticket.comment'
@@ -235,6 +243,14 @@ class HelpdeskTicketQuality(models.Model):
     expend = fields.Float(string='Gasto Incurrido', digits=(16,2))
     cmments_delete = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Eliminación / Cambio de comentario')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+    auto_id_quality = fields.Char(string='ID Calidad')
+    #aplicación de secuencia
+    @api.model
+    def create(self, vals):
+        vals['auto_id_quality'] = self.env['ir.sequence'].next_by_code(
+                'sequence_quality') or 'New'
+        result = super(HelpdeskTicketQuality, self).create(vals)
+        return result
 
 class HelpdeskTicketQuiz(models.Model):
     _name = 'helpdesk.ticket.quiz'
@@ -245,6 +261,14 @@ class HelpdeskTicketQuiz(models.Model):
     q_classification = fields.Selection(CLASSIFICATION_SELECTION, string='Clasificacion')
     q_observation = fields.Text(string='Eliminación / Cambio de comentario')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+    auto_id_quiz = fields.Char(string='ID Encuesta')
+    #aplicación de secuencia
+    @api.model
+    def create(self, vals):
+        vals['auto_id_quiz'] = self.env['ir.sequence'].next_by_code(
+                'sequence_quiz') or 'New'
+        result = super(HelpdeskTicketQuiz, self).create(vals)
+        return result
 
 class HelpdeskTicketSubType(models.Model):
     _name = 'helpdesk.ticket.subtype'
@@ -335,6 +359,14 @@ class HelpdeskTicket(models.Model):
     subject = fields.Char(string='Asunto')
     is_email_survey = fields.Boolean('Encuesta por email?')
     is_wsp_survey = fields.Boolean('Encuesta por WSP?')
+    auto_id_case = fields.Char(string='ID CASO')
+    #aplicación de secuencia
+    @api.model
+    def create(self, vals):
+        vals['auto_id_case'] = self.env['ir.sequence'].next_by_code(
+                'sequence_case') or 'New'
+        result = super(HelpdeskTicket, self).create(vals)
+        return result
     
     
     
