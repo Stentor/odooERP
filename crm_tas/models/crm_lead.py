@@ -119,7 +119,7 @@ class crmLead(models.Model):
         for s in self:
             if s.code_promotion:
 
-                if s.code_promotion != "ERRCODE":
+                if s.code_promotion != "XERRCODE":
                     descuento = s.code_promotion
                     valord = descuento[:2]
                     
