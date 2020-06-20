@@ -118,9 +118,18 @@ class crmLead(models.Model):
     def asignarDescuento(self):
         for s in self:
             if s.code_promotion:
-                descuento = s.code_promotion
-                valord = descuento[:2]
-                s.discount_percent = int(valord)-1
+
+                if s.code_promotion != "ERRCODE":
+                    descuento = s.code_promotion
+                    valord = descuento[:2]
+                    
+                    if valord.isdigit():
+                        valorfd = int(valord)-1
+                        s.discount_percent = valorfd
+                    else:
+                        s.discount_percent = 0
+                else:
+                    s.discount_percent = 10
             else:
                 s.discount_percent = 0
 
