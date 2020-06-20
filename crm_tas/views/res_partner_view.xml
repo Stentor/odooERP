@@ -12,6 +12,7 @@
                         <group>
                             <group>
                                 <field name="client_name" string="Nombre" />
+                                <field name="is_provider" />
                             </group>
                             <group>
                                 <field name="client_surname" string="Apellido" />
