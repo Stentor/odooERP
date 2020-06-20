@@ -120,7 +120,7 @@ class crmLead(models.Model):
             if s.code_promotion:
                 descuento = s.code_promotion
                 valord = descuento[:2]
-                s.discount_percent = int(valord)
+                s.discount_percent = int(valord)-1
             else:
                 s.discount_percent = 0
 
