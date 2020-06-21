@@ -201,6 +201,7 @@ class HelpdeskTicketGOP(models.Model):
     res_partner_id = fields.Many2one('res.partner', string="Proveedor", domain="[('is_provider','=','true')]")
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
     auto_id_gop = fields.Char(string='ID Gop')
+    operator_id = fields.Many2one('helpdesk.ticket.operator', string="Operador", domain="[('is_active','=','true')]")
     #aplicación de secuencia
     @api.model
     def create(self, vals):
@@ -280,7 +281,8 @@ class HelpdeskTicketOperator(models.Model):
     is_active = fields.Boolean('Activo?')
     is_coordinator = fields.Boolean('Coordinador?')
     helpdesk_ids = fields.One2many('helpdesk.ticket','operator_id', string="Casos")
-    comment_ids = fields.One2many('helpdesk.ticket.comment','operator_id', string="Casos")
+    comment_ids = fields.One2many('helpdesk.ticket.comment','operator_id', string="Comentarios")
+    comment_ids = fields.One2many('helpdesk.ticket.gop','operator_id', string="GOPS")
     
 
 class HelpdeskTicket(models.Model):

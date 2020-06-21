@@ -4,7 +4,7 @@
     'name': "CRM TAS",
     'summary': """
         Personalización con nuevos campos relacionados en Contactos, CRM, HELPDESK""",
-    'version': '0.85',
+    'version': '0.86',
     'depends': [
         'base',
         'crm',
