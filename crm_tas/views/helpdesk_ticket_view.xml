@@ -238,10 +238,10 @@
                 </field>
         </record>
         <record model="ir.actions.act_window" id="helpdesk_ticket_operator_action">
-            <field name="name">Codigos</field>
+            <field name="name">Operadores</field>
             <field name="res_model">helpdesk.ticket.operator</field>
             <field name="view_mode">tree</field>
         </record>
-        <menuitem name="Codigos Descuento" id="helpdesk_ticket_operator_menu" parent="helpdesk.helpdesk_menu_config" action="helpdesk_ticket_operator_action" sequence="2"/>
+        <menuitem name="Operadores" id="helpdesk_ticket_operator_menu" parent="helpdesk.helpdesk_menu_config" action="helpdesk_ticket_operator_action" sequence="2"/>
     </data>
 </odoo>
