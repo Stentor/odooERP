@@ -14,7 +14,7 @@
                         <field name="assist_type" />
                         <field name="sub_assist_type" domain="[('assist_type','=', assist_type)]" widget="selection"/>
                         <field name="ticket_type" invisible="1"/>
-                        <field name="crm_lead_id"/>
+                        <field name="crm_lead_id" options="{'no_create_edit': True}"/>
                     </field>
 
                     <!--Inicio Campos a ser reemplazados-->
@@ -147,13 +147,13 @@
                                         <field name="service_type"/>
                                         <field name="asisst"/>
                                         <field name="create_date"/>
-                                        
                                     </tree>
                                     <form>
                                         <group>
                                             <group>
-                                                <field name="name"/>
-                                                <field name="code"/>
+                                                <field name="operator_id" options="{'no_create_edit': True}" required="1" />
+                                                <field name="name" visible="0"/>
+                                                <field name="code" visible="0"/>
                                                 <field name="amount" required="1"/>
                                                 <field name="currency_id" required="1"/>
                                                 <field name="service_type" required="1"/>
@@ -228,13 +228,27 @@
                 <field name="name">Operator</field>
                 <field name="model">helpdesk.ticket.operator</field>
                 <field name="arch" type="xml">
-                    <tree editable="top">
+                    <tree>
                         <field name="name"/>
                         <field name="is_active"/>
                         <field name="is_coordinator"/>
-                        <field name="helpdesk_ids"/>
-                        <field name="comment_ids"/>
                     </tree>
+                    <form>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="is_coordinator"/>
+                            </group>
+                            <group>
+                                <field name="is_active"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="helpdesk_ids"/>
+                            <field name="comment_ids"/>
+                            <field name="gop_ids"/>
+                        </group>
+                    </form>
                 </field>
         </record>
         <record model="ir.actions.act_window" id="helpdesk_ticket_operator_action">

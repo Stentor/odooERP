@@ -282,7 +282,7 @@ class HelpdeskTicketOperator(models.Model):
     is_coordinator = fields.Boolean('Coordinador?')
     helpdesk_ids = fields.One2many('helpdesk.ticket','operator_id', string="Casos")
     comment_ids = fields.One2many('helpdesk.ticket.comment','operator_id', string="Comentarios")
-    comment_ids = fields.One2many('helpdesk.ticket.gop','operator_id', string="GOPS")
+    gop_ids = fields.One2many('helpdesk.ticket.gop','operator_id', string="GOPS")
     
 
 class HelpdeskTicket(models.Model):
