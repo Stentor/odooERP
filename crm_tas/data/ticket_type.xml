@@ -1,7 +1,7 @@
 <odoo>
     <data>
          <!--
-            Ticket Type
+            Ticket Type Tipo de registro de caso
         -->
         <record id="asistencia_viaje" model="helpdesk.ticket.type">
             <field name="name">Asistencia de Viaje</field>
