@@ -3,6 +3,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 REASON_TRIP_SELECTION = [
+    ('Desconocido','Desconocido'),
     ('Turismo','Turismo'),
     ('Estudios','Estudios'),
     ('Trabajo','Trabajo'),
