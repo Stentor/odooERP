@@ -23,13 +23,12 @@
                     <xpath expr="//label[@for='email_from']" position="before">
                         <field name="user" string="Usuario TAS" readonly="1"/> 
                         <field name="travel_insurance_request_id" string="ID base Mysql" readonly="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='user_id']" position="after">
                         <field name="lead_source"/>
                         <field name="is_web_site"/>
                         <field name="is_subscription"/>
                         <field name="reason_trip" required="1"/>
-                    </xpath>
-                    <xpath expr="//field[@name='user_id']" position="after">
-                        
                         <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento" domain="[('name','ilike',partner_seller_code)]"/>
                     </xpath>
                     <xpath expr="//notebook" position="inside">
