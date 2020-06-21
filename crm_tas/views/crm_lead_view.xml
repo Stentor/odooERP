@@ -109,6 +109,94 @@
                                     <field name="is_pax2_preexistence"/>
                                 </group>
                               </group>
+                              <group>
+                                <group>
+                                    <field name="pax3_nombre"/>
+                                    <field name="pax3_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax3_edad"/>
+                                    <field name="pax3_dni"/>
+                                    <field name="is_pax3_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax4_nombre"/>
+                                    <field name="pax4_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax4_edad"/>
+                                    <field name="pax4_dni"/>
+                                    <field name="is_pax4_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax5_nombre"/>
+                                    <field name="pax5_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax5_edad"/>
+                                    <field name="pax5_dni"/>
+                                    <field name="is_pax5_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax6_nombre"/>
+                                    <field name="pax6_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax6_edad"/>
+                                    <field name="pax6_dni"/>
+                                    <field name="is_pax6_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax7_nombre"/>
+                                    <field name="pax7_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax7_edad"/>
+                                    <field name="pax7_dni"/>
+                                    <field name="is_pax7_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax8_nombre"/>
+                                    <field name="pax8_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax8_edad"/>
+                                    <field name="pax8_dni"/>
+                                    <field name="is_pax8_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax9_nombre"/>
+                                    <field name="pax9_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax9_edad"/>
+                                    <field name="pax9_dni"/>
+                                    <field name="is_pax9_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax10_nombre"/>
+                                    <field name="pax10_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax10_edad"/>
+                                    <field name="pax10_dni"/>
+                                    <field name="is_pax10_preexistence"/>
+                                </group>
+                              </group>
                         </page>
                     </xpath>
                     <xpath expr="//form/sheet/notebook" position="before">

@@ -208,6 +208,71 @@ class crmLead(models.Model):
     pax2_dni = fields.Char('Id Pax 2')
     is_pax2_preexistence = fields.Boolean('Preexistencia Pax 2?')
 
+    #pasajeros 3
+    pax1_nombre =  fields.Char('Nombre Pax 3')
+    pax1_apellido = fields.Char('Apellido Pax 3')
+    pax1_edad = fields.Integer(string='Edad Pax 3')
+    pax1_dni = fields.Char('Id Pax 3')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 3?')
+
+    #pasajeros 4
+    pax1_nombre =  fields.Char('Nombre Pax 4')
+    pax1_apellido = fields.Char('Apellido Pax 4')
+    pax1_edad = fields.Integer(string='Edad Pax 4')
+    pax1_dni = fields.Char('Id Pax 4')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 4?')
+
+    #pasajeros 5
+    pax1_nombre =  fields.Char('Nombre Pax 5')
+    pax1_apellido = fields.Char('Apellido Pax 5')
+    pax1_edad = fields.Integer(string='Edad Pax 5')
+    pax1_dni = fields.Char('Id Pax 5')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 5?')
+
+    #pasajeros 6
+    pax1_nombre =  fields.Char('Nombre Pax 6')
+    pax1_apellido = fields.Char('Apellido Pax 6')
+    pax1_edad = fields.Integer(string='Edad Pax 6')
+    pax1_dni = fields.Char('Id Pax 6')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 6?')
+
+    #pasajeros 7
+    pax1_nombre =  fields.Char('Nombre Pax 7')
+    pax1_apellido = fields.Char('Apellido Pax 7')
+    pax1_edad = fields.Integer(string='Edad Pax 7')
+    pax1_dni = fields.Char('Id Pax 7')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 7?')
+
+
+    #pasajeros 8
+    pax1_nombre =  fields.Char('Nombre Pax 8')
+    pax1_apellido = fields.Char('Apellido Pax 8')
+    pax1_edad = fields.Integer(string='Edad Pax 8')
+    pax1_dni = fields.Char('Id Pax 8')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 8?')
+
+
+    #pasajeros 9
+    pax1_nombre =  fields.Char('Nombre Pax 9')
+    pax1_apellido = fields.Char('Apellido Pax 9')
+    pax1_edad = fields.Integer(string='Edad Pax 9')
+    pax1_dni = fields.Char('Id Pax 9')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 9?')
+
+
+    #pasajeros 10
+    pax1_nombre =  fields.Char('Nombre Pax 10')
+    pax1_apellido = fields.Char('Apellido Pax 10')
+    pax1_edad = fields.Integer(string='Edad Pax 10')
+    pax1_dni = fields.Char('Id Pax 10')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 10?')
+
+
+
+
+
+
+
 
 
 
