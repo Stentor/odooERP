@@ -7,13 +7,23 @@
                 <field name="model">helpdesk.ticket</field>
                 <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"></field>
                 <field name="arch" type="xml">
-                    
+                     
                     <field name="ticket_type_id" position="after">
+                        <field name="operator_id" />
+                        <field name="ticket_type_id" string="Tipo de registro del caso" options="{'no_create_edit': True}"/>
                         <field name="assist_type" />
                         <field name="sub_assist_type" domain="[('assist_type','=', assist_type)]" widget="selection"/>
                         <field name="ticket_type" invisible="1"/>
                         <field name="crm_lead_id"/>
                     </field>
+
+                    <!--Inicio Campos a ser reemplazados-->
+                    <field name="partner_name" position="replace"/>
+                    <field name="partner_email" position="replace"/>
+                    <field name="email_cc" position="replace"/>
+                    <field name="ticket_type_id" position="replace"/>
+                    <!--Fin Campos a ser reemplazados-->
+
                     <field name="sla_deadline" position="after">
                         <field name="urgency_level"/>
                         <field name="consultation_reason"/>
@@ -21,9 +31,7 @@
                         <field name="case_close_motive"/>
                         <field name="tracking_type"/>
                         <field name="is_disputed"/>
-                        <field name="amount"/>
-                        <field name="currency_id"/>
-                        <field name="amount_local"/>
+                        
                     </field>
                     <xpath expr="//form/sheet/group/group[2]" position="inside">
                         <field name="create_date"/>
@@ -33,12 +41,9 @@
                         <field name="copay"/>
                         <field name="lack"/>
                         <field name="service_level"/>
-                        <field name="pending_document_id"/>
+                        <field name="pending_document_id" visible="0"/>
                     </xpath>
-                    <!--Campos a ser reemplazados-->
-                    <field name="partner_name" position="replace"/>
-                    <field name="partner_email" position="replace"/>
-                    <field name="email_cc" position="replace"/>
+                   
                     <xpath expr="//form/sheet" position="inside">
                         <notebook>
                             <page id="partner_information" string="Información del Cliente">
@@ -70,6 +75,9 @@
                                             <field name="answer_date"/>
                                             <field name="disputed_case"/>
                                             <field name="payment_date"/>
+                                            <field name="amount"/>
+                                            <field name="currency_id"/>
+                                            <field name="amount_local"/>
                                         </group>
                                         <group>
                                             <field name="refund"/>
@@ -195,6 +203,7 @@
                             <page id="page_comment" string="Comentarios">
                                 <field name="comment_ids">
                                     <tree>
+                                        <field name="operator_id"/>
                                         <field name="auto_id_comentario"/>
                                         <field name="comment_type"/>
                                         <field name="comment_description"/>
@@ -202,6 +211,7 @@
                                     </tree>
                                     <form>
                                         <group>
+                                            <field name="operator_id" options="{'no_create_edit': True}" required="1" />
                                             <field name="comment_type" required="1"/>
                                             <field name="comment_description" required="1"/>
                                         </group>
@@ -212,5 +222,26 @@
                     </xpath>
                 </field>
         </record>
+        
+        <!-- Add instructor field to new view on menu-->
+        <record model="ir.ui.view" id="helpdesk_ticket_operator">
+                <field name="name">Operator</field>
+                <field name="model">helpdesk.ticket.operator</field>
+                <field name="arch" type="xml">
+                    <tree editable="top">
+                        <field name="name"/>
+                        <field name="is_active"/>
+                        <field name="is_coordinator"/>
+                        <field name="helpdesk_ids"/>
+                        <field name="comment_ids"/>
+                    </tree>
+                </field>
+        </record>
+        <record model="ir.actions.act_window" id="helpdesk_ticket_operator_action">
+            <field name="name">Codigos</field>
+            <field name="res_model">res.partner.code</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem name="Codigos Descuento" id="helpdesk_ticket_operator_menu" parent="helpdesk.helpdesk_menu_config" action="helpdesk_ticket_operator_action" sequence="2"/>
     </data>
 </odoo>

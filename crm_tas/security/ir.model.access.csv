@@ -10,3 +10,4 @@ helpdesk_ticket_quiz,helpdesk.ticket.quiz,model_helpdesk_ticket_quiz,base.group_
 crm_helpdesk,crm helpdesk,model_helpdesk_ticket,sales_team.group_sale_manager,1,0,0,0
 helpdesk_ticket_subtype,helpdesk.ticket.subtype,model_helpdesk_ticket_subtype,base.group_user,1,1,1,1
 helpdesk_ticket_comment,helpdesk.ticket.comment,model_helpdesk_ticket_comment,base.group_user,1,1,1,1
+helpdesk_ticket_operator,helpdesk.ticket.operator,model_helpdesk_ticket_operator,base.group_user,1,1,1,1

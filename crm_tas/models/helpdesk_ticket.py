@@ -2,10 +2,6 @@
 from odoo import api, fields, models, _
 from datetime import datetime, date
 #listas de seleccion fijas
-CURRENCY_SELECTION = [
-    ('ARS', 'ARS-Peso Argentino'), 
-    ('AUD', 'AUD-Dolar Australia')
-]
 SERVICE_TYPE_SELECTION = [
     ('Centro_Medico', 'Centro Médico'), 
     ('Consulta_con_Especialista', 'Consulta con Especialista'), 
@@ -167,8 +163,8 @@ CASE_PRIORITY_SELECTION = [
 ASSIT_TYPE_SELECTION = [
     ('asistencia_medica','Asistencia médica'),
     ('fuera_cobertura','Fuera de cobertura'),
-    ('repatriacion_traslado','Repatriación y traslado'), #primero
-    ('asistencia_equipaje','Asistencia Equipaje'), #segundo
+    ('repatriacion_traslado','Repatriación y traslado'),
+    ('asistencia_equipaje','Asistencia Equipaje'),
     ('asistencia_viaje','Asistencia Viaje'),
     ('aux_asistencia_legal','Aux y Asistencia Legal')
 ]
@@ -190,7 +186,7 @@ class HelpdeskTicketGOP(models.Model):
     name = fields.Char(string='GOPS')
     code = fields.Char(string='Codigo de GOP')
     amount = fields.Float(string='Monto', digits=(16,2), tracking=True)
-    currency = fields.Selection(CURRENCY_SELECTION, string='Moneda GOP', tracking=True)
+    currency = fields.Many2one('res.currency', string="Moneda GOP", tracking=True)
     service_type = fields.Selection(SERVICE_TYPE_SELECTION, string='Tipo de Servicio', tracking=True)
     reference = fields.Text(string="Referencia GOP")
     medical_center_name = fields.Text(string="Nombre de Centro Médico")
@@ -222,6 +218,7 @@ class HelpdeskTicketComment(models.Model):
     comment_type = fields.Selection(COMMENT_SELECTION, string='Tipo')
     comment_description = fields.Text(string="Descripcion")
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+    operator_id = fields.Many2one('helpdesk.ticket.operator', string="Operador", domain="[('is_active','=','true')]")
     #aplicación de secuencia
     @api.model
     def create(self, vals):
@@ -276,6 +273,16 @@ class HelpdeskTicketSubType(models.Model):
     name = fields.Char(string='Sub Tipo')
     assist_type = fields.Selection(ASSIT_TYPE_SELECTION, string='Tipo de Asistencia')
 
+class HelpdeskTicketOperator(models.Model):
+    _name = 'helpdesk.ticket.operator'
+    _description = "Operador"
+    name = fields.Char(string='Nombre del Operador')
+    is_active = fields.Boolean('Activo?')
+    is_coordinator = fields.Boolean('Coordinador?')
+    helpdesk_ids = fields.One2many('helpdesk.ticket','operator_id', string="Casos")
+    comment_ids = fields.One2many('helpdesk.ticket.comment','operator_id', string="Casos")
+    
+
 class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
 
@@ -286,6 +293,7 @@ class HelpdeskTicket(models.Model):
 
     ticket_type = fields.Char(related="ticket_type_id.name")
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain="[('type','=','opportunity')]")
+    operator_id = fields.Many2one('helpdesk.ticket.operator', string="Operador", domain="[('is_active','=','true')]")
     
     #campos relacionados enlazados
     assist_type = fields.Selection(ASSIT_TYPE_SELECTION, string='Tipo de Asistencia')
@@ -297,10 +305,10 @@ class HelpdeskTicket(models.Model):
     consultation_reason = fields.Text(string='Motivo de Consulta')
     observations = fields.Text(string='Observaciones')
     case_close_motive = fields.Selection(CASE_CLOSE_MOTIVE_SELECTION, string='Motivo Cierre Caso')
-    tracking_type = fields.Selection(TRACKING_TYPE_SELECTION, string='Tipo De Seguimiento')
+    tracking_type = fields.Selection(TRACKING_TYPE_SELECTION, string='Origen de Asistencia')
     is_disputed = fields.Boolean('Disputa?', default=True)
     case_state = fields.Selection(CASE_STATE_SELECTION, string='Estado de Caso')
-    turn = fields.Selection([('B', 'B'), ('C', 'C')], string='Turno')
+    turn = fields.Selection([('A', 'A'),('B', 'B'), ('C', 'C')], string='Turno')
     copay = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Copago')
     lack = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Carencia')
     service_level = fields.Selection(SERVICE_LEVEL_SELECTION, string='Nivel de Servicio', tracking=True)

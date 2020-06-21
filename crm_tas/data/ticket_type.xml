@@ -9,9 +9,13 @@
         <record id="asistencia_medica" model="helpdesk.ticket.type">
             <field name="name">Asistencia Medica</field>
         </record>
+        <record id="asistencia_medica" model="helpdesk.ticket.type">
+            <field name="name">Internal Cases</field>
+        </record>
         <!--
            TIPO LIGADO CON  Sub Tipo
         -->
+        <!--repatriacion_traslado-->
         <record id="repatriacion_traslado1" model="helpdesk.ticket.subtype">
             <field name="name">Acompanamiento de Menores</field>
             <field name="assist_type">repatriacion_traslado</field>
@@ -28,12 +32,13 @@
             <field name="name">Repatriac Sanitaria</field>
             <field name="assist_type">repatriacion_traslado</field>
         </record>
+        <!--asistencia_equipaje-->
         <record id="asistencia_equipaje1" model="helpdesk.ticket.subtype">
             <field name="name">Demora Equipaje</field>
             <field name="assist_type">asistencia_equipaje</field>
         </record>
         <record id="asistencia_equipaje2" model="helpdesk.ticket.subtype">
-            <field name="name">Acompanamiento de Menores</field>
+            <field name="name">Rastreo Equipaje</field>
              <field name="assist_type">asistencia_equipaje</field>
         </record>
         <record id="asistencia_equipaje3" model="helpdesk.ticket.subtype">
@@ -43,6 +48,178 @@
         <record id="asistencia_equipaje4" model="helpdesk.ticket.subtype">
             <field name="name">Perdida Equipaje</field>
              <field name="assist_type">asistencia_equipaje</field>
+        </record>
+        <!--asistencia_medica-->
+        <record id="asistencia_medica1" model="helpdesk.ticket.subtype">
+            <field name="name">Afecciones Oculares</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica2" model="helpdesk.ticket.subtype">
+            <field name="name">Apendicitis</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica3" model="helpdesk.ticket.subtype">
+            <field name="name">Cefalea-Migrana</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica4" model="helpdesk.ticket.subtype">
+            <field name="name">Desmayo-Inconciencia</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica5" model="helpdesk.ticket.subtype">
+            <field name="name">Dolor de Oido</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica6" model="helpdesk.ticket.subtype">
+            <field name="name">Embarazo</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica7" model="helpdesk.ticket.subtype">
+            <field name="name">Enf Cardiacas</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica8" model="helpdesk.ticket.subtype">
+            <field name="name">Enf Gastrointestinal</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica9" model="helpdesk.ticket.subtype">
+            <field name="name">Enf Preexistente</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica10" model="helpdesk.ticket.subtype">
+            <field name="name">Enf Respiratorias</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica11" model="helpdesk.ticket.subtype">
+            <field name="name">Enf Transmision Sexual</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica12" model="helpdesk.ticket.subtype">
+            <field name="name">Ginecologia</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica13" model="helpdesk.ticket.subtype">
+            <field name="name">Heridas-Cortadiras</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica14" model="helpdesk.ticket.subtype">
+            <field name="name">Infeccion</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica15" model="helpdesk.ticket.subtype">
+            <field name="name">Infeccion Urinaria</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica16" model="helpdesk.ticket.subtype">
+            <field name="name">Intoxicacion</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica17" model="helpdesk.ticket.subtype">
+            <field name="name">Lesiones de Piel</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica18" model="helpdesk.ticket.subtype">
+            <field name="name">Malestar Gen-Gripal</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica19" model="helpdesk.ticket.subtype">
+            <field name="name">Masas-Protuberancias</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica20" model="helpdesk.ticket.subtype">
+            <field name="name">Neurologicas</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica21" model="helpdesk.ticket.subtype">
+            <field name="name">Odontologica</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica22" model="helpdesk.ticket.subtype">
+            <field name="name">Ortesis</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica23" model="helpdesk.ticket.subtype">
+            <field name="name">Osteomuscular</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica24" model="helpdesk.ticket.subtype">
+            <field name="name">Traumatismo-Golpe</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <record id="asistencia_medica25" model="helpdesk.ticket.subtype">
+            <field name="name">Urologia</field>
+            <field name="assist_type">asistencia_medica</field>
+        </record>
+        <!--fuera_cobertura-->
+        <record id="fuera_cobertura1" model="helpdesk.ticket.subtype">
+            <field name="name">Exclusion Taxativa</field>
+            <field name="assist_type">fuera_cobertura</field>
+        </record>
+        <record id="fuera_cobertura2" model="helpdesk.ticket.subtype">
+            <field name="name">Fuera de Vigencia</field>
+            <field name="assist_type">fuera_cobertura</field>
+        </record>
+        <record id="fuera_cobertura3" model="helpdesk.ticket.subtype">
+            <field name="name">Incumple Clausula</field>
+            <field name="assist_type">fuera_cobertura</field>
+        </record>
+        <record id="fuera_cobertura4" model="helpdesk.ticket.subtype">
+            <field name="name">Periodo de Carencia</field>
+            <field name="assist_type">fuera_cobertura</field>
+        </record>
+        <!--asistencia_viaje-->
+        <record id="asistencia_viaje1" model="helpdesk.ticket.subtype">
+            <field name="name">Asistencia Mascota</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje2" model="helpdesk.ticket.subtype">
+            <field name="name">Cancelacion de viaje</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje3" model="helpdesk.ticket.subtype">
+            <field name="name">Linea Consultas</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje4" model="helpdesk.ticket.subtype">
+            <field name="name">Mensajes Urgentes</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje5" model="helpdesk.ticket.subtype">
+            <field name="name">Perdida Pasaporte</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje6" model="helpdesk.ticket.subtype">
+            <field name="name">Retraso Vuelo</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje7" model="helpdesk.ticket.subtype">
+            <field name="name">Tech Protection</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje8" model="helpdesk.ticket.subtype">
+            <field name="name">Cancelacion de vuelo</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <record id="asistencia_viaje9" model="helpdesk.ticket.subtype">
+            <field name="name">Interrupcion de viaje</field>
+            <field name="assist_type">asistencia_viaje</field>
+        </record>
+        <!--aux_asistencia_legal-->
+        <record id="aux_asistencia_legal1" model="helpdesk.ticket.subtype">
+            <field name="name">Asistencia Legal</field>
+            <field name="assist_type">aux_asistencia_legal</field>
+        </record>
+         <record id="aux_asistencia_legal2" model="helpdesk.ticket.subtype">
+            <field name="name">Danos a Terceros</field>
+            <field name="assist_type">aux_asistencia_legal</field>
+        </record>
+         <record id="aux_asistencia_legal3" model="helpdesk.ticket.subtype">
+            <field name="name">Transferencia Fondos</field>
+            <field name="assist_type">aux_asistencia_legal</field>
+        </record>
+         <record id="aux_asistencia_legal4" model="helpdesk.ticket.subtype">
+            <field name="name">Trans Fondos Fianza</field>
+            <field name="assist_type">aux_asistencia_legal</field>
         </record>
     </data>
 </odoo>
