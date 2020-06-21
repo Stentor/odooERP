@@ -162,7 +162,7 @@
                                 <group>
                                     <group>
                                         <field name="partner_seller_code" string="Codigo de descuento" />
-                                        <field name="code_promotion" readonly="1"/>
+                                        <field name="code_promotion" />
                                         <field name="code_discount"/>
                                         <field name="certificate_number"/>
                                         <field name="is_payment_order"/>
