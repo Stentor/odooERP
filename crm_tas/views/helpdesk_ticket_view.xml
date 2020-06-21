@@ -241,12 +241,10 @@
                             </group>
                             <group>
                                 <field name="is_active"/>
-                            </group>
-                        </group>
-                        <group>
-                            <field name="helpdesk_ids"/>
+                                <field name="helpdesk_ids"/>
                             <field name="comment_ids"/>
                             <field name="gop_ids"/>
+                            </group>
                         </group>
                     </form>
                 </field>
