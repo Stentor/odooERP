@@ -9,7 +9,7 @@
         <record id="asistencia_medica" model="helpdesk.ticket.type">
             <field name="name">Asistencia Medica</field>
         </record>
-        <record id="asistencia_medica" model="helpdesk.ticket.type">
+        <record id="internal_case" model="helpdesk.ticket.type">
             <field name="name">Internal Cases</field>
         </record>
         <!--
