@@ -161,7 +161,7 @@
                             <page id="ventas" string="Proceso de Ventas">
                                 <group>
                                     <group>
-                                        <field name="partner_seller_code" string="Codigo de descuento" />
+                                        <field name="partner_seller_code"/>
                                         <field name="code_promotion" />
                                         <field name="code_discount"/>
                                         <field name="certificate_number"/>

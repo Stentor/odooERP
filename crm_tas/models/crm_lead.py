@@ -109,7 +109,7 @@ class crmLead(models.Model):
     #Proceso de Ventas
     #para usar un campo relacionado se debe llamar al campo relacion 
     #por lo general termina en _id o _ids y luego al campo a llamar
-    partner_seller_code = fields.Char(related="user_id.seller_code")
+    partner_seller_code = fields.Char(related="user_id.seller_code" string='Codigo Asesor ABR')
     code_promotion = fields.Char(string='Codigo Promo Web', tracking=True)
     code_discount = fields.Char(string='Codigo Creación Manual', tracking=True)
     certificate_number = fields.Char(string='Certificado')
