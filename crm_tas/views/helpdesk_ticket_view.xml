@@ -142,7 +142,7 @@
                                     <tree>
                                         <field name="auto_id_gop"/>
                                         <field name="amount"/>
-                                        <field name="currency"/>
+                                        <field name="currency_id"/>
                                         <field name="res_partner_id"/>
                                         <field name="service_type"/>
                                         <field name="asisst"/>
@@ -155,7 +155,7 @@
                                                 <field name="name"/>
                                                 <field name="code"/>
                                                 <field name="amount" required="1"/>
-                                                <field name="currency" required="1"/>
+                                                <field name="currency_id" required="1"/>
                                                 <field name="service_type" required="1"/>
                                                 <field name="reference"/>
                                                 <field name="res_partner_id" required="1"/>
