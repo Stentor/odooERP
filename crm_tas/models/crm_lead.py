@@ -194,6 +194,19 @@ class crmLead(models.Model):
             'target':'new',
             'context':'{"default_crm_lead_id":%s, "default_partner_id":%s}' %(self.id, self.partner_id.id)
         }
+    #pasajeros 1
+    pax1_nombre =  fields.Char('Nombre Pax 1')
+    pax1_apellido = fields.Char('Apellido Pax 1')
+    pax1_edad = fields.Integer(string='Edad Pax 1')
+    pax1_dni = fields.Char('Id Pax 1')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 1?')
+
+    #pasajeros 2
+    pax2_nombre =  fields.Char('Nombre Pax 2')
+    pax2_apellido = fields.Char('Apellido Pax 2')
+    pax2_edad = fields.Integer(string='Edad Pax 2')
+    pax2_dni = fields.Char('Id Pax 2')
+    is_pax2_preexistence = fields.Boolean('Preexistencia Pax 2?')
 
 
 

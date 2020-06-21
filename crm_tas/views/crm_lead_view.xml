@@ -86,6 +86,30 @@
                         <page string="Casos" id="helpdesk">
                             <field name="helpdesk_ids" options="{'no_create_edit': True}"/>
                         </page>
+                        <page string="Pasajeros" id="pax">
+                             <group>
+                                <group>
+                                    <field name="pax1_nombre"/>
+                                    <field name="pax1_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax1_edad"/>
+                                    <field name="pax1_dni"/>
+                                    <field name="is_pax1_preexistence"/>
+                                </group>
+                              </group>
+                              <group>
+                                <group>
+                                    <field name="pax2_nombre"/>
+                                    <field name="pax2_apellido"/>
+                                </group>
+                                <group>
+                                    <field name="pax2_edad"/>
+                                    <field name="pax2_dni"/>
+                                    <field name="is_pax2_preexistence"/>
+                                </group>
+                              </group>
+                        </page>
                     </xpath>
                     <xpath expr="//form/sheet/notebook" position="before">
                         <notebook>
