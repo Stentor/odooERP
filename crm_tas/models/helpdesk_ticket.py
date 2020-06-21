@@ -186,7 +186,7 @@ class HelpdeskTicketGOP(models.Model):
     name = fields.Char(string='GOPS')
     code = fields.Char(string='Codigo de GOP')
     amount = fields.Float(string='Monto', digits=(16,2), tracking=True)
-    currency = fields.Many2one('res.currency', string="Moneda GOP", tracking=True)
+    currency_id = fields.Many2one('res.currency', string="Moneda GOP", tracking=True)
     service_type = fields.Selection(SERVICE_TYPE_SELECTION, string='Tipo de Servicio', tracking=True)
     reference = fields.Text(string="Referencia GOP")
     medical_center_name = fields.Text(string="Nombre de Centro Médico")
