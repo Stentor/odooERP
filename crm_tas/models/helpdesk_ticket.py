@@ -418,9 +418,7 @@ class HelpdeskTicket(models.Model):
 
     #google maps
     def open_map(self):
-        if context is None:
-            context = {}
-
+        
         ticket = self.browse()
         url = "http://maps.google.com/maps?oi=map&q="
         if ticket.client_direction:
