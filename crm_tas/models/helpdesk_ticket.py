@@ -417,11 +417,11 @@ class HelpdeskTicket(models.Model):
     loot = fields.Char(string='lote')
 
     #google maps
-    def open_map(self, cr, uid, ids, context=None):
+    def open_map(self):
         if context is None:
             context = {}
 
-        ticket = self.browse(cr, uid, ids[0], context=context)
+        ticket = self.browse()
         url = "http://maps.google.com/maps?oi=map&q="
         if ticket.client_direction:
             url += ticket.client_direction.replace(' ','+')
