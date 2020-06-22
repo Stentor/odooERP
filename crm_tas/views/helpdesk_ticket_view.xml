@@ -138,9 +138,9 @@
                                         <field name="other_description"/>
                                     </group>
                                     <group>
-                                        <field name="subject"/>
-                                        <field name="is_email_survey"/>
-                                        <field name="is_wsp_survey"/>
+                                        <field name="subject" invisible="1"/>
+                                        <field name="is_email_survey" invisible="1"/>
+                                        <field name="is_wsp_survey" invisible="1"/>
                                     </group>
                                 </group>
                             </page>
@@ -220,6 +220,9 @@
                                         <field name="q_service_type"/>
                                         <field name="q_classification"/>
                                         <field name="q_observation"/>
+                                        <field name="q_subject"/>
+                                        <field name="q_is_email_survey"/>
+                                        <field name="q_is_wsp_survey"/>
                                     </tree>
                                     <form>
                                         <group>
@@ -230,6 +233,9 @@
                                             </group>
                                             <group>
                                                 <field name="q_observation"/>
+                                                <field name="q_subject"/>
+                                                <field name="q_is_email_survey"/>
+                                                <field name="q_is_wsp_survey"/>
                                             </group>
                                         </group>
                                     </form>

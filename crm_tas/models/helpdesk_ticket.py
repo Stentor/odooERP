@@ -281,6 +281,9 @@ class HelpdeskTicketQuiz(models.Model):
     q_classification = fields.Selection(CLASSIFICATION_SELECTION, string='Clasificacion')
     q_observation = fields.Text(string='Eliminación / Cambio de comentario')
     helpdesk_id = fields.Many2one('helpdesk.ticket', string="Helpdesk Id")
+    q_subject = fields.Char(string='Asunto')
+    q_is_email_survey = fields.Boolean('Encuesta por email?')
+    q_is_wsp_survey = fields.Boolean('Encuesta por WSP?')
     auto_id_quiz = fields.Char(string='ID Encuesta')
     #aplicación de secuencia
     @api.model
