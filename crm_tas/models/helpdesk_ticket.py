@@ -88,7 +88,10 @@ TRACKING_TYPE_SELECTION = [
     ('Llamada', 'Llamada'), 
     ('WhatsApp', 'WhatsApp'), 
     ('Correo', 'Correo'), 
-    ('Sirena', 'Sirena')
+    ('Sirena', 'Sirena'),
+    ('Interno', 'Interno'),
+    ('Chat', 'Chat'),
+    ('Skype', 'Skype')
 ]
 CASE_STATE_SELECTION = [
     ('lote2','LOTE 2'),
