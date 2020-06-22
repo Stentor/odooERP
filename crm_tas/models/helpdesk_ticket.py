@@ -391,15 +391,15 @@ class HelpdeskTicket(models.Model):
                 s.case_days = 0
 
     case_priority = fields.Selection(CASE_PRIORITY_SELECTION, string='Prioridad')
-    other_description = fields.Text(string='Descripción')
+    other_description = fields.Text(string='Descripciones')
     subject = fields.Char(string='Asunto')
     is_email_survey = fields.Boolean('Encuesta por email?')
     is_wsp_survey = fields.Boolean('Encuesta por WSP?')
     #coordenadas de reembolso
     authorized_usd_value = fields.Float(string='Valor Autorizado en USD', digits=(16,2))
     authorized_currency = fields.Many2one('res.currency', string="Moneda Autorizada")
-    coord_description = fields.Char(string='Descripción')
-    bank_id = currency_id = fields.Many2one('res.partner.bank', string="Nombre del Banco")
+    coord_description = fields.Char(string='Descripcion')
+    bank_id = fields.Many2one('res.partner.bank', string="Nombre del Banco")
     account_number = fields.Char(string='Numero de Cuenta')
     account_type = fields.Selection(ACCOUNT_TYPE_SELECTION, string='Tipo de Cuenta')
     coor_address = fields.Text(string='Dirección')
