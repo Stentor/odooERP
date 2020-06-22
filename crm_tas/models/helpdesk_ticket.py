@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
 from datetime import datetime, date
+from odoo.exceptions import ValidationError, UserError
+
 #listas de seleccion fijas
 SERVICE_TYPE_SELECTION = [
     ('Centro_Medico', 'Centro Médico'), 
@@ -433,3 +435,11 @@ class HelpdeskTicket(models.Model):
             'url': url,
             'target': 'new'
         }
+    #validacion de fechas Helpdesk Informacion de Reembolso
+    @api.onchange('payday_limit_datetime')
+    def validation_date_limit(self):
+        aux_limit_date = date(self.payday_limit_datetime, '%Y-%M-%d')
+        if not self.answer_date and self.answer_date > aux_limit_date :
+            self.payday_limit_datetime = ''
+            raise UserError('La fecha de Aprobacion debe ser menor a la fecha de limite de pago')
+            

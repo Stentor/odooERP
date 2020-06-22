@@ -84,7 +84,7 @@ class crmLead(models.Model):
     @api.depends('departure_date','return_date')
     def calcule_days(self):
         for s in self:
-            if s.return_date & s.departure_date:
+            if s.return_date and s.departure_date:
                 s.coverage_days = abs(s.return_date - s.departure_date).days
             else:
                 s.coverage_days = 0
