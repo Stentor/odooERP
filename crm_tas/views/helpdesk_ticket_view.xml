@@ -78,7 +78,7 @@
                                             <field name="amount_requested"/>
                                             <field name="currency_id_amount_requested"/>
                                             <field name="amount_requested_usd"/>
-                                            <field name="answer_date"/>
+                                            <field name="answer_date" attrs="{'readonly':[('answer_date','!=','')]}"/>
                                             <field name="disputed_case"/>
                                             <field name="payment_date"/>
                                             <field name="amount"/>
