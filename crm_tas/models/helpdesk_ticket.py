@@ -418,14 +418,14 @@ class HelpdeskTicket(models.Model):
 
     #google maps
     def open_map(self):
-        for s in self.browse():
-            
-            url = "http://maps.google.com/maps?oi=map&q="
+        url = "http://maps.google.com/maps?oi=map&q="
+        
+        for s in self:
             if s.client_direction:
-                url += s.client_direction.replace(' ','+')
-
-            return {
-                'type': 'ir.actions.act_url',
-                'url': url,
-                'target': 'new'
-            }
+            url += s.client_direction.replace(' ','+')
+            
+        return {
+            'type': 'ir.actions.act_url',
+            'url': url,
+            'target': 'new'
+        }
