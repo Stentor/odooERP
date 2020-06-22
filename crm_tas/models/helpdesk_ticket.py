@@ -439,7 +439,7 @@ class HelpdeskTicket(models.Model):
     @api.depends('answer_date')
     @api.onchange('payday_limit_datetime')
     def validation_date_limit(self):
-        aux_limit_date = date(str(self.payday_limit_datetime)[0:10], '%Y-%M-%d')
+        aux_limit_date = self.payday_limit_datetime.date()
         if not self.answer_date and self.answer_date > aux_limit_date :
             self.payday_limit_datetime = ''
             raise UserError('La fecha de Aprobacion debe ser menor a la fecha de limite de pago')
