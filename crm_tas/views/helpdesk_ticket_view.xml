@@ -54,10 +54,16 @@
                                             <field name="partner_email" string="Email de Cliente"/>
                                             <field name="partner_age"/>
                                             <field name="email_cc" string="Email CC"/>
+                                            <field name="client_direction"/>
                                             <field name="ubication"/>
+                                            <button name="open_map" string="Google Maps" class="btn btn-primary" type="object"/>
                                         </group>
                                         <group>
-                                        
+                                            <field name="partner_phone"/>
+                                            <field name="partner_phone_extra"/>
+                                            <field name="wsp_skype"/>
+                                            <field name="crm_lead_destination"/>
+                                            <field name="partner_destination_city"/>
                                         </group>
                                     </group>
                                 </form>
@@ -87,6 +93,37 @@
                                             <field name="documents_reception_date"/>
                                             <field name="located"/>
                                             <field name="payday_limit_datetime"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page id="refund_coord" string="Coordenadas de Reembolso">
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="authorized_usd_value"/>
+                                            <field name="authorized_currency"/>
+                                            <field name="coord_description"/>
+                                            <field name="bank_id"/>
+                                            <field name="account_number"/>
+                                            <field name="account_type"/>
+                                            <field name="coor_address"/>
+                                            <field name="country_send"/>
+                                            <field name="city_send"/>
+                                            <field name="state_send"/>
+                                        </group>
+                                        <group>
+                                            <field name="interbank_code"/>
+                                            <field name="identity_number"/>
+                                            <field name="beneficiary"/>
+                                            <field name="contact_client_phone"/>
+                                            <field name="contact_client_email"/>
+                                            <field name="coor_swift_code"/>
+                                            <field name="coor_ab_code"/>
+                                            <field name="comission_value"/>
+                                            <field name="loot"/>
                                         </group>
                                     </group>
                                 </form>

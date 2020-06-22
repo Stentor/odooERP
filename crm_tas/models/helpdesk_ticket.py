@@ -176,7 +176,26 @@ COMMENT_SELECTION = [
     ('Coordinacion','Coordinación'),
     ('Seguimiento','Seguimiento')
 ]
-
+ACCOUNT_TYPE_SELECTION = [
+    ('Ahorro','AHORRO'),
+    ('Corriente','CORRIENTE'),
+    ('Tarjeta_de_Credito','Tarjeta de Crédito'),
+    ('Cheques','CHEQUES'),
+    ('Premium','Premium'),
+    ('Smart_Premium','Smart Premium'),
+    ('Cuneta_ON','Cuneta ON'),
+    ('Debito_123_Smart','Débito 123 Smart'),
+    ('Cuenta_Negocios','Cuenta Negocios'),
+    ('NO_APLICA','NO APLICA'),
+    ('Expansion','Expansión'),
+    ('Cuenta_Vista','Cuenta Vista'),
+    ('smart_access','smart access'),
+    ('BASE','BASE'),
+    ('Safe_Balance_account','Safe Balance account'),
+    ('UNICA','UNICA'),
+    ('Sin_nomina','Sin nómina'),
+    ('Smart','Smart')
+]
 # MODELOS
 # Create Model GOPS
 class HelpdeskTicketGOP(models.Model):
@@ -315,10 +334,17 @@ class HelpdeskTicket(models.Model):
     lack = fields.Selection([('si', 'SI'), ('no', 'NO')], string='Carencia')
     service_level = fields.Selection(SERVICE_LEVEL_SELECTION, string='Nivel de Servicio', tracking=True)
     pending_document_id = fields.Many2one('res.users', string="Documento pendiente por")
-    ubication = fields.Html(string="Vínculos personalizados")
-    partner_age = fields.Integer(related="partner_id.age", string="Edad")
-
     #información del cliente
+    ubication = fields.Html(string="Vinculos Personalizados")
+    client_direction = fields.Text(string="Direccion del Cliente")
+    partner_age = fields.Integer(related="partner_id.age", string="Edad")
+    partner_phone = fields.Char(related="partner_id.phone", string="Telefono")
+    partner_phone_extra = fields.Char(related="partner_id.phone", string="Telefono 2")
+    wsp_skype = fields.Char( string="Whatsapp/Skype")
+    partner_phone_extra = fields.Char(related="partner_id.phone", string="Telefono 2")
+    crm_lead_destination = fields.Char(related="crm_lead_id.destination_country", string="Pais Destino")
+    partner_destination_city = fields.Char( string="Ciudad Destino")
+
     currency_id = fields.Many2one('res.currency', string="Moneda")
     amount = fields.Float(string='Monto', digits=(16,2))
     amount_local = fields.Float(string='Monto TRM',compute='cambio_trm')
@@ -369,8 +395,39 @@ class HelpdeskTicket(models.Model):
     subject = fields.Char(string='Asunto')
     is_email_survey = fields.Boolean('Encuesta por email?')
     is_wsp_survey = fields.Boolean('Encuesta por WSP?')
-    
-    
-    
-    
-    
+    #coordenadas de reembolso
+    authorized_usd_value = fields.Float(string='Valor Autorizado en USD', digits=(16,2))
+    authorized_currency = fields.Many2one('res.currency', string="Moneda Autorizada")
+    coord_description = fields.Char(string='Descripción')
+    bank_id = currency_id = fields.Many2one('res.partner.bank', string="Nombre del Banco")
+    account_number = fields.Char(string='Numero de Cuenta')
+    account_type = fields.Selection(ACCOUNT_TYPE_SELECTION, string='Tipo de Cuenta')
+    coor_address = fields.Text(string='Dirección')
+    country_send = fields.Char(string='Pais de Envio')
+    city_send = fields.Char(string='Ciudad de Envio')
+    state_send = fields.Char(string='Estado de Envio')
+    interbank_code = fields.Char(string='Codigo Iterbancario')
+    identity_number = fields.Char(string='Numero Identificacion')
+    beneficiary = fields.Char(string='Beneficiario')
+    contact_client_phone = fields.Char(string='Telefono de Contacto Cliente')
+    contact_client_email = fields.Char(string='e-mail contacto cliente')
+    coor_swift_code = fields.Char(string='Codigo Swift')
+    coor_ab_code = fields.Char(string='Codigo AB')
+    comission_value = fields.Char(string='Valor Comision')
+    loot = fields.Char(string='lote')
+
+    #google maps
+    def open_map(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+
+        ticket = self.browse(cr, uid, ids[0], context=context)
+        url = "http://maps.google.com/maps?oi=map&q="
+        if ticket.client_direction:
+            url += ticket.client_direction.replace(' ','+')
+
+        return {
+            'type': 'ir.actions.act_url',
+            'url': url,
+            'target': 'new'
+        }
