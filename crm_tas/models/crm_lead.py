@@ -54,8 +54,10 @@ class crmLead(models.Model):
     plan_id = fields.Many2one('crm.lead.plan', string='Planes')
     media_id = fields.Many2one('crm.lead.media', string='Medio')
     payment_id = fields.Many2one('crm.lead.payment', string='Formas de Pago', tracking=True)
+    payment_fraction_id = fields.Many2one('crm.lead.payment', string='Payment Fraction')
+    res_partner_child_crm_lead_ids = fields.One2many('crm.lead.payment','crm_lead_id', string='Pasajeros x Opp')
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
-    payment_fraction = fields.Many2one('crm.lead.payment', string='Payment Fraction')
+
     
     #campos con dominio
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
@@ -266,6 +268,7 @@ class crmLead(models.Model):
     pax10_edad = fields.Integer(string='Edad Pax 10')
     pax10_dni = fields.Char('Id Pax 10')
     is_pax10_preexistence = fields.Boolean('Preexistencia Pax 10?')
+
 
 
 

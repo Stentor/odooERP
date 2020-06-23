@@ -87,6 +87,9 @@
                             <field name="helpdesk_ids" options="{'no_create_edit': True}"/>
                         </page>
                         <page string="Pasajeros" id="pax">
+                            <group>
+                                <field name="res_partner_child_crm_lead_ids"/>
+                            </group>
                              <group>
                                 <group>
                                     <field name="pax1_nombre"/>
@@ -230,7 +233,7 @@
                                         <field name="paypal_reference"/>
                                         <field name="payu_account"/>
                                         <field name="order_payu"/>
-                                        <field name="payment_fraction" string="Forma de Pago Fracción"/>
+                                        <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                                     </group>
                                     <group>
                                         <field name="payment_id" string="Formas de Pago"/>
