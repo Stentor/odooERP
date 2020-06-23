@@ -22,7 +22,7 @@ class ResPartner(models.Model):
     client_name = fields.Char(string='Nombre de Cliente')
     client_surname = fields.Char(string='Apellido de Cliente')
     is_provider = fields.Boolean('Proveedor?')
-    res_partner_child_crm_lead_ids = fields.One2many('crm.lead.payment','res_partner_id', string='Pasajeros x Opp')
+    res_partner_child_crm_lead_ids = fields.One2many('res.partner.child.crm.lead','res_partner_id', string='Pasajeros x Opp')
 
 # relacion tabla intermedia entre candidatos y contacto
 class ResPartnerChildCrmLead(models.Model):
