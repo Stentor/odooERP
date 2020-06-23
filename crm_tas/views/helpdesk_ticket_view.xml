@@ -14,7 +14,6 @@
                         <field name="assist_type" />
                         <field name="sub_assist_type" domain="[('assist_type','=', assist_type)]" widget="selection"/>
                         <field name="ticket_type" invisible="1"/>
-                        <field name="res_partner_crm_lead_ids"/>
                         <field name="crm_lead_id" options="{'no_create_edit': True}" domain="[('partner_id','=', partner_id)]"/>
                     </field>
 

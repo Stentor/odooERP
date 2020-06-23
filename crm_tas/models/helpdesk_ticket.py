@@ -319,10 +319,10 @@ class HelpdeskTicket(models.Model):
     comment_ids = fields.One2many('helpdesk.ticket.comment', 'helpdesk_id', string='Comentario')
     quality_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Calidad')
     quiz_ids = fields.One2many('helpdesk.ticket.quiz','helpdesk_id', string='Encuesta')
-    res_partner_crm_lead_ids = fields.Many2one('res.partner.child.crm.lead', related="partner_id.res_partner_child_crm_lead_ids", string = "Lead Contact") 
 
     ticket_type = fields.Char(related="ticket_type_id.name")
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain="[('type','=','opportunity')]")
+    
     operator_id = fields.Many2one('helpdesk.ticket.operator', string="Operador", domain="[('is_active','=','true')]")
     
     #campos relacionados enlazados
@@ -446,4 +446,6 @@ class HelpdeskTicket(models.Model):
                 self.payday_limit_datetime = ''
                 self.env.cr.commit() 
                 raise UserError('La fecha de Aprobacion debe ser menor a la fecha de limite de pago')
+    
+    
             
