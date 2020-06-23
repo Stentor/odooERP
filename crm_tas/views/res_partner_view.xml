@@ -46,17 +46,6 @@
                         <field name="age_date" string="Fecha de nacimiento"/>
                         <field name="city_id" string="Ciudad de Origen"/>
                     </field>
-                    <xpath expr="//form/sheet/notebook/form/sheet" position="inside">
-                        <group>
-                            <field name="res_partner_child_crm_lead_ids"/>
-                        </group>
-                    </xpath>
-                    <xpath expr="//form/sheet/notebook/form/sheet/group/group[2]" position="inside">
-                        <field name="dni_ruc" string="Nro de documento"/>
-                        <field name="age" string="Edad"/>
-                        <field name="age_date" string="Fecha de nacimiento"/>
-                        <field name="city_id" string="Ciudad de Origen"/>
-                    </xpath>
                 </field>
         </record>
 
