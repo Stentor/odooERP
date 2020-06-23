@@ -53,6 +53,8 @@
                             </field>
                         </page>
                     </xpath>
+                     <xpath expr="//form/sheet/notebook/page/form/sheet/group/group[1]" position="inside">
+                     </xpath>
                     <field name="display_name" position="after">
                         <field name="dni_ruc" string="Nro de documento"/>
                         <field name="age" string="Edad"/>
