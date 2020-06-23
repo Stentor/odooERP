@@ -33,7 +33,7 @@
                     
                     <xpath expr="//form/sheet/notebook" position="inside">
                         <page id="partner_information" string="Oportunidades/Leads">
-                            <field name="res_partner_child_crm_lead_ids" context="{'res_partner_id': active_id}">
+                            <field name="res_partner_child_crm_lead_ids" context="{'default_res_partner_id': id}">
                                 <tree>
                                     <field name="crm_lead_id"/>
                                     <field name="res_partner_id"/>
@@ -43,7 +43,7 @@
                                     <group>
                                         <group>
                                             <field name="crm_lead_id" required="1"/>
-                                            <field name="res_partner_id" invisible="'res_partner_id' not in context" required="1"/>
+                                            <field name="res_partner_id"  readonly="1"/>
                                         </group>
                                         <group>
                                             <field name="is_parent"/>
