@@ -55,7 +55,7 @@ class crmLead(models.Model):
     media_id = fields.Many2one('crm.lead.media', string='Medio')
     payment_id = fields.Many2one('crm.lead.payment', string='Formas de Pago', tracking=True)
     payment_fraction_id = fields.Many2one('crm.lead.payment', string='Payment Fraction')
-    res_partner_child_crm_lead_ids = fields.One2many('crm.lead.payment','crm_lead_id', string='Pasajeros x Opp')
+    res_partner_child_crm_lead_ids = fields.One2many('res.partner.child.crm.lead','crm_lead_id', string='Pasajeros x Opp')
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
 
     
