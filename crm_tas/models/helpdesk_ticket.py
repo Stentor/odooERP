@@ -322,14 +322,12 @@ class HelpdeskTicket(models.Model):
     ticket_type = fields.Char(related="ticket_type_id.name")
 
     def _domain_crm_partner(self):
-        domain = []
+        domain = [('partner_id','=', s.partner_id)]
         for s in self:
             crm_res_obj = s.env['res.partner.child.crm.lead']
             aux_partner_ids = crm_res_obj.search([('res_partner_id','=',s.partner_id)])
             if aux_partner_ids:
                 domain =  ['&',('partner_id','in', aux_partner_ids._ids),('type','=','opportunity')] 
-            else:  
-                domain = [('partner_id','=', s.partner_id)]
         return domain
         
 
