@@ -448,7 +448,7 @@ class HelpdeskTicket(models.Model):
     @api.depends('partner_id')
     @api.onchange('partner_id')
     def add_lead_crm_partner(self):
-        domain = [('partner_id','=', self.partner_id._ids)]
+        domain = [('partner_id','=', self.partner_id)]
         for s in self:
             crm_res_obj = s.env['res.partner.child.crm.lead']
             aux_partner_ids = crm_res_obj.search([('res_partner_id','=',s.partner_id)])
