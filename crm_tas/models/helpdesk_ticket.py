@@ -455,7 +455,7 @@ class HelpdeskTicket(models.Model):
                 auxIds=[]
                 for item in aux_partner_ids:
                     auxIds.append(item.crm_lead_id.id)
-                return {'domain': {'crm_lead_id': ['&',('id','in', [crm_lead_codes]),('type', '=', 'opportunity')]}}
+                return {'domain': {'crm_lead_id': ['&',('id','in', auxIds),('type', '=', 'opportunity')]}}
             else:
                 return {'domain': {'crm_lead_id': [('type', '=', 'opportunity')]}}
         else:
