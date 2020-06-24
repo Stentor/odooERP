@@ -331,7 +331,7 @@ class HelpdeskTicket(models.Model):
                 domain =  ['&',('partner_id','in', aux_partner_ids._ids),('type','=','opportunity')] 
             else:  
                 domain = [('partner_id','=', partner_id)]
-    return domain
+        return domain
         
 
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain=_domain_crm_partner)
