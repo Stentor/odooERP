@@ -320,18 +320,7 @@ class HelpdeskTicket(models.Model):
     quality_ids = fields.One2many('helpdesk.ticket.quality','helpdesk_id', string='Calidad')
     quiz_ids = fields.One2many('helpdesk.ticket.quiz','helpdesk_id', string='Encuesta')
     ticket_type = fields.Char(related="ticket_type_id.name")
-
-    def _domain_crm_partner(self):
-        domain = [('partner_id','=', self.partner_id._ids)]
-        for s in self:
-            crm_res_obj = s.env['res.partner.child.crm.lead']
-            aux_partner_ids = crm_res_obj.search([('res_partner_id','=',s.partner_id)])
-            if aux_partner_ids:
-                domain =  ['&',('partner_id','in', aux_partner_ids._ids),('type','=','opportunity')] 
-        return domain
-        
-
-    crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain=_domain_crm_partner)
+    crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad")
     operator_id = fields.Many2one('helpdesk.ticket.operator', string="Operador", domain="[('is_active','=','true')]")
     
     #campos relacionados enlazados
@@ -456,5 +445,14 @@ class HelpdeskTicket(models.Model):
                 self.env.cr.commit() 
                 raise UserError('La fecha de Aprobacion debe ser menor a la fecha de limite de pago')
     
-    
+    @api.depends('partner_id')
+    @api.onchange('partner_id')
+    def add_lead_crm_partner(self):
+        domain = [('partner_id','=', self.partner_id._ids)]
+        for s in self:
+            crm_res_obj = s.env['res.partner.child.crm.lead']
+            aux_partner_ids = crm_res_obj.search([('res_partner_id','=',s.partner_id)])
+            if aux_partner_ids:
+                domain =  ['&',('partner_id','in', aux_partner_ids._ids),('type','=','opportunity')] 
+        return domain
             
