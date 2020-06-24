@@ -450,7 +450,7 @@ class HelpdeskTicket(models.Model):
         if self.partner_id:
             crm_res_obj = self.env['res.partner.child.crm.lead']
             aux_partner_ids = crm_res_obj.search([('res_partner_id','=',self.partner_id.id)])
-            return {'domain': {'crm_lead_id': ['&',('id','in', aux_partner_ids.crm_lead_id),('type', '=', 'opportunity')]}}
+            return {'domain': {'crm_lead_id': ['&',('id','in', aux_partner_ids.crm_lead_id.id),('type', '=', 'opportunity')]}}
         else:
             return {'domain': {'crm_lead_id': [('type', '=', 'opportunity')]}}
    
