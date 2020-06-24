@@ -321,8 +321,16 @@ class HelpdeskTicket(models.Model):
     quiz_ids = fields.One2many('helpdesk.ticket.quiz','helpdesk_id', string='Encuesta')
 
     ticket_type = fields.Char(related="ticket_type_id.name")
-    crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain="[('type','=','opportunity')]")
+    crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain=_domain_crm_lead_res_partner)
     
+    def _domain_crm_lead_res_partner(self):
+        domain[]
+        crm_res_obj = self.env['res.partner.child.crm.lead']
+        aux_partner_ids = crm_res_obj.search(
+            [('res_partner_id','=',self.partner_id)])
+        domain = ['&',('partner_id','in', aux_partner_ids.partner_id),('type','=','opportunity')]     
+        return domain
+
     operator_id = fields.Many2one('helpdesk.ticket.operator', string="Operador", domain="[('is_active','=','true')]")
     
     #campos relacionados enlazados
