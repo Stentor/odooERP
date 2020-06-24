@@ -447,13 +447,13 @@ class HelpdeskTicket(models.Model):
     
     @api.onchange('partner_id')
     def add_lead_crm_partner(self):
-        for record in self:
-            if record.partner_id:
-                crm_res_obj = record.env['res.partner.child.crm.lead']
-                aux_partner_ids = crm_res_obj.search([('res_partner_id','=',record.partner_id.id)])
-                crm_lead_codes = aux_partner_ids.crm_lead_id.id
-                return {'domain': {'crm_lead_id': ['&',('id','in', crm_lead_codes),('type', '=', 'opportunity')]}}
-            else:
-                return {'domain': {'crm_lead_id': [('type', '=', 'opportunity')]}}
+        if self.partner_id:
+            crm_res_obj = self.env['res.partner.child.crm.lead']
+            crm_lead_codes = []
+            aux_partner_ids = crm_res_obj.search([('res_partner_id','=',self.partner_id.id)])
+            crm_lead_codes = aux_partner_ids.crm_lead_id.id
+            return {'domain': {'crm_lead_id': ['&',('id','in', [crm_lead_codes]),('type', '=', 'opportunity')]}}
+        else:
+            return {'domain': {'crm_lead_id': [('type', '=', 'opportunity')]}}
    
             
