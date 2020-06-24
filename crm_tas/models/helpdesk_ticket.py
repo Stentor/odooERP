@@ -445,14 +445,14 @@ class HelpdeskTicket(models.Model):
                 self.env.cr.commit() 
                 raise UserError('La fecha de Aprobacion debe ser menor a la fecha de limite de pago')
     
-    @api.depends('partner_id')
-    @api.onchange('partner_id')
-    def add_lead_crm_partner(self):
-        domain = [('partner_id','=', self.partner_id)]
-        for s in self:
-            crm_res_obj = s.env['res.partner.child.crm.lead']
-            aux_partner_ids = crm_res_obj.search([('res_partner_id','=',s.partner_id)])
-            if aux_partner_ids:
-                domain =  ['&',('partner_id','in', aux_partner_ids._ids),('type','=','opportunity')] 
-        return domain
+    #@api.depends('partner_id')
+    #@api.onchange('partner_id')
+    #def add_lead_crm_partner(self):
+    #    domain = [('partner_id','=', self.partner_id)]
+    #    for s in self:
+    #        crm_res_obj = s.env['res.partner.child.crm.lead']
+    #        aux_partner_ids = crm_res_obj.search([('res_partner_id','=',s.partner_id)])
+    #        if aux_partner_ids:
+    #            domain =  ['&',('partner_id','in', aux_partner_ids._ids),('type','=','opportunity')] 
+    #    return domain
             
