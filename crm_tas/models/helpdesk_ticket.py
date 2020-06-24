@@ -449,7 +449,6 @@ class HelpdeskTicket(models.Model):
     def add_lead_crm_partner(self):
         if self.partner_id:
             crm_res_obj = self.env['res.partner.child.crm.lead']
-            crm_lead_codes = []
             aux_partner_ids = crm_res_obj.search([('res_partner_id','=',self.partner_id.id)])
             if aux_partner_ids:
                 auxIds=[]
