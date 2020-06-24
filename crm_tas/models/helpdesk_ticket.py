@@ -445,7 +445,6 @@ class HelpdeskTicket(models.Model):
                 self.env.cr.commit() 
                 raise UserError('La fecha de Aprobacion debe ser menor a la fecha de limite de pago')
     
-    @api.depends('partner_id')
     @api.onchange('partner_id')
     def add_lead_crm_partner(self):
         if self.partner_id:
