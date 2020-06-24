@@ -321,7 +321,6 @@ class HelpdeskTicket(models.Model):
     quiz_ids = fields.One2many('helpdesk.ticket.quiz','helpdesk_id', string='Encuesta')
     ticket_type = fields.Char(related="ticket_type_id.name")
 
-    @api.depends('partner_id')
     def _domain_crm_partner(self):
         domain = []
         for s in self:
@@ -330,7 +329,7 @@ class HelpdeskTicket(models.Model):
             if aux_partner_ids:
                 domain =  ['&',('partner_id','in', aux_partner_ids._ids),('type','=','opportunity')] 
             else:  
-                domain = [('partner_id','=', partner_id)]
+                domain = [('partner_id','=', s.partner_id)]
         return domain
         
 
