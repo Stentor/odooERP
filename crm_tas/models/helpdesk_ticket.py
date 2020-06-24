@@ -324,10 +324,9 @@ class HelpdeskTicket(models.Model):
     crm_lead_id = fields.Many2one('crm.lead', string="Oportunidad", domain=_domain_crm_lead_res_partner)
     
     def _domain_crm_lead_res_partner(self):
-        domain[]
         crm_res_obj = self.env['res.partner.child.crm.lead']
-        aux_partner_ids = crm_res_obj.search(
-            [('res_partner_id','=',self.partner_id)])
+        partner_code = self.partner_id
+        aux_partner_ids = crm_res_obj.search([('res_partner_id','=',partner_code)])
         domain = ['&',('partner_id','in', aux_partner_ids.partner_id),('type','=','opportunity')]     
         return domain
 
