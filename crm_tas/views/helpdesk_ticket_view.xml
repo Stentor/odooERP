@@ -276,7 +276,30 @@
                             <field name="is_active"/>
                             <field name="is_coordinator"/>
                         </tree>
-
+                </field>
+        </record>
+        <record model="ir.ui.view" id="helpdesk_ticket_operator_form">
+                <field name="name">Operator</field>
+                <field name="model">helpdesk.ticket.operator</field>
+                <field name="arch" type="xml">
+                        <form>
+                            <sheet>
+                                <field name="name"/>
+                                <field name="is_active"/>
+                                <field name="is_coordinator"/>
+                                <notebook>
+                                    <page name="helpdesk_ids" string="Casos">
+                                            <field name="helpdesk_ids"/>
+                                    </page>
+                                     <page name="comment_ids" string="comentarios">
+                                            <field name="comment_ids"/>
+                                    </page>
+                                    <page name="gop_ids" string="GOPS">
+                                            <field name="gop_ids"/>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
                 </field>
         </record>
         <record model="ir.actions.act_window" id="helpdesk_ticket_operator_action">
