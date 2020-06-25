@@ -17,7 +17,6 @@ class crmLeadChannel(models.Model):
     _name = 'crm.lead.channel'
     _description = "Canales"
     name = fields.Char(string='Channel')
-    
 
 # Create Model Plan
 class crmLeadPlan(models.Model):
@@ -57,11 +56,11 @@ class crmLead(models.Model):
     payment_fraction_id = fields.Many2one('crm.lead.payment', string='Payment Fraction')
     res_partner_child_crm_lead_ids = fields.One2many('res.partner.child.crm.lead','crm_lead_id', string='Pasajeros x Opp')
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
-
     
     #campos con dominio
     code_ids = fields.Many2many('res.partner.code','crm_lead_rel_res_partner', 'code_partner_id', 'crm_lead_id', String="Codigos de Descuento")
     #otros campos
+    stage_salesforce = fields.Char(string='Etapa Salesforce')
     travel_insurance_request_id = fields.Char(string='Id Cotizacion', help="Este campo es identificador de cotizacion")
     status = fields.Integer(string='Estado')
     tenant_bd_id = fields.Char(string='Tenant ID BD', help="Este campo es identificador de tenant para tas-system")
@@ -253,14 +252,12 @@ class crmLead(models.Model):
     pax8_dni = fields.Char('Id Pax 8')
     is_pax8_preexistence = fields.Boolean('Preexistencia Pax 8?')
 
-
     #pasajeros 9
     pax9_nombre =  fields.Char('Nombre Pax 9')
     pax9_apellido = fields.Char('Apellido Pax 9')
     pax9_edad = fields.Integer(string='Edad Pax 9')
     pax9_dni = fields.Char('Id Pax 9')
     is_pax9_preexistence = fields.Boolean('Preexistencia Pax 9?')
-
 
     #pasajeros 10
     pax10_nombre =  fields.Char('Nombre Pax 10')
