@@ -338,7 +338,7 @@
             <field name="res_model">crm.lead.channel</field>
             <field name="view_mode">tree</field>
         </record>
-        <menuitem name="Canales" id="crm_channel_menu" parent="crm.crm_menu_config" action="crm_channel_action" sequence="12"/>
+        <menuitem name="Canales" id="crm_channel_menu" parent="crm.crm_menu_config" action="crm_channel_action" sequence="15"/>
 
         <record model="ir.ui.view" id="crm_plan">
                 <field name="name">CRM PLAN</field>
@@ -354,7 +354,7 @@
             <field name="res_model">crm.lead.plan</field>
             <field name="view_mode">tree</field>
         </record>
-        <menuitem name="Planes" id="crm_plan_menu" parent="crm.crm_menu_config" action="crm_plan_action" sequence="13"/>
+        <menuitem name="Planes" id="crm_plan_menu" parent="crm.crm_menu_config" action="crm_plan_action" sequence="16"/>
 
         <record model="ir.ui.view" id="crm_media">
                 <field name="name">CRM MEDIA</field>
@@ -370,7 +370,7 @@
             <field name="res_model">crm.lead.media</field>
             <field name="view_mode">tree</field>
         </record>
-        <menuitem name="Medios" id="crm_media_menu" parent="crm.crm_menu_config" action="crm_media_action" sequence="14"/>
+        <menuitem name="Medios" id="crm_media_menu" parent="crm.crm_menu_config" action="crm_media_action" sequence="17"/>
 
         <record model="ir.ui.view" id="crm_payment">
                 <field name="name">CRM PAYMENT</field>
@@ -386,6 +386,6 @@
             <field name="res_model">crm.lead.payment</field>
             <field name="view_mode">tree</field>
         </record>
-        <menuitem name="Pagos" id="crm_payment_menu" parent="crm.crm_menu_config" action="crm_payment_action" sequence="15"/>
+        <menuitem name="Formas de Pago" id="crm_payment_menu" parent="crm.crm_menu_config" action="crm_payment_action" sequence="18"/>
     </data>
 </odoo>
