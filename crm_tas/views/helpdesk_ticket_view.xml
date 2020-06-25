@@ -284,9 +284,11 @@
                 <field name="arch" type="xml">
                         <form>
                             <sheet>
-                                <field name="name"/>
-                                <field name="is_active"/>
-                                <field name="is_coordinator"/>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="is_active"/>
+                                    <field name="is_coordinator"/>
+                                 </group>
                                 <notebook>
                                     <page name="helpdesk_ids" string="Casos">
                                             <field name="helpdesk_ids"/>
@@ -297,6 +299,7 @@
                                     <page name="gop_ids" string="GOPS">
                                             <field name="gop_ids"/>
                                     </page>
+                                    
                                 </notebook>
                             </sheet>
                         </form>
