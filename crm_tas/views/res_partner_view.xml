@@ -71,6 +71,7 @@
                 <field name="arch" type="xml">
                     <tree editable="top">
                         <field name="name" string="Codigos"/>
+                        <field name="res_partner_id" string="Asesor" widget="selection"/>
                     </tree>
                 </field>
         </record>

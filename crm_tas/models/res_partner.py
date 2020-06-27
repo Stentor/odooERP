@@ -6,6 +6,7 @@ class ResPartnerCode(models.Model):
     _name = 'res.partner.code'
     _description = "Códigos de Descuento"
     name = fields.Char(string='Code')
+    res_partner_id = fields.Many2one('res.partner', string="Vendedor", domain="[('user_ids','!=',False)]")
     crm_code_ids = fields.One2many('crm.lead','code_ids', string='Iniciativas/Oportunidades')
     
 class ResPartner(models.Model):
