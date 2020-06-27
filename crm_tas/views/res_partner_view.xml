@@ -71,7 +71,7 @@
                 <field name="arch" type="xml">
                     <tree>
                         <field name="name" string="Codigos"/>
-                        <field name="res_partner_id" string="Asesor" widget="selection"/>
+                        <field name="res_partner_id" string="Asesor"/>
                     </tree>
                 </field>
         </record>
@@ -86,7 +86,7 @@
                                     <field name="name" string="Codigos"/>
                                 </group>
                                 <group>
-                                    <field name="res_partner_id" string="Asesor" widget="selection"/>
+                                    <field name="res_partner_id" string="Asesor" options="{'no_create_edit': True}"/>
                                 </group>
                             </group>
                         </sheet>
