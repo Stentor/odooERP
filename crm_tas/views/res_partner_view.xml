@@ -66,17 +66,17 @@
 
         <!-- Add instructor field to new view on menu-->
         <record model="ir.ui.view" id="crm_res_partner_code">
-                <field name="name">CRM RES CODE</field>
+                <field name="name">Codigos de Descuento</field>
                 <field name="model">res.partner.code</field>
                 <field name="arch" type="xml">
-                    <tree editable="top">
+                    <tree>
                         <field name="name" string="Codigos"/>
                         <field name="res_partner_id" string="Asesor" widget="selection"/>
                     </tree>
                 </field>
         </record>
         <record model="ir.ui.view" id="crm_res_partner_code_form">
-                <field name="name">CRM RES CODE</field>
+                <field name="name">Codigos de Descuento</field>
                 <field name="model">res.partner.code</field>
                 <field name="arch" type="xml">
                     <form>
