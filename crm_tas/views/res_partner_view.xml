@@ -97,7 +97,7 @@
         <record model="ir.actions.act_window" id="crm_res_partner_code_action">
             <field name="name">Codigos</field>
             <field name="res_model">res.partner.code</field>
-            <field name="view_mode">tree,from</field>
+            <field name="view_mode">tree,form</field>
         </record>
         <menuitem name="Codigos Descuento" id="crm_res_partner_code_menu" parent="contacts.res_partner_menu_config" action="crm_res_partner_code_action" sequence="8"/>
     </data>
