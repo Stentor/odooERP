@@ -4,7 +4,7 @@
     'name': "CRM TAS",
     'summary': """
         Personalización con nuevos campos relacionados en Contactos, CRM, HELPDESK""",
-    'version': '0.98',
+    'version': '0.981',
     'depends': [
         'base',
         'crm',
@@ -19,9 +19,9 @@
     # data files always loaded at installation
     'data': [
         'security/ir.model.access.csv',
+        'views/res_partner_view.xml',
         'views/crm_lead_view.xml',
         'views/helpdesk_ticket_view.xml',
-        'views/res_partner_view.xml',
         'data/sequence.xml',
         'data/ticket_type.xml'
     ],
