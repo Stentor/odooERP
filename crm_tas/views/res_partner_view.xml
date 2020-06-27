@@ -76,10 +76,10 @@
                 </field>
         </record>
         <record model="ir.ui.view" id="crm_res_partner_code_form">
-                <field name="name">Codigos de Descuento</field>
+                <field name="name">Codigo de Descuento</field>
                 <field name="model">res.partner.code</field>
                 <field name="arch" type="xml">
-                    <form>
+                    <form name="crm_res_partner_code_form">
                         <sheet>
                             <group>
                                 <group>
