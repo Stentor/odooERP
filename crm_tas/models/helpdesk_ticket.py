@@ -354,7 +354,7 @@ class HelpdeskTicket(models.Model):
 
     currency_id = fields.Many2one('res.currency', string="Moneda")
     amount = fields.Float(string='Monto', digits=(16,2))
-    amount_local = fields.Float(string='Monto TRM',compute='cambio_trm')
+    amount_local = fields.Float(string='Monto TRM',compute='cambio_trm',store=True)
 
     @api.depends('amount','currency_id')
     def cambio_trm(self):
@@ -384,7 +384,7 @@ class HelpdeskTicket(models.Model):
     #, default= datetime.now()
     payday_limit_datetime = fields.Datetime(string='Fecha Límite de Pago')
     #Others
-    case_days = fields.Integer(string="Edad del caso en días", compute="calcule_days")
+    case_days = fields.Integer(string="Edad del caso en días", compute="calcule_days",store=True)
     @api.depends('close_date','create_date','case_state')
     def calcule_days(self):
         for s in self:
