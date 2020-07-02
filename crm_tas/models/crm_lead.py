@@ -74,12 +74,12 @@ class crmLead(models.Model):
     google_gclid = fields.Char(string='GCLID')
 
     #Datos Facturación
-    res_partner_city = fields.Char(related="partner_id.res_city", string='Ciudad', readonly=False)
-    res_partner_country = fields.Char(related="partner_id.country_id", string='País', readonly=False)
-    res_partner_dni_ruc = fields.Char(related="partner_id.dni_ruc", string='Nro. Documento', readonly=False)
-    res_partner_dni_ruc_type = fields.Char(related="partner_id.dni_ruc_type", string='Tipo de Documento', readonly=False)
+    res_partner_city = fields.Char(related="partner_id.res_city", string='Ciudad')
+    res_partner_country = fields.Char(related="partner_id.country_id.name", string='País')
+    res_partner_dni_ruc = fields.Char(related="partner_id.dni_ruc", string='Nro. Documento')
+    res_partner_dni_ruc_type = fields.Char(related="partner_id.dni_ruc_type", string='Tipo de Documento')
     res_partner_street = fields.Char(related="partner_id.street", string='Dirección Cliente', readonly=False)
-    res_partner_age = fields.Integer(related="partner_id.age", string='Edad', readonly=False)
+    res_partner_age = fields.Integer(related="partner_id.age", string='Edad')
     email_invoice = fields.Char(string='Correo Facturar')
     phone_invoice = fields.Char(string='Teléfono Facturar')
     currency_id = fields.Many2one('res.currency', string="Moneda")
