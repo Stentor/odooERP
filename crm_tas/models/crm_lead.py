@@ -221,7 +221,7 @@ class crmLead(models.Model):
     pax3_edad = fields.Integer(string='Edad Pax 3')
     pax3_dni = fields.Char('Id Pax 3')
     is_pax3_preexistence = fields.Boolean('Preexistencia Pax 3?')
-    pax2_certificate_number =  fields.Char(string='Pax 3 Certificado # ')
+    pax3_certificate_number =  fields.Char(string='Pax 3 Certificado # ')
 
     #pasajeros 4
     pax4_nombre =  fields.Char('Nombre Pax 4')
