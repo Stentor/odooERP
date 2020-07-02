@@ -301,7 +301,7 @@
                                     <group>
                                         <field name="payment_fraction_id"/>
                                         <field name="amount_fraction"/>
-                                        <field name="paypayment_reference_fractionpal_reference"/>
+                                        <field name="payment_reference_fraction"/>
                                     </group>
                                     <group> 
                                         <field name="payment_fraction_other_id"/>
