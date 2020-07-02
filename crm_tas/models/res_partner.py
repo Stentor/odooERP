@@ -20,7 +20,7 @@ class ResPartner(models.Model):
     dni_ruc_type = fields.Selection([('Otro', 'Otro'),('RUC', 'RUC'), ('NIT', 'NIT'), ('RFC', 'RFC'), ('id_pasaporte', 'ID / PASAPORTE')], string='Tipo Documento', tracking=True)
     age = fields.Integer(string='Edad', tracking=True)
     age_date = fields.Date(string='Fecha de Nacimiento', tracking=True)
-    res_city = fields.Char(string='Ciudad', tracking=True)
+    city = fields.Char(string='Ciudad', tracking=True)
     client_name = fields.Char(string='Nombre de Cliente', tracking=True)
     client_surname = fields.Char(string='Apellido de Cliente', tracking=True)
     is_provider = fields.Boolean('Proveedor?')

@@ -60,7 +60,7 @@
                         <field name="dni_ruc" string="Nro de documento"/>
                         <field name="age" string="Edad"/>
                         <field name="age_date" string="Fecha de nacimiento"/>
-                        <field name="city_id" string="Ciudad de Origen"/>
+                        <field name="city" string="Ciudad de Origen"/>
                     </field>
                 </field>
         </record>
