@@ -53,7 +53,6 @@ class crmLead(models.Model):
     plan_id = fields.Many2one('crm.lead.plan', string='Planes')
     media_id = fields.Many2one('crm.lead.media', string='Medio')
     payment_id = fields.Many2one('crm.lead.payment', string='Formas de Pago', tracking=True)
-    payment_fraction_id = fields.Many2one('crm.lead.payment', string='Payment Fraction')
     res_partner_child_crm_lead_ids = fields.One2many('res.partner.child.crm.lead','crm_lead_id', string='Pasajeros x Opp')
     helpdesk_ids = fields.One2many('helpdesk.ticket','crm_lead_id', string="Casos")
     
@@ -73,7 +72,21 @@ class crmLead(models.Model):
     is_subscription = fields.Boolean('Suscrito a Newsletter?')
     reason_trip = fields.Selection(REASON_TRIP_SELECTION, string='Motivo de Viaje', tracking=True, default="Desconocido")
     google_gclid = fields.Char(string='GCLID')
+
+    #Datos Facturación
+    res_partner_city = fields.Char(related="partner_id.res_city", string='Ciudad', readonly=False)
+    res_partner_country = fields.Char(related="partner_id.country_id", string='País', readonly=False)
+    res_partner_dni_ruc = fields.Char(related="partner_id.dni_ruc", string='Nro. Documento', readonly=False)
+    res_partner_dni_ruc_type = fields.Char(related="partner_id.dni_ruc_type", string='Tipo de Documento', readonly=False)
+    res_partner_street = fields.Char(related="partner_id.street", string='Dirección Cliente', readonly=False)
+    res_partner_age = fields.Integer(related="partner_id.age", string='Edad', readonly=False)
+    email_invoice = fields.Char(string='Correo Facturar')
+    phone_invoice = fields.Char(string='Teléfono Facturar')
+    currency_id = fields.Many2one('res.currency', string="Moneda")
+    amount_trm = fields.Float(string='TRM')
+    amount_local = fields.Float(string='Valor Moneda Local', digits=(16,2))
     
+
     #Información del Viaje
     destination_country = fields.Char(string='Destino', tracking=True)
     is_usa = fields.Boolean('Destino es USA?')
@@ -96,7 +109,7 @@ class crmLead(models.Model):
     #Asegurado y Pagos
     is_insurance = fields.Boolean('Asegurado?')
     sales_date = fields.Date(string='Fecha de Venta')
-    other_payment = fields.Text(string='Observaciones de Pago', tracking=True)
+    observation_payment = fields.Text(string='Observaciones de Pago', tracking=True)
     paypal_reference = fields.Char(string='Referencia de Venta Paypal')
     payu_account = fields.Char(string='Cuenta Payu')
     order_payu = fields.Char(string='Orden Payu')
@@ -113,7 +126,7 @@ class crmLead(models.Model):
     partner_seller_code = fields.Char(related="user_id.seller_code", string='Codigo Asesor ABR')
     code_promotion = fields.Char(string='Codigo Promo Web', tracking=True)
     code_discount = fields.Char(string='Codigo Creación Manual', tracking=True)
-    certificate_number = fields.Char(string='Certificado')
+    certificate_number = fields.Char(string='Certificado #')
     is_payment_order = fields.Boolean(string='Orden de Pago?')
     discount_percent = fields.Float(string='Descuento %', digits=(3,2), compute="asignarDescuento")
     @api.depends('code_promotion')
@@ -185,6 +198,96 @@ class crmLead(models.Model):
     referred_name = fields.Char('Nombre Referido')
     referred_phone = fields.Char('Telefono Referido')
     referred_email = fields.Char('Email Referido')
+    
+    #pasajeros 1
+    pax1_nombre =  fields.Char('Nombre Pax 1')
+    pax1_apellido = fields.Char('Apellido Pax 1')
+    pax1_edad = fields.Integer(string='Edad Pax 1')
+    pax1_dni = fields.Char('Id Pax 1')
+    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 1?')
+    pax1_certificate_number =  fields.Char(string='Pax 1 Certificado # ')
+
+    #pasajeros 2
+    pax2_nombre =  fields.Char('Nombre Pax 2')
+    pax2_apellido = fields.Char('Apellido Pax 2')
+    pax2_edad = fields.Integer(string='Edad Pax 2')
+    pax2_dni = fields.Char('Id Pax 2')
+    is_pax2_preexistence = fields.Boolean('Preexistencia Pax 2?')
+    pax2_certificate_number =  fields.Char(string='Pax 2 Certificado # ')
+
+    #pasajeros 3
+    pax3_nombre =  fields.Char('Nombre Pax 3')
+    pax3_apellido = fields.Char('Apellido Pax 3')
+    pax3_edad = fields.Integer(string='Edad Pax 3')
+    pax3_dni = fields.Char('Id Pax 3')
+    is_pax3_preexistence = fields.Boolean('Preexistencia Pax 3?')
+    pax2_certificate_number =  fields.Char(string='Pax 3 Certificado # ')
+
+    #pasajeros 4
+    pax4_nombre =  fields.Char('Nombre Pax 4')
+    pax4_apellido = fields.Char('Apellido Pax 4')
+    pax4_edad = fields.Integer(string='Edad Pax 4')
+    pax4_dni = fields.Char('Id Pax 4')
+    is_pax4_preexistence = fields.Boolean('Preexistencia Pax 4?')
+    pax4_certificate_number =  fields.Char(string='Pax 4 Certificado # ')
+
+    #pasajeros 5
+    pax5_nombre =  fields.Char('Nombre Pax 5')
+    pax5_apellido = fields.Char('Apellido Pax 5')
+    pax5_edad = fields.Integer(string='Edad Pax 5')
+    pax5_dni = fields.Char('Id Pax 5')
+    is_pax5_preexistence = fields.Boolean('Preexistencia Pax 5?')
+    pax5_certificate_number =  fields.Char(string='Pax 5 Certificado # ')
+
+    #pasajeros 6
+    pax6_nombre =  fields.Char('Nombre Pax 6')
+    pax6_apellido = fields.Char('Apellido Pax 6')
+    pax6_edad = fields.Integer(string='Edad Pax 6')
+    pax6_dni = fields.Char('Id Pax 6')
+    is_pax6_preexistence = fields.Boolean('Preexistencia Pax 6?')
+    pax6_certificate_number =  fields.Char(string='Pax 6 Certificado # ')
+
+    #pasajeros 7
+    pax7_nombre =  fields.Char('Nombre Pax 7')
+    pax7_apellido = fields.Char('Apellido Pax 7')
+    pax7_edad = fields.Integer(string='Edad Pax 7')
+    pax7_dni = fields.Char('Id Pax 7')
+    is_pax7_preexistence = fields.Boolean('Preexistencia Pax 7?')
+    pax7_certificate_number =  fields.Char(string='Pax 7 Certificado # ')
+
+
+    #pasajeros 8
+    pax8_nombre =  fields.Char('Nombre Pax 8')
+    pax8_apellido = fields.Char('Apellido Pax 8')
+    pax8_edad = fields.Integer(string='Edad Pax 8')
+    pax8_dni = fields.Char('Id Pax 8')
+    is_pax8_preexistence = fields.Boolean('Preexistencia Pax 8?')
+    pax8_certificate_number =  fields.Char(string='Pax 8 Certificado # ')
+
+    #pasajeros 9
+    pax9_nombre =  fields.Char('Nombre Pax 9')
+    pax9_apellido = fields.Char('Apellido Pax 9')
+    pax9_edad = fields.Integer(string='Edad Pax 9')
+    pax9_dni = fields.Char('Id Pax 9')
+    is_pax9_preexistence = fields.Boolean('Preexistencia Pax 9?')
+    pax9_certificate_number =  fields.Char(string='Pax 9 Certificado # ')
+
+    #pasajeros 10
+    pax10_nombre =  fields.Char('Nombre Pax 10')
+    pax10_apellido = fields.Char('Apellido Pax 10')
+    pax10_edad = fields.Integer(string='Edad Pax 10')
+    pax10_dni = fields.Char('Id Pax 10')
+    is_pax10_preexistence = fields.Boolean('Preexistencia Pax 10?')
+    pax10_certificate_number =  fields.Char(string='Pax 10 Certificado # ')
+
+    #pago Fraccion
+    payment_fraction_id = fields.Many2one('crm.lead.payment', string='Forma de Pago 1')
+    payment_fraction_other_id = fields.Many2one('crm.lead.payment', string='Forma de Pago 2')
+    amount_fraction = fields.Float(string='Monto pago 2', digits=(16,2))
+    amount_fraction_other = fields.Float(string='Monto pago 2', digits=(16,2))
+    payment_reference_fraction = fields.Char(string='Referencia de Pago 1', tracking=True)
+    payment_reference_fraction_other = fields.Char(string='Referencia de Pago 2', tracking=True)
+
     #accion para boton de asistencia medica
     def create_helpdesk(self):
         return {
@@ -195,76 +298,6 @@ class crmLead(models.Model):
             'target':'new',
             'context':'{"default_crm_lead_id":%s, "default_partner_id":%s}' %(self.id, self.partner_id.id)
         }
-    #pasajeros 1
-    pax1_nombre =  fields.Char('Nombre Pax 1')
-    pax1_apellido = fields.Char('Apellido Pax 1')
-    pax1_edad = fields.Integer(string='Edad Pax 1')
-    pax1_dni = fields.Char('Id Pax 1')
-    is_pax1_preexistence = fields.Boolean('Preexistencia Pax 1?')
-
-    #pasajeros 2
-    pax2_nombre =  fields.Char('Nombre Pax 2')
-    pax2_apellido = fields.Char('Apellido Pax 2')
-    pax2_edad = fields.Integer(string='Edad Pax 2')
-    pax2_dni = fields.Char('Id Pax 2')
-    is_pax2_preexistence = fields.Boolean('Preexistencia Pax 2?')
-
-    #pasajeros 3
-    pax3_nombre =  fields.Char('Nombre Pax 3')
-    pax3_apellido = fields.Char('Apellido Pax 3')
-    pax3_edad = fields.Integer(string='Edad Pax 3')
-    pax3_dni = fields.Char('Id Pax 3')
-    is_pax3_preexistence = fields.Boolean('Preexistencia Pax 3?')
-
-    #pasajeros 4
-    pax4_nombre =  fields.Char('Nombre Pax 4')
-    pax4_apellido = fields.Char('Apellido Pax 4')
-    pax4_edad = fields.Integer(string='Edad Pax 4')
-    pax4_dni = fields.Char('Id Pax 4')
-    is_pax4_preexistence = fields.Boolean('Preexistencia Pax 4?')
-
-    #pasajeros 5
-    pax5_nombre =  fields.Char('Nombre Pax 5')
-    pax5_apellido = fields.Char('Apellido Pax 5')
-    pax5_edad = fields.Integer(string='Edad Pax 5')
-    pax5_dni = fields.Char('Id Pax 5')
-    is_pax5_preexistence = fields.Boolean('Preexistencia Pax 5?')
-
-    #pasajeros 6
-    pax6_nombre =  fields.Char('Nombre Pax 6')
-    pax6_apellido = fields.Char('Apellido Pax 6')
-    pax6_edad = fields.Integer(string='Edad Pax 6')
-    pax6_dni = fields.Char('Id Pax 6')
-    is_pax6_preexistence = fields.Boolean('Preexistencia Pax 6?')
-
-    #pasajeros 7
-    pax7_nombre =  fields.Char('Nombre Pax 7')
-    pax7_apellido = fields.Char('Apellido Pax 7')
-    pax7_edad = fields.Integer(string='Edad Pax 7')
-    pax7_dni = fields.Char('Id Pax 7')
-    is_pax7_preexistence = fields.Boolean('Preexistencia Pax 7?')
-
-
-    #pasajeros 8
-    pax8_nombre =  fields.Char('Nombre Pax 8')
-    pax8_apellido = fields.Char('Apellido Pax 8')
-    pax8_edad = fields.Integer(string='Edad Pax 8')
-    pax8_dni = fields.Char('Id Pax 8')
-    is_pax8_preexistence = fields.Boolean('Preexistencia Pax 8?')
-
-    #pasajeros 9
-    pax9_nombre =  fields.Char('Nombre Pax 9')
-    pax9_apellido = fields.Char('Apellido Pax 9')
-    pax9_edad = fields.Integer(string='Edad Pax 9')
-    pax9_dni = fields.Char('Id Pax 9')
-    is_pax9_preexistence = fields.Boolean('Preexistencia Pax 9?')
-
-    #pasajeros 10
-    pax10_nombre =  fields.Char('Nombre Pax 10')
-    pax10_apellido = fields.Char('Apellido Pax 10')
-    pax10_edad = fields.Integer(string='Edad Pax 10')
-    pax10_dni = fields.Char('Id Pax 10')
-    is_pax10_preexistence = fields.Boolean('Preexistencia Pax 10?')
 
 
 

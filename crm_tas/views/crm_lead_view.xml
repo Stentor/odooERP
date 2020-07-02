@@ -10,10 +10,13 @@
                     <field name="phone" position="after">
                         <field name="tenant_bd_id" readonly="1"/>
                         <field name="google_gclid" readonly="1"/>
+                        <field name="res_partner_age"/>
+                    </field>
+                    <field name="tag_ids" position="after">
                         <field name="channel_id" string="Canales"/>
                         <field name="purchase_status"/>
-                        <field name="additional_information"/>
                         <field name="schedule_date"/>
+                        <field name="reason_trip" required="1"/>
                     </field>
 
                     <field name="stage_id" position="before">
@@ -28,7 +31,6 @@
                         <field name="lead_source"/>
                         <field name="is_web_site"/>
                         <field name="is_subscription"/>
-                        <field name="reason_trip" required="1"/>
                         <field name="code_ids" widget="many2many_tags" options="{'no_create_edit': True}" string="Codigo de Descuento" domain="[('name','ilike',partner_seller_code)]"/>
                     </xpath>
                     <xpath expr="//notebook" position="inside">
@@ -109,6 +111,7 @@
                                 <group>
                                     <field name="pax1_nombre"/>
                                     <field name="pax1_apellido"/>
+                                    <field name="pax1_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax1_edad"/>
@@ -120,6 +123,7 @@
                                 <group>
                                     <field name="pax2_nombre"/>
                                     <field name="pax2_apellido"/>
+                                    <field name="pax2_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax2_edad"/>
@@ -131,6 +135,7 @@
                                 <group>
                                     <field name="pax3_nombre"/>
                                     <field name="pax3_apellido"/>
+                                    <field name="pax3_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax3_edad"/>
@@ -142,6 +147,7 @@
                                 <group>
                                     <field name="pax4_nombre"/>
                                     <field name="pax4_apellido"/>
+                                    <field name="pax4_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax4_edad"/>
@@ -153,6 +159,7 @@
                                 <group>
                                     <field name="pax5_nombre"/>
                                     <field name="pax5_apellido"/>
+                                    <field name="pax5_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax5_edad"/>
@@ -164,6 +171,7 @@
                                 <group>
                                     <field name="pax6_nombre"/>
                                     <field name="pax6_apellido"/>
+                                    <field name="pax6_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax6_edad"/>
@@ -175,6 +183,7 @@
                                 <group>
                                     <field name="pax7_nombre"/>
                                     <field name="pax7_apellido"/>
+                                    <field name="pax7_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax7_edad"/>
@@ -186,6 +195,7 @@
                                 <group>
                                     <field name="pax8_nombre"/>
                                     <field name="pax8_apellido"/>
+                                    <field name="pax8_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax8_edad"/>
@@ -197,6 +207,7 @@
                                 <group>
                                     <field name="pax9_nombre"/>
                                     <field name="pax9_apellido"/>
+                                    <field name="pax9_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax9_edad"/>
@@ -208,6 +219,7 @@
                                 <group>
                                     <field name="pax10_nombre"/>
                                     <field name="pax10_apellido"/>
+                                    <field name="pax10_certificate_number"/>
                                 </group>
                                 <group>
                                     <field name="pax10_edad"/>
@@ -218,6 +230,28 @@
                         </page>
                     </xpath>
                     <xpath expr="//form/sheet/notebook" position="before">
+                        
+                        <notebook>
+                            <page id="facturacion" string="Datos de Facturación">
+                                <group>
+                                    <group>
+                                        <field name="res_partner_city"/>
+                                        <field name="res_partner_country"/>
+                                        <field name="res_partner_dni_ruc"/>
+                                        <field name="res_partner_dni_ruc_type"/>
+                                        <field name="res_partner_street"/>
+                                    </group>
+                                    <group>
+                                        <field name="email_invoice"/>
+                                        <field name="phone_invoice"/>
+                                        <field name="currency_id"/>
+                                        <field name="amount_trm"/>
+                                        <field name="amount_local"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
                         <notebook>
                             <page id="informacion" string="Información del Viaje">
                                 <group>
@@ -231,6 +265,7 @@
                                     <group>
                                         <field name="departure_date"/>
                                         <field name="return_date"/>
+                                        <field name="coverage_days"/>
                                         <field name="initial_price"/>
                                         <field name="price_quote"/>
                                         <field name="insurance_price"/>
@@ -248,17 +283,30 @@
                                         <field name="paypal_reference"/>
                                         <field name="payu_account"/>
                                         <field name="order_payu"/>
-                                        <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                                     </group>
-                                    <group>
+                                    <group> <field name="payment_fraction_id" string="Forma de Pago Fracción"/>
                                         <field name="payment_id" string="Formas de Pago"/>
-                                        <field name="other_payment" string="Formas de Pago"/>
+                                        <field name="observation_payment"/>
                                         <field name="is_portfolio_recovery"/>
                                         <field name="payment_reference"/>
                                         <field name="invoice"/>
                                         <field name="autorization"/>
                                         <field name="accounting_state" readonly="1"/>
                                         <field name="accounting_novelty" readonly="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page id="asegurado" string="Pago Fracción">
+                                <group>
+                                    <group>
+                                        <field name="payment_fraction_id"/>
+                                        <field name="amount_fraction"/>
+                                        <field name="paypayment_reference_fractionpal_reference"/>
+                                    </group>
+                                    <group> 
+                                        <field name="payment_fraction_other_id"/>
+                                        <field name="amount_fraction_other"/>
+                                        <field name="payment_reference_fraction_other"/>
                                     </group>
                                 </group>
                             </page>

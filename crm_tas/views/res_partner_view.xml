@@ -23,12 +23,14 @@
                         <field name="seller_code" string="Código Vendedor"/>
                         <field name="res_partner_description" string="Descripción"/>
                         <field name="tenant" string="Compañia Emisora"/>
+                        <field name="res_city" string="Ciudad de Origen"/>
                     </field>
                     <field name="vat" position="after">
+                        <field name="dni_ruc_type" string="Tipo de documento"/>
                         <field name="dni_ruc" string="Nro de documento"/>
                         <field name="age" string="Edad"/>
                         <field name="age_date" string="Fecha de nacimiento"/>
-                        <field name="city_id" string="Ciudad de Origen"/>
+                        
                     </field>
                     
                     <xpath expr="//form/sheet/notebook" position="inside">
