@@ -77,7 +77,7 @@ class crmLead(models.Model):
     res_partner_city = fields.Char(related="partner_id.res_city", string='Ciudad')
     res_partner_country = fields.Char(related="partner_id.country_id.name", string='País')
     res_partner_dni_ruc = fields.Char(related="partner_id.dni_ruc", string='Nro. Documento')
-    res_partner_dni_ruc_type = fields.Char(related="partner_id.dni_ruc_type", string='Tipo de Documento')
+    res_partner_dni_ruc_type = fields.Selection([('Otro', 'Otro'),('RUC', 'RUC'), ('NIT', 'NIT'), ('RFC', 'RFC'), ('id_pasaporte', 'ID / PASAPORTE')],related="partner_id.dni_ruc_type", string='Tipo de Documento')
     res_partner_street = fields.Char(related="partner_id.street", string='Dirección Cliente', readonly=False)
     res_partner_age = fields.Integer(related="partner_id.age", string='Edad')
     email_invoice = fields.Char(string='Correo Facturar')
