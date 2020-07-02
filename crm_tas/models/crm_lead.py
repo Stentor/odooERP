@@ -283,7 +283,7 @@ class crmLead(models.Model):
     #pago Fraccion
     payment_fraction_id = fields.Many2one('crm.lead.payment', string='Forma de Pago 1')
     payment_fraction_other_id = fields.Many2one('crm.lead.payment', string='Forma de Pago 2')
-    amount_fraction = fields.Float(string='Monto pago 2', digits=(16,2))
+    amount_fraction = fields.Float(string='Monto pago 1', digits=(16,2))
     amount_fraction_other = fields.Float(string='Monto pago 2', digits=(16,2))
     payment_reference_fraction = fields.Char(string='Referencia de Pago 1', tracking=True)
     payment_reference_fraction_other = fields.Char(string='Referencia de Pago 2', tracking=True)

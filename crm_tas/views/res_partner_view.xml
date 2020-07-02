@@ -23,7 +23,7 @@
                         <field name="seller_code" string="Código Vendedor"/>
                         <field name="res_partner_description" string="Descripción"/>
                         <field name="tenant" string="Compañia Emisora"/>
-                        <field name="res_city" string="Ciudad de Origen"/>
+                        <field name="city" string="Ciudad de Origen"/>
                     </field>
                     <field name="vat" position="after">
                         <field name="dni_ruc_type" string="Tipo de documento"/>
