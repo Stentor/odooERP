@@ -265,7 +265,7 @@
                                     <group>
                                         <field name="departure_date"/>
                                         <field name="return_date"/>
-                                        <field name="coverage_days"/>
+                                        <!--<field name="coverage_days"/>-->
                                         <field name="initial_price"/>
                                         <field name="price_quote"/>
                                         <field name="insurance_price"/>
@@ -322,12 +322,12 @@
                                         <field name="is_payment_order"/>
                                     </group>
                                     <group>
-                                        <field name="discount_percent" readonly="1"/>
+                                        <!--<field name="discount_percent" readonly="1"/>-->
                                         <field name="offer_date"/>
                                         <field name="is_portfolio_recovery"/>
                                         <field name="add_price"/>
                                         <field name="plan_price"/>
-                                        <field name="total_price"/>
+                                        <!-- <field name="total_price"/> -->
                                     </group>
                                 </group>
                             </page>
