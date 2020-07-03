@@ -94,7 +94,7 @@ class crmLead(models.Model):
     no_preexistence = fields.Boolean('Sin Preexistencia?')
     departure_date = fields.Date(string='Fecha de Salida', tracking=True)
     return_date = fields.Date(string='Fecha de Retorno', tracking=True)
-    coverage_days = fields.Integer(string="Dias cubiertos", compute="calcule_days", store=True)
+    #coverage_days = fields.Integer(string="Dias cubiertos", compute="calcule_days", store=True)
     @api.depends('departure_date','return_date')
     def calcule_days(self):
         for s in self:
@@ -128,7 +128,7 @@ class crmLead(models.Model):
     code_discount = fields.Char(string='Codigo Creación Manual', tracking=True)
     certificate_number = fields.Char(string='Certificado #')
     is_payment_order = fields.Boolean(string='Orden de Pago?')
-    discount_percent = fields.Float(string='Descuento %', digits=(3,2), compute="asignarDescuento", store=True)
+    #discount_percent = fields.Float(string='Descuento %', digits=(3,2), compute="asignarDescuento", store=True)
     @api.depends('code_promotion')
     def asignarDescuento(self):
         for s in self:
@@ -151,7 +151,7 @@ class crmLead(models.Model):
     offer_date = fields.Date(string='Limite de Oferta')
     add_price = fields.Float(string='Importe Adicionales', digits=(16,2), default=0.00)
     plan_price = fields.Float(string='Importe Asistencia Plan', digits=(16,2), default=0.00)
-    total_price = fields.Float(string='Importe Total', digits=(16,2), compute="calcule_importe_total", store=True)
+    #total_price = fields.Float(string='Importe Total', digits=(16,2), compute="calcule_importe_total", store=True)
     @api.depends('add_price','plan_price')
     def calcule_importe_total(self):
         for s in self:
